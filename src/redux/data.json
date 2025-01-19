@@ -1,0 +1,15 @@
+{
+    "produits": [
+      { "id": 1, "nom": "Nintendo 3DS", "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_2.0/c_scale,w_300/ncom/en_US/hardware/3ds", "prix": 3500, "stock": 10 },
+      { "id": 2, "nom": "C Programming Book", "img": "https://images-na.ssl-images-amazon.com/images/I/51JCsELBL+L._SX376_BO1,204,203,200_.jpg", "prix": 400, "stock": 20 },
+      { "id": 3, "nom": "JavaScript Book", "img": "https://images-na.ssl-images-amazon.com/images/I/91asIC1fRwL.jpg", "prix": 220, "stock": 15 },
+      { "id": 4, "nom": "PlayStation 4", "img": "https://m.media-amazon.com/images/I/51PhsM0DIWL._SX342_.jpg", "prix": 100, "stock": 30 },
+      { "id": 5, "nom": "PlayStation 5", "img": "https://m.media-amazon.com/images/I/619BkvKW35L._SX679_.jpg", "prix": 40000, "stock": 8 },
+      { "id": 6, "nom": "Python Programming Book", "img": "https://images-na.ssl-images-amazon.com/images/I/81prENjUWwL.jpg", "prix": 50, "stock": 25 },
+      { "id": 7, "nom": "Xbox Series S", "img": "https://m.media-amazon.com/images/I/71vPCX0bS-L._SX342_.jpg", "prix": 5000, "stock": 69 },
+      { "id": 8, "nom": "Xbox Series X", "img": "https://m.media-amazon.com/images/I/71vg2tcG4RL._SX425_.jpg", "prix": 2999, "stock": 89 },
+      { "id": 9, "nom": "Nintendo Wii U", "img": "https://m.media-amazon.com/images/I/61x9IEAHNdL._SX342_.jpg", "prix": 3400, "stock": 22 },
+      { "id": 10, "nom": "Xbox One", "img": "https://m.media-amazon.com/images/I/61JGKhqxHxL._SX425_.jpg", "prix": 400, "stock": 20 }
+    ]
+  }
+  
