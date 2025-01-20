@@ -31,22 +31,25 @@ const Navbar = () => {
                     backgroundColor: "purple",
                 }}
             >
-                <div
-                    className="circle"
-                    style={{
-                        width: '60px',
-                        height: '60px',
-                        borderRadius: '50%',
-                        backgroundColor: 'white',
-                        position: 'absolute',
-                        left: '50%',
-                        transform: 'translateX(-50%)',
-                        top: isNavbarVisible ? '20%' : '50%',
-                        zIndex: '1',
-                        border: '4px solid purple',
-                        transition: 'top 0.5s ease',
-                    }}
-                ></div>
+<div
+    className="circle"
+    style={{
+        width: '60px',
+        height: '60px',
+        borderRadius: '50%',
+        backgroundImage: 'url(/navbar_flower.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        position: 'absolute',
+        left: '50%',
+        transform: `translateX(-50%) ${isNavbarVisible ? 'rotate(100deg)' : 'rotate(0deg)'}`,
+        top: isNavbarVisible ? '20%' : '50%',
+        zIndex: '1',
+        transition: 'top 0.5s ease, transform 2s ease',
+    }}
+></div>
+
+
                 <Link to="/" style={{ color: 'white', textDecoration: 'none' }}>Accueil</Link>
                 <Link to="/produits" style={{ color: 'white', textDecoration: 'none' }}>Produits</Link>
                 <Link to="/panier" style={{ color: 'white', textDecoration: 'none' }}>
