@@ -12,7 +12,7 @@ const Products = () => {
     const [priceRange, setPriceRange] = useState({ min: '', max: '' });
 
     useEffect(() => {
-        dispatch(fetchProduits()); // Fetch the products when the component mounts
+        dispatch(fetchProduits());
     }, [dispatch]);
 
     const ProduitsSortees = [...produits].sort((a, b) => {

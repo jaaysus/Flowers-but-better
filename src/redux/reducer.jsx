@@ -1,5 +1,6 @@
 const initialState = {
-    produits: [],
+    produits: []
+    ,
     panier: [],
     utilisateurs: [
         { 
@@ -56,8 +57,9 @@ const reducer = (state = initialState, action) => {
         case 'SET_PRODUITS':
             return {
                 ...state,
-                produits: action.payload.data.produits, 
+                produits: action.payload, 
             };
+            
 
         case 'AJOUTER_AU_PANIER':
             const produitExistant = state.panier.find((item) => item.id === action.payload.id);
