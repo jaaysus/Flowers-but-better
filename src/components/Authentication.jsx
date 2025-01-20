@@ -25,7 +25,7 @@ const Authentication = () => {
             if (currentUser.isAdmin) {
                 navigate('/admin');
             } else {
-                navigate('/accueil');
+                navigate('/userHome');
             }
         }
     }, [currentUser]);

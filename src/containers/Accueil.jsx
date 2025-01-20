@@ -14,9 +14,11 @@ const Accueil = () => {
                 navigate('/userHome');
             }
         }
+        else{
+            navigate('/auth');
+        }
     }, [currentUser, navigate]);
 
-    return <h1 style={{ textAlign: 'center', marginTop: '50px' }}>Bienvenue à l'Accueil !</h1>;
 };
 
 export default Accueil;

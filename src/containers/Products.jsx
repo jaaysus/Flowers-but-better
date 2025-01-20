@@ -1,12 +1,17 @@
-import React, {useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { ajouterAuPanier, modifierQuantite} from '../redux/actions';
+import { useNavigate } from 'react-router-dom';
+import { ajouterAuPanier, modifierQuantite } from '../redux/actions';
 import '../styles/Products.css';
+
 
 const Products = () => {
     const produits = useSelector((state) => state.produits);
     const panier = useSelector((state) => state.panier);
     const dispatch = useDispatch();
+    const navigate = useNavigate(); 
+    const currentUser = useSelector((state) => state.currentUser); 
+
 
     const [sortOption, setSortOption] = useState('default');
     const [priceRange, setPriceRange] = useState({ min: '', max: '' });
@@ -49,7 +54,13 @@ const Products = () => {
         return totalQuantityInPanier >= produit.stock;
     };
 
-    return (
+    useEffect(() => {
+            if (!currentUser) {
+                navigate('/auth');
+            }
+        }, [currentUser, navigate]);
+    
+    return currentUser ? (
         <div className="products-page">
             <h1>Liste des produits</h1>
             <div className="filter-sort-section">
@@ -118,7 +129,7 @@ const Products = () => {
                 )}
             </div>
         </div>
-    );
+    ): null;
 };
 
 
