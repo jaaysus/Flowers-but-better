@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blank Page</title>
+  <style>
+    /* Navbar Styles */
+    nav {
+      background-color: red;
+      padding: 10px;
+      position: fixed;
+      top: -60px; /* Initially hidden */
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: top 0.5s ease; /* Smooth transition when sliding down */
+    }
+
+    nav ul {
+      list-style-type: none;
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+    }
+
+    nav ul li {
+      display: inline;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    /* Circle in Navbar */
+    .circle {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: white;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 50%;
+      z-index: 1;
+      border: 4px solid red;
+      transition: top 0.5s ease; /* Smooth transition for circle */
+    }
+
+    /* Button Styles */
+    .btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px 40px;
+      font-size: 18px;
+      background-color: #333;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .btn:hover {
+      background-color: #555;
+    }
+
+    /* Section Styles */
+    section {
+      padding: 50px;
+      height: 1000px;
+    }
+
+    #home {
+      background-color: #f0f0f0;
+    }
+
+    #about {
+      background-color: #e0e0e0;
+    }
+
+    /* Long Scroll */
+    body {
+      margin: 0;
+      height: 2000px;
+      overflow-x: hidden; /* Prevent horizontal scroll */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="circle"></div>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+  </nav>
+
+  <!-- Button to trigger navbar slide -->
+  <button class="btn" id="toggleNavbar">Show Navbar</button>
+
+  <!-- Content -->
+  <section id="home">
+    <h2>Home Section</h2>
+  </section>
+
+  <section id="about">
+    <h2>About Section</h2>
+  </section>
+
+  <script>
+    const button = document.getElementById('toggleNavbar');
+    const nav = document.querySelector('nav');
+    const circle = document.querySelector('.circle');
+
+    // Toggle navbar visibility
+    button.addEventListener('click', () => {
+      if (nav.style.top === "0px") {
+        nav.style.top = "-60px"; // Hide navbar
+        circle.style.top = "50%"; // Show half the circle
+        button.textContent = "Show Navbar";
+      } else {
+        nav.style.top = "0px"; // Show navbar
+        circle.style.top = "20%"; // Adjust circle to be half outside
+        button.textContent = "Hide Navbar";
+      }
+    });
+  </script>
+  
+</body>
+</html>
