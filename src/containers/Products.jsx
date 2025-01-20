@@ -27,7 +27,6 @@ const Products = () => {
         const existingProduct = panier.find(item => item.id === produit.id);
         const maxQuantite = produit.stock;
 
-        // Ensure the quantity doesn't exceed the stock
         const updatedQuantity = existingProduct
             ? Math.min(existingProduct.quantite + quantite, maxQuantite)
             : Math.min(quantite, maxQuantite);
