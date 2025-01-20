@@ -11,8 +11,6 @@ const Products = () => {
     const [sortOption, setSortOption] = useState('default');
     const [priceRange, setPriceRange] = useState({ min: '', max: '' });
 
-
-
     const ProduitsSortees = [...produits].sort((a, b) => {
         if (sortOption === 'ascending') return a.prix - b.prix;
         if (sortOption === 'descending') return b.prix - a.prix;
@@ -27,17 +25,29 @@ const Products = () => {
 
     const handleAddToPanier = (produit, quantite) => {
         const existingProduct = panier.find(item => item.id === produit.id);
+        const maxQuantite = produit.stock;
+
+        // Ensure the quantity doesn't exceed the stock
+        const updatedQuantity = existingProduct
+            ? Math.min(existingProduct.quantite + quantite, maxQuantite)
+            : Math.min(quantite, maxQuantite);
+
         if (existingProduct) {
-            const updatedQuantity = existingProduct.quantite + quantite;
             dispatch(modifierQuantite(produit.id, updatedQuantity));
         } else {
             dispatch(ajouterAuPanier({ 
                 id: produit.id, 
                 nom: produit.nom, 
-                quantite: quantite || 1, 
+                quantite: updatedQuantity, 
                 prix: produit.prix 
             }));
         }
+    };
+
+    const isButtonDisabled = (produit) => {
+        const productInPanier = panier.find(item => item.id === produit.id);
+        const totalQuantityInPanier = productInPanier ? productInPanier.quantite : 0;
+        return totalQuantityInPanier >= produit.stock;
     };
 
     return (
@@ -94,6 +104,11 @@ const Products = () => {
                                     handleAddToPanier(produit, quantite);
                                 }}
                                 className="add-to-Panier"
+                                style={{
+                                    backgroundColor: isButtonDisabled(produit) ? 'grey' : '',
+                                    cursor: isButtonDisabled(produit) ? 'not-allowed' : 'pointer',
+                                }}
+                                disabled={isButtonDisabled(produit)}
                             >
                                 Ajouter au panier
                             </button>
@@ -106,5 +121,6 @@ const Products = () => {
         </div>
     );
 };
+
 
 export default Products;
