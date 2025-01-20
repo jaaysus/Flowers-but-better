@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 import '../styles/App.css'
 
 const Navbar = () => {
-    // Get the number of products in the panier
     const panier = useSelector((state) => state.panier);
     const totalItems = panier.reduce((acc, item) => acc + item.quantite, 0);
 
@@ -15,9 +14,11 @@ const Navbar = () => {
             <Link to="/panier">
                 Panier
                 {totalItems > 0 && (
-                    <span className="badge">{totalItems}</span> // Display badge
+                    <span className="badge">{totalItems}</span> 
                 )}
             </Link>
+            <Link to="/auth">Login</Link>
+
 
             <style>{`
                 .badge {
