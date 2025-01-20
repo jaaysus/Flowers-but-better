@@ -37,7 +37,7 @@ export const loginFailure = (error) => ({
 export const handleLogin = (username, password) => (dispatch, getState) => {
     const { utilisateurs } = getState();
     const utilisateur = utilisateurs.find(
-        (u) => u.username === username && u.password === password
+        (u) => (u.username === username || u.email === username) && u.password === password
     );
 
     if (utilisateur) {

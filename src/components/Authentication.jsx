@@ -41,7 +41,7 @@ const Authentication = () => {
             <div>
                 <input
                     type="text"
-                    placeholder="Username"
+                    placeholder="Username or E-mail"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     style={{ display: 'block', margin: '10px auto', width: '90%', padding: '10px' }}
