@@ -6,9 +6,13 @@ import '../styles/App.css'
 const Navbar = () => {
     const panier = useSelector((state) => state.panier);
     const totalItems = panier.reduce((acc, item) => acc + item.quantite, 0);
-
+    const stickynav = {
+        position: 'sticky',
+        top: '0',
+        zIndex: '1000',
+    };
     return (
-        <nav>
+        <nav style={stickynav}>
             <Link to="/">Accueil</Link>
             <Link to="/produits">Produits</Link>
             <Link to="/panier">
