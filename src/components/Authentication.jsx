@@ -35,7 +35,7 @@ const Authentication = () => {
     };
 
     return (
-        <div style={{ textAlign: 'center', marginTop: '50px' }}>
+        <div style={{ textAlign: 'center', marginTop: '100px' }}>
             <h2>Login</h2>
             <div style={{ margin: '20px auto', width: '300px', padding: '20px', border: '1px solid #ccc', borderRadius: '8px' }}>
             <div>
