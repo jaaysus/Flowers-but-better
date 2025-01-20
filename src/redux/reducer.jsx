@@ -1,14 +1,58 @@
 const initialState = {
     produits: [],
     panier: [],
+    utilisateurs: [
+        { 
+            id: 1, 
+            username: "kuro",
+            email: 'kuro@gmail.com', 
+            password: '12345', 
+            isAdmin: true
+          },
+
+          { 
+            id: 2, 
+            username: "kibo",
+            email: 'kibo@gmail.com', 
+            password: '12345', 
+            isAdmin: false
+          }
+
+    ],
+    dernierId: 3,
+
     filtre: {
     tri: '',
     intervalle: { min: 0, max: Infinity },
     },
+    currentUser: null,
+    loginError: null,
 };
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
+
+        case 'AJOUTER_UTILISATEUR':
+            const nouvelId = state.dernierId + 1; 
+            const nouvelUtilisateur = { ...action.payload, id: nouvelId };
+            return {
+                ...state,
+                utilisateurs: [...state.utilisateurs, nouvelUtilisateur],
+                dernierId: nouvelId,
+            };
+        case 'LOGIN_SUCCESS':
+            return {
+                ...state,
+                currentUser: action.payload,
+                loginError: null, 
+            };
+
+        case 'LOGIN_FAILURE':
+            return {
+                ...state,
+                currentUser: null,
+                loginError: action.payload, 
+            };
         case 'SET_PRODUITS':
             return {
                 ...state,

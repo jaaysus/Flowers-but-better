@@ -19,7 +19,7 @@ const Navbar = () => {
                 )}
             </Link>
 
-            <style jsx>{`
+            <style>{`
                 .badge {
                     background-color: red;
                     color: white;

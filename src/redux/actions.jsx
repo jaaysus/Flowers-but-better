@@ -3,6 +3,51 @@ import axios from 'axios';
 const apiUrl = "https://api.myjson.online/v1/records/86308f3a-0c3a-44e2-b6fe-67a505522fb3";
 
 
+export const connexion = (state, action) => {
+    return {
+        ...state,
+        utilisateur: action.payload,
+    };
+};
+
+export const deconnexion = (state) => {
+    return {
+        ...state,
+        utilisateur: null,
+    };
+};
+
+export const ajouterUtilisateur = (nouvelUtilisateur) => ({
+        type: 'AJOUTER_UTILISATEUR',  
+        payload: nouvelUtilisateur,     
+});
+
+export const loginSuccess = (user) => ({
+    type: 'LOGIN_SUCCESS',
+    payload: user,
+});
+
+
+export const loginFailure = (error) => ({
+    type: 'LOGIN_FAILURE',
+    payload: error,
+});
+
+
+export const handleLogin = (username, password) => (dispatch, getState) => {
+    const { utilisateurs } = getState();
+    const utilisateur = utilisateurs.find(
+        (u) => u.username === username && u.password === password
+    );
+
+    if (utilisateur) {
+        dispatch(loginSuccess(utilisateur));
+    } else {
+        dispatch(loginFailure('Invalid username or password'));
+    }
+};
+
+
 export const ajouterAuPanier = (produit) => ({
     type: 'AJOUTER_AU_PANIER',
     payload: produit,
