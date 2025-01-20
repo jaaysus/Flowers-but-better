@@ -1,18 +1,22 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import Authentication from './components/Authentication';
+import Accueil from './components/Accueil';
 import Products from './containers/Products';
 import Panier from './containers/Panier';
-
+import Admin from './components/Admin';
 
 const App = () => {
     return (
         <Router>
             <Navbar />
             <Routes>
-                <Route path="/" element={<h1>Bienvenue !</h1>} />
+                <Route path="/" element={<Authentication />} />
+                <Route path="/acceuil" element={<Accueil />} />
                 <Route path="/produits" element={<Products />} />
                 <Route path="/panier" element={<Panier />} />
+                <Route path="/admin" element={<Admin />} />
             </Routes>
         </Router>
     );
