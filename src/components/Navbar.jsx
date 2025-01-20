@@ -25,7 +25,7 @@ const Navbar = () => {
                     top: isNavbarVisible ? "0px" : "-60px",
                     width: "100%",
                     display: "flex",
-                    justifyContent: "space-between",
+                    justifyContent: "space-around",//what a funny easy fix HHHHHH
                     alignItems: "center",
                     transition: "top 0.5s ease",
                     backgroundColor: "purple",
