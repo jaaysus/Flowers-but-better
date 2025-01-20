@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, {useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { ajouterAuPanier, modifierQuantite, fetchProduits } from '../redux/actions';
+import { ajouterAuPanier, modifierQuantite} from '../redux/actions';
 import '../styles/Products.css';
 
 const Products = () => {
@@ -11,9 +11,7 @@ const Products = () => {
     const [sortOption, setSortOption] = useState('default');
     const [priceRange, setPriceRange] = useState({ min: '', max: '' });
 
-    useEffect(() => {
-        dispatch(fetchProduits());
-    }, [dispatch]);
+
 
     const ProduitsSortees = [...produits].sort((a, b) => {
         if (sortOption === 'ascending') return a.prix - b.prix;
