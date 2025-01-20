@@ -22,7 +22,7 @@ const Authentication = () => {
 
     return (
         <div style={{ textAlign: 'center', marginTop: '50px' }}>
-            <h2>{isLogin ? 'Login' : 'Inscription'}</h2>
+            <h2>{isLogin ? 'Login' : 'Subscription'}</h2>
             <div style={{ margin: '20px auto', width: '300px', padding: '20px', border: '1px solid #ccc', borderRadius: '8px' }}>
                 <div>
                     <input
@@ -54,7 +54,7 @@ const Authentication = () => {
                     {isLogin ? 'Login' : 'Proceed'}
                 </button>
                 <button onClick={() => setIsLogin(!isLogin)} style={{ margin: '10px', padding: '10px 20px' }}>
-                    {isLogin ? 'Switch to Inscription' : 'Switch to Login'}
+                    {isLogin ? 'Switch to Subscription' : 'Switch to Login'}
                 </button>
             </div>
         </div>
