@@ -1,8 +1,30 @@
-# React + Vite
+# Flowers, but Better
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+"Flowers, but Better" is a simple e-commerce application for a flower shop. It allows users to browse and purchase flowers, manage their shopping cart, and handle user authentication with both regular users and admin roles.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Initial User and Admin Credentials
+
+You can use the following credentials to log in as an admin or a regular user:
+
+### Admin Credentials:
+- **Username**: kuro
+- **Email**: kuro@gmail.com
+- **Password**: 12345
+- **Role**: Admin
+
+### User Credentials:
+- **Username**: kibo
+- **Email**: kibo@gmail.com
+- **Password**: 12345
+- **Role**: User
+
+## Getting Started
+
+1. Clone the repository.
+2. Run 
+pm install to install the dependencies.
+3. Run 
+pm start to start the development server.
+4. Open the app in your browser at http://localhost:3000.
