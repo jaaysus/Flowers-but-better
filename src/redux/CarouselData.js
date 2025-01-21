@@ -140,13 +140,6 @@ const cards = [
         description: "Geodude is a Rock/Ground Pokémon that evolves into Graveler.",
         checked: false,
     },
-    {
-        name: "Magikarp",
-        smallImg: "https://raw.githubusercontent.com/cbolson/assets/refs/heads/main/codepen/pokemon/magikarp-s.png",
-        largeImg: "https://raw.githubusercontent.com/cbolson/assets/refs/heads/main/codepen/pokemon/magikarp-l.png",
-        description: "Magikarp is a Water-type Pokémon that evolves into the powerful Gyarados.",
-        checked: false,
-        },
     ];
 
 export default cards;
