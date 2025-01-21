@@ -8,11 +8,29 @@
     margin-top: 8rem;
 }
 
-#hero01{
+#hero01 {
     position: absolute;
     top: 22.5rem;
-    left: 29rem;
+    left: 26.5rem;
     font-size: small;
     font-family: 'Trebuchet MS', sans-serif;
-    
+    overflow: hidden; 
+}
+
+#hero01 h1 {
+    font-size: 2rem;
+    background: linear-gradient(90deg, #a991752b 0%, #a99175 50%, #a991752b 100%);
+    background-size: 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: lightPass 20s linear infinite;
+}
+
+@keyframes lightPass {
+    0% {
+        background-position: 200%;
+    }
+    100% {
+        background-position: -200%;
+    }
 }
