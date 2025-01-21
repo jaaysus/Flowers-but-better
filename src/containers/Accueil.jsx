@@ -15,7 +15,7 @@ const Accueil = () => {
             }
         }
         else{
-            navigate('/auth');
+            navigate('/userHome');
         }
     }, [currentUser, navigate]);
 
