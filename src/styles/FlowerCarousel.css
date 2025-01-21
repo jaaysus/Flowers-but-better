@@ -247,7 +247,7 @@ this would be so much simpler if we could use counter values as custom property 
 }
 
 /* general styling */
-*,
+/* *,
 ::before,
 ::after {
 	box-sizing: border-box;
@@ -272,7 +272,9 @@ body {
 	color: var(--clr-primary);
 	padding: 1rem;
 	margin: 0;
-}
+} */
+
+
 /* DEBUG - cross-hairs for center of body */
 /*
 body::after,
