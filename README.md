@@ -1,8 +1,24 @@
-# Flowers, but Better
+# Floral Dreams
 
 ## Overview
+"Floral Dreams" is an e-commerce application for a flower shop.
+Front-end developed using React and Redux.
 
-"Flowers, but Better" is a simple e-commerce application for a flower shop. It allows users to browse and purchase flowers, manage their shopping cart, and handle user authentication with both regular users and admin roles.
+## Main Features
+
+- User authentication management with roles for regular users and administrators.
+
+### The user can:
+- Check other clients' reviews.  
+- Browse and purchase flowers.  
+- Manage their shopping cart.  
+- Create a virtual flower bouquet design to purchase.  
+
+### The administrator can:
+- View statistics.  
+- Manage users, products, and stock.  
+- Manage personalized orders.  
+
 
 ## Initial User and Admin Credentials
 
