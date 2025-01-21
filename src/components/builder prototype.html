@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="http://localhost:3000/dist/css/bootstrap.min.css">
+    <style>
+      .grid {
+    display: inline-block;
+    margin: 20px auto;
+  }
+  
+  .cell {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    transition: transform 0.2s;
+    border-radius: 0px;
+  }
+  
+  .cell.clickable:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+  
+  .color-picker {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  
+    </style>
+</head>
+<body>
+    <div id="root" class="">
+        <div class="container mt-5">
+           <div class="text-center">
+              <h2 class="">Personalized Bouquet Maker</h2>
+              <div class="color-picker mb-3">
+                 <label for="colorSelector" class="form-label">Select Flower Color:</label>
+                 <input type="color" id="colorSelector" class="form-control form-control-color" value="#cccccc">
+              </div>
+              <div class="grid">
+                 <div class="d-flex justify-content-center">
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);">
+                    </div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);">
+                    </div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);">
+                    </div>
+                    <div class="cell " style="background-color: #3A6327;border: 1px solid rgb(204, 204, 204);">
+                    </div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);">
+                    </div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);">
+                    </div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);">
+                    </div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #3A6327;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: rgb(204, 204, 204);border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                 </div>
+                 <div class="d-flex justify-content-center">
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #4B8A3B;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DEA4A3;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DEA4A3;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DEA4A3;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #DEA4A3;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #DEA4A3;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #DEA4A3;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #3A6327;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                 </div>
+                 <div class="d-flex justify-content-center">
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #DEA4A3;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DEA4A3;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DEA4A3;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #DEA4A3;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #265414;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                 </div>
+                 <div class="d-flex justify-content-center">
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #3A6327;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DEA4A3;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #BA8418;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #DEA4A3;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #BA8418;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                 </div>
+                 <div class="d-flex justify-content-center">
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #3A6327;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #3A6327;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DEA4A3;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #DEA4A3;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #3A6327;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #265414;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                 </div>
+                 <div class="d-flex justify-content-center">
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #3A6327;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #3A6327;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #3A6327;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #3A6327;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #3A6327;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #3A6327;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #3A6327;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #3A6327;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                 </div>
+                 <div class="d-flex justify-content-center">
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #4B8A3B;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DEA4A3;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DEA4A3;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DEA4A3;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #3A6327;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #265414;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #3A6327;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #DEA4A3;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DEA4A3;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #DEA4A3;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #3A6327;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #265414;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #3A6327;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DEA4A3;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                 </div>
+                 <div class="d-flex justify-content-center">
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DEA4A3;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #DEA4A3;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #265414;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell clickable" style="background-color: #DEA4A3;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell clickable" style="background-color: #DEA4A3;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #265414;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DEA4A3;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #BA8418;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                 </div>
+                 <div class="d-flex justify-content-center">
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DEA4A3;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #BA8418;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #265414;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell clickable" style="background-color: #DEA4A3;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell clickable" style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #BA8418;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #265414;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell clickable" style="background-color: #DEA4A3;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell clickable" style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                 </div>
+                 <div class="d-flex justify-content-center">
+                    <div class="cell" style="background-color: #265414;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #265414;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: rgb(58, 99, 39); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #265414;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(58, 99, 39); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(58, 99, 39); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #265414;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell clickable" style="background-color: #3A6327;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell clickable" style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #265414;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #265414;border: 1px solid rgb(204, 204, 204);"></div>
+                 </div>
+                 <div class="d-flex justify-content-center">
+                    <div class="cell " style="background-color: rgb(58, 99, 39); border: 1px solid rgb(204, 204, 204);">
+                    </div>
+                    <div class="cell" style="background-color: #265414;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(58, 99, 39); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: rgb(58, 99, 39); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(58, 99, 39); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell clickable" style="background-color: rgb(58, 99, 39); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell clickable" style="background-color: rgb(58, 99, 39); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: rgb(58, 99, 39); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #265414;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: rgb(58, 99, 39); border: 1px solid rgb(204, 204, 204);"></div>
+                 </div>
+                 <div class="d-flex justify-content-center">
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;#0F3F05: 1pxsolid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(58, 99, 39); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell clickable" style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell clickable" style="background-color: rgb(58, 99, 39); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                 </div>
+                 <div class="d-flex justify-content-center">
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell clickable" style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell clickable" style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                 </div>
+                 <div class="d-flex justify-content-center">
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell clickable" style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell clickable" style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                 </div>
+                 <div class="d-flex justify-content-center">
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell clickable" style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell clickable" style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                 </div>
+                 <div class="d-flex justify-content-center">
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DEA4A3;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell clickable" style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell clickable" style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                 </div>
+                 <div class="d-flex justify-content-center">
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DEA4A3;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                 </div>
+                 <div class="d-flex justify-content-center">
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DEA4A3;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #DE7C7D;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                 </div>
+                 <div class="d-flex justify-content-center">
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                 </div>
+                 <div class="d-flex justify-content-center">
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #3A6327;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #225915;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #225915;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                 </div>
+                 <div class="d-flex justify-content-center">
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #225915;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #3A6327;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #3A6327;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204);border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                 </div>
+                 <div class="d-flex justify-content-center">
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #3A6327;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #225915;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #225915;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204);border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                 </div>
+                 <div class="d-flex justify-content-center">
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #225915;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #3A6327;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #225915;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204);border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204);border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                 </div>
+                 <div class="d-flex justify-content-center">
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #3A6327;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #225915;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #225915;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                 </div>
+                 <div class="d-flex justify-content-center">
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #225915;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #3A6327;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #0F3F05;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: #225915;border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                 </div>
+                 <div class="d-flex justify-content-center">
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell" style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                 </div>
+                 <div class="d-flex justify-content-center">
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                    <div class="cell " style="background-color: rgb(204, 204, 204); border: 1px solid rgb(204, 204, 204);"></div>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+</body>
+</html>
