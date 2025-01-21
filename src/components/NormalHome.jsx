@@ -15,6 +15,9 @@ const NormalUserHome = () => {
   return (
     <>
       <Hero />
+      <div id="hero01">
+      <h1> Welcome to our Flower Shop</h1>
+      </div>
       <section className="Carousel">
           <FlowersGallery  />
       </section>

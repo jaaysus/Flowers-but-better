@@ -7,3 +7,12 @@
     height: 30rem;
     margin-top: 8rem;
 }
+
+#hero01{
+    position: absolute;
+    top: 22.5rem;
+    left: 29rem;
+    font-size: small;
+    font-family: 'Trebuchet MS', sans-serif;
+    
+}
