@@ -8,7 +8,7 @@ import Panier from './containers/Panier';
 import AdminHome from './components/AdminHome';
 import NormalUserHome from './components/NormalHome';
 import CreateAccount from './components/CreateAccount';
-
+import FlowersGallery from './components/FlowersGallery';
 
 
 const App = () => {
@@ -20,7 +20,8 @@ const App = () => {
                 <Route path="/create-account" element={<CreateAccount />} />
                 <Route path="/userHome" element={<NormalUserHome />} />
                 <Route path="/admin" element={<AdminHome />} />
-                <Route path="/" element={<Accueil />} />
+                <Route path="/" element={<FlowersGallery />} />
+                {/* <Route path="/" element={<Accueil />} /> */}
                 <Route path="/produits" element={<Products />} />
                 <Route path="/panier" element={<Panier />} />
             </Routes>

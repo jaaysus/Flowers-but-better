@@ -39,6 +39,23 @@ const initialState = {
     },
     currentUser: null,
     loginError: null,
+    cards: [
+        {
+          name: "Bulbasaur",
+          smallImg: "https://i.pinimg.com/736x/49/30/22/493022d455070861e46d7298036190a4.jpg",
+          largeImg: "https://i.pinimg.com/736x/49/30/22/493022d455070861e46d7298036190a4.jpg",
+          description: "Bulbasaur is a grass/poison type Pokémon that evolves into Ivysaur.",
+          checked: true,
+        },
+        {
+          name: "Charmander",
+          smallImg: "https://raw.githubusercontent.com/cbolson/assets/refs/heads/main/codepen/pokemon/charmander-s.png",
+          largeImg: "https://raw.githubusercontent.com/cbolson/assets/refs/heads/main/codepen/pokemon/charmander-l.png",
+          description: "Charmander is the fire-type starter Pokémon first seen in Pokémon Red/Blue.",
+          checked: false,
+        },
+        // Add more cards as needed
+    ],
 };
 
 const reducer = (state = initialState, action) => {
@@ -123,6 +140,16 @@ const reducer = (state = initialState, action) => {
 
         case 'APPLIQUER_FILTRE':
             return { ...state, filtre: action.payload };
+        
+        case 'SET_CARDS':
+            return { ...state, cards: action.payload };
+        case 'UPDATE_CARD':
+        const updatedCards = [...state.cards];
+        updatedCards[action.payload.index] = {
+            ...updatedCards[action.payload.index],
+            ...action.payload.data,
+        };
+        return { ...state, cards: updatedCards };
 
         default:
             return state;

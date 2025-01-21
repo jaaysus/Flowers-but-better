@@ -78,3 +78,15 @@ export const appliquerFiltre = (filtre) => ({
 type: 'APPLIQUER_FILTRE',
 payload: filtre,
 });
+
+
+
+export const setCards = (cards) => ({
+    type: 'SET_CARDS',
+    payload: cards,
+  });
+  
+export const updateCard = (index, data) => ({
+    type: 'UPDATE_CARD',
+    payload: { index, data },
+  });
