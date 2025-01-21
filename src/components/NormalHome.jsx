@@ -1,21 +1,14 @@
 import React from 'react';
 import FlowersGallery from './FlowersGallery';
-
+import Hero from './Hero';
 
 const NormalUserHome = () => {
-    
-    return(
-        <>
-            <h1 style={{ textAlign: 'center', marginTop: '50px' }}>Bienvenue à l'Accueil !</h1>;
-
-            <FlowersGallery />
-        
-        </>
-    )
-    
-
-    
-
+  return (
+    <>
+      <Hero />
+      <FlowersGallery />
+    </>
+  );
 };
 
 export default NormalUserHome;
