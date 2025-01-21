@@ -1,3 +1,5 @@
+import cards from "./CarouselData";
+
 const initialState = {
     produits: [
         { "id": 1, "nom": "Rose", "img": "https://i.pinimg.com/736x/b6/c5/ef/b6c5efaf580823ffa186dc75e4df5cf1.jpg", "prix": 15, "stock": 10 },
@@ -39,23 +41,7 @@ const initialState = {
     },
     currentUser: null,
     loginError: null,
-    cards: [
-        {
-          name: "Bulbasaur",
-          smallImg: "https://i.pinimg.com/736x/49/30/22/493022d455070861e46d7298036190a4.jpg",
-          largeImg: "https://i.pinimg.com/736x/49/30/22/493022d455070861e46d7298036190a4.jpg",
-          description: "Bulbasaur is a grass/poison type Pokémon that evolves into Ivysaur.",
-          checked: true,
-        },
-        {
-          name: "Charmander",
-          smallImg: "https://raw.githubusercontent.com/cbolson/assets/refs/heads/main/codepen/pokemon/charmander-s.png",
-          largeImg: "https://raw.githubusercontent.com/cbolson/assets/refs/heads/main/codepen/pokemon/charmander-l.png",
-          description: "Charmander is the fire-type starter Pokémon first seen in Pokémon Red/Blue.",
-          checked: false,
-        },
-        // Add more cards as needed
-    ],
+    cards,//Carousel items
 };
 
 const reducer = (state = initialState, action) => {
