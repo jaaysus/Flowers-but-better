@@ -29,6 +29,7 @@ const Navbar = () => {
                     alignItems: "center",
                     transition: "top 0.5s ease",
                     backgroundColor: "purple",
+                    zIndex: '5',
                 }}
             >
 <div
@@ -44,7 +45,7 @@ const Navbar = () => {
         left: '50%',
         transform: `translateX(-50%) ${isNavbarVisible ? 'rotate(100deg)' : 'rotate(0deg)'}`,
         top: isNavbarVisible ? '20%' : '50%',
-        zIndex: '1',
+        zIndex: '5',
         transition: 'top 0.5s ease, transform 2s ease',
     }}
 ></div>

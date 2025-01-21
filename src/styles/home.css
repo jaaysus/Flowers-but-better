@@ -44,6 +44,7 @@
     animation: lightPass 20s linear infinite;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 20px rgba(169, 145, 117, 0.5); 
 }
 
 #hero02:hover {
