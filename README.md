@@ -26,5 +26,5 @@ You can use the following credentials to log in as an admin or a regular user:
 2. Run 
 npm install to install the dependencies.
 3. Run 
-npm start to start the development server.
-4. Open the app in your browser at http://localhost:3000.
+npm run dev to start the development server.
+4. Open the app in your browser by clicking o + enter in Terminal.
