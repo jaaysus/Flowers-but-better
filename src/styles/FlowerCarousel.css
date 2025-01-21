@@ -14,7 +14,7 @@ input[type="radio"] {
 }
 
 .cards {
-	--base-rotation: -17deg;/*this fixes the tilt issue, still investigating, not satisfied*/
+	--base-rotation: -17deg;/*this fixes the tilt issue, still investigating, not very satisfied*/
 	--full-circle: 360deg;
 	--items: 20;
 	--radius: 30vw;
