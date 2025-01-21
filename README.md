@@ -24,7 +24,7 @@ You can use the following credentials to log in as an admin or a regular user:
 
 1. Clone the repository.
 2. Run 
-npm install to install the dependencies.
+   `npm install` to install the dependencies.
 3. Run 
-npm run dev to start the development server.
-4. Open the app in your browser by clicking o + enter in Terminal.
+   `npm run dev` to start the development server.
+4. Open the app in your browser by clicking **`o + enter`** in Terminal.
