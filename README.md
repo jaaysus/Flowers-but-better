@@ -4,7 +4,7 @@
 "Floral Dreams" is an e-commerce application for a flower shop.
 Front-end developed using React and Redux.
 
-## Main Features:
+## Main Features
    User authentication management with roles for regular users and administrators.
    The user can:
       - Check other clients reviews
