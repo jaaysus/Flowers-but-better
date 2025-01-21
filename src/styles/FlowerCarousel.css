@@ -29,8 +29,7 @@ input[type="radio"] {
 	--info-width: 100%;
 
 	inset: 0;
-	margin: auto;
-
+	margin-left: 2rem;
 	margin-top: 6rem;
 	margin-bottom: 6rem;
 
@@ -113,6 +112,7 @@ input[type="radio"] {
 	height: var(--image-size);
 	object-fit: contain;
 	z-index: 52;
+	margin-top: 5rem;
 
 	transform: translateY(var(--image-y));
 	transition-property: opacity, scale, width, height, transform, filter;
@@ -146,10 +146,11 @@ input[type="radio"] {
 	opacity: var(--title-opacity, 0);
 	translate: 0 var(--title-y, -30px);
 	transition: var(--duration) ease-in-out var(--title-delay, 0ms);
+	margin-top: 4rem;
 }
 .cards > li > p {
 	top: var(--info-top);
-	margin: 0 auto;
+	margin-left: 40rem;
 	width: var(--info-width);
 	z-index: 2;
 	font-size: clamp(0.8rem, 3.5vw + 0.05rem, 1.1rem);
