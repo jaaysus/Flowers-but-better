@@ -5,17 +5,19 @@
 Front-end developed using React and Redux.
 
 ## Main Features
-   User authentication management with roles for regular users and administrators.
-   The user can:
-      - Check other clients reviews
-      - Browse and purchase flowers
-      - Manage his shopping cart
-      - Create a virtual flower bouquet design to purchase
-     
-   The administrator can:
-      - View statistics
-      - Manage users, products, and stock
-      - Manage personalized orders
+
+- User authentication management with roles for regular users and administrators.
+
+### The user can:
+- Check other clients' reviews.  
+- Browse and purchase flowers.  
+- Manage their shopping cart.  
+- Create a virtual flower bouquet design to purchase.  
+
+### The administrator can:
+- View statistics.  
+- Manage users, products, and stock.  
+- Manage personalized orders.  
 
 
 ## Initial User and Admin Credentials
