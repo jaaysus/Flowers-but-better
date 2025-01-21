@@ -8,7 +8,6 @@ import Panier from './containers/Panier';
 import AdminHome from './components/AdminHome';
 import NormalUserHome from './components/NormalHome';
 import CreateAccount from './components/CreateAccount';
-import FlowersGallery from './components/FlowersGallery';
 
 
 const App = () => {
