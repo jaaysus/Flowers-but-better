@@ -7,7 +7,7 @@ import "../styles/home.css";
 
 const NormalUserHome = () => {
   useEffect(() => {
-    document.body.style.backgroundColor = 'rgb(150, 93, 137)';
+    document.body.style.backgroundColor = '#a99175';
     return () => {
       document.body.style.backgroundColor = ''; // Reset when the component is unmounted
     };
