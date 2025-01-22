@@ -17,16 +17,11 @@
 }
 
 .commander, .supprimer {
-    padding: 10px 15px;
-    background-color: #9000ff;
-    color: white;
+    box-shadow: none; 
+
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-size: 14px;
     font-weight: bold;
-}
-
-.commander:hover, .supprimer:hover {
-    background-color: #a600ff;
 }

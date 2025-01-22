@@ -58,11 +58,17 @@ const Products = () => {
             if (!currentUser) {
                 navigate('/auth');
             }
+
+            document.body.style.backgroundColor = ' #07202B';
+                return () => {
+                  document.body.style.backgroundColor = ''; // Reset when the component is unmounted
+                };
+              
         }, [currentUser, navigate]);
     
     return currentUser ? (
         <div className="products-page">
-            <h1>Liste des produits</h1>
+            <h1>Liste des fleurs</h1>
             <div className="filter-sort-section">
                 <div>
                     <label htmlFor="sort">Trier par:</label>

@@ -28,7 +28,7 @@ const Navbar = () => {
                     justifyContent: "space-around",//what a funny easy fix HHHHHH
                     alignItems: "center",
                     transition: "top 0.5s ease",
-                    backgroundColor: "purple",
+                    backgroundColor: "#07202B",
                     zIndex: '5',
                 }}
             >
@@ -64,8 +64,8 @@ const Navbar = () => {
 
             <style>{`
                 .badge {
-                    background-color: red;
-                    color: white;
+                    background-color: #a99175;
+                    color: #07202B;
                     border-radius: 50%;
                     padding: 0.3em 0.7em;
                     font-size: 1rem;
