@@ -25,7 +25,7 @@ const Authentication = () => {
     useEffect(() => {
         if (currentUser) {
             if (currentUser.isAdmin) {
-                navigate('/admin');
+                navigate('/adminHome');
             } else {
                 navigate('/userHome');
             }
