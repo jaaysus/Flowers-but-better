@@ -6,9 +6,11 @@ import Accueil from './containers/Accueil';
 import Products from './containers/Products';
 import Panier from './containers/Panier';
 import AdminHome from './components/AdminHome';
+import AdminStock from './components/AdminStock';
+import AdminCommands from './components/AdminCommands'; // Add this import
+import AdminUsers from './components/AdminUsers'; // Add this import
 import NormalUserHome from './components/NormalHome';
 import CreateAccount from './components/CreateAccount';
-
 
 const App = () => {
     return (
@@ -19,6 +21,9 @@ const App = () => {
                 <Route path="/create-account" element={<CreateAccount />} />
                 <Route path="/userHome" element={<NormalUserHome />} />
                 <Route path="/adminHome" element={<AdminHome />} />
+                <Route path="/admin/stock" element={<AdminStock />} />
+                <Route path="/admin/commands" element={<AdminCommands />} />
+                <Route path="/admin/users" element={<AdminUsers />} />
                 <Route path="/" element={<Accueil />} />
                 <Route path="/produits" element={<Products />} />
                 <Route path="/panier" element={<Panier />} />

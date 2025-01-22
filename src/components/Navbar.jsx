@@ -80,14 +80,33 @@ const Navbar = () => {
                 ></div>
 
                 <Link to="/" style={navbarStyles.link}>Accueil</Link>
-                <Link to="/produits" style={navbarStyles.link}>Produits</Link>
-                <Link to="/panier" style={navbarStyles.link}>
-                    Panier
-                    {totalItems > 0 && (
-                        <span style={navbarStyles.badge}>{totalItems}</span>
-                    )}
-                </Link>
-                <Link to="/auth" style={navbarStyles.link}>Login</Link>
+
+                {/* Show "Produits" and "Panier" only for normal users */}
+                {currentUser && !currentUser.isAdmin && (
+                    <>
+                        <Link to="/produits" style={navbarStyles.link}>Produits</Link>
+                        <Link to="/panier" style={navbarStyles.link}>
+                            Panier
+                            {totalItems > 0 && (
+                                <span style={navbarStyles.badge}>{totalItems}</span>
+                            )}
+                        </Link>
+                    </>
+                )}
+
+                {currentUser ? (
+                    currentUser.isAdmin ? (
+                        <>
+                            <Link to="/admin/stock" style={navbarStyles.link}>Manage Stock</Link>
+                            <Link to="/admin/commands" style={navbarStyles.link}>User Commands</Link>
+                            <Link to="/admin/users" style={navbarStyles.link}>User Management</Link>
+                        </>
+                    ) : (
+                        <Link to="/userHome" style={navbarStyles.link}>Account</Link>
+                    )
+                ) : (
+                    <Link to="/auth" style={navbarStyles.link}>Login</Link>
+                )}
             </nav>
         </>
     );
