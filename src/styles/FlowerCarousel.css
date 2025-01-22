@@ -147,6 +147,7 @@ input[type="radio"] {
 	translate: 0 var(--title-y, -30px);
 	transition: var(--duration) ease-in-out var(--title-delay, 0ms);
 	margin-top: 4rem;
+	color: black;
 }
 .cards > li > p {
 	top: var(--info-top);
@@ -158,6 +159,15 @@ input[type="radio"] {
 	opacity: var(--info-opacity, 0);
 	translate: 0 var(--info-y, 30px);
 	transition: var(--duration) ease-in-out var(--info-delay, 0ms);
+	color: #06202C;
+    font-family: 'Trebuchet MS', sans-serif;
+	font-size: 25px;
+	border: 16px solid transparent;
+	border-image: 16 repeating-linear-gradient(-45deg, #821515 0, #821515 1em, transparent 0, transparent 2em,
+	#06202C 0, #06202C 3em, transparent 0, transparent 4em);
+	
+	max-width: 20em;
+	font: 150%/1.6 Baskerville, Palatino, serif;
 }
 
 /* update custom properties for checked item */
