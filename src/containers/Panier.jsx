@@ -28,7 +28,7 @@ const Panier = () => {
     }, [currentUser, navigate]);
 
     return currentUser ? (
-        <div>
+        <div className='container'>
             <h1>Panier</h1>
             {panier.length > 0 ? (
                 <div className="Panier">

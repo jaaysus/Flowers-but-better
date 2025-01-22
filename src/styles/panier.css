@@ -10,6 +10,10 @@
     border-bottom: 1px solid #ddd;
 }
 
+.container{
+    padding-top: 4rem;
+}
+
 .total {
     font-size: 1.2rem;
     font-weight: bold;
