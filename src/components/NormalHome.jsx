@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link} from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import FlowersGallery from './FlowersGallery';
 import Hero from './Hero';
 import "../styles/home.css";
@@ -9,7 +8,6 @@ import "../styles/home.css";
 
 const NormalUserHome = () => {
     const currentUser = useSelector((state) => state.currentUser); 
-    const navigate = useNavigate();
 
   useEffect(() => {
     document.body.style.backgroundColor = '#a99175';

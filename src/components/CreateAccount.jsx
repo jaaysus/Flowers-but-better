@@ -47,7 +47,7 @@ const CreateAccount = () => {
 
 
     return (
-        <div style={{ textAlign: 'center', marginTop: '50px' }}>
+        <div className='container' style={{ textAlign: 'center', marginTop: '50px' }}>
             <h2>Create Account</h2>
             <div className='login' style={{ margin: '20px auto', width: '300px', padding: '20px', border: '1px solid #ccc', borderRadius: '8px' }}>
                 <input
