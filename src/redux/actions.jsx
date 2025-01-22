@@ -30,10 +30,10 @@ payload: error,
 
 
 export const handleLogin = (username, password) => (dispatch, getState) => {
-const { utilisateurs } = getState();
-const utilisateur = utilisateurs.find(
-    (u) => (u.username === username || u.email === username) && u.password === password
-);
+    const { users } = getState(); // Final Boss bug of reducers splitting
+    const utilisateur = users.utilisateurs.find(
+        (u) => (u.username === username || u.email === username) && u.password === password
+    );
 
 if (utilisateur) {
     dispatch(loginSuccess(utilisateur));
