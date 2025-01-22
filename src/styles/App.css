@@ -5,6 +5,7 @@
 }
 
 button {
+  border: none;
   background: linear-gradient(90deg, #a9917597 0%, #a99175 50%, #a9917597 100%);
     background-size: 200%;    width: 10rem;
     height: 2rem;

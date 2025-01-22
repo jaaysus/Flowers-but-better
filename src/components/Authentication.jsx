@@ -2,6 +2,8 @@ import { useDispatch, useSelector} from 'react-redux';
 import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import { handleLogin } from '../redux/actions';
+import '../styles/login.css';
+
 
 const Authentication = () => {
     const [username, setUsername] = useState('');
@@ -35,9 +37,9 @@ const Authentication = () => {
     };
 
     return (
-        <div style={{ textAlign: 'center', marginTop: '100px' }}>
+        <div className='container' style={{ textAlign: 'center', marginTop: '100px' }}>
             <h2>Login</h2>
-            <div style={{ margin: '20px auto', width: '300px', padding: '20px', border: '1px solid #ccc', borderRadius: '8px' }}>
+            <div className='login' style={{ margin: '20px auto', width: '300px', padding: '20px', border: '1px solid #ccc', borderRadius: '8px' }}>
             <div>
                 <input
                     type="text"
@@ -57,7 +59,7 @@ const Authentication = () => {
                 {loginError && <p style={{ color: 'red' }}>{loginError}</p>}
             </div>
             <p>
-                    Don't have an account? <button onClick={handleCreateAccount}>Create Account</button>
+                    Don't have an account? <a className='createAccLink' onClick={handleCreateAccount}>Create Account</a>
                 </p>
         </div>
     </div>

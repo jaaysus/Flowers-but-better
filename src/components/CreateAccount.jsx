@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom'; 
 import { ajouterUtilisateur } from '../redux/actions'; 
+import '../styles/login.css';
 
 
 
@@ -39,11 +40,16 @@ const CreateAccount = () => {
     };
 
 
+    const handleLogin = () => {
+        navigate('/Auth');  
+    };
+
+
 
     return (
         <div style={{ textAlign: 'center', marginTop: '50px' }}>
             <h2>Create Account</h2>
-            <div style={{ margin: '20px auto', width: '300px', padding: '20px', border: '1px solid #ccc', borderRadius: '8px' }}>
+            <div className='login' style={{ margin: '20px auto', width: '300px', padding: '20px', border: '1px solid #ccc', borderRadius: '8px' }}>
                 <input
                     type="text"
                     placeholder="Username"
@@ -66,6 +72,9 @@ const CreateAccount = () => {
                     style={{ display: 'block', margin: '10px auto', width: '90%', padding: '10px' }}
                 />
                 <button onClick={handleCreateAccount}>Create Account</button>
+                <p>
+                    You already have an account? <a className='createAccLink' onClick={handleLogin}>Login</a>
+                </p>
             </div>
         </div>
     );
