@@ -1,7 +1,8 @@
 import React from 'react';
+import Dashboard from './Admindashboard';
 
 const AdminHome = () => {
-    return <h1 style={{ textAlign: 'center', marginTop: '50px' }}>Welcome Admin</h1>;
+    return <Dashboard />
 };
 
 export default AdminHome;
