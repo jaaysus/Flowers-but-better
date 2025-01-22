@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 const AdminHome = () => {
-    const currentUser = useSelector((state) => state.currentUser);
+    const currentUser = useSelector((state) => state.users.currentUser);
     const navigate = useNavigate();
 
     useEffect(() => {

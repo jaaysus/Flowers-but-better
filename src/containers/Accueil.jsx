@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 const Accueil = () => {
     const navigate = useNavigate();
-    const currentUser = useSelector((state) => state.currentUser);
+    const currentUser = useSelector((state) => state.users.currentUser);
 
     useEffect(() => {
         if (currentUser) {

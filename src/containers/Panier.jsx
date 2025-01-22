@@ -5,12 +5,12 @@ import { modifierQuantite, supprimerDuPanier, viderPanier, diminuerStock } from 
 import '../styles/panier.css';
 
 const Panier = () => {
-    const panier = useSelector((state) => state.panier);
-    const produits = useSelector((state) => state.produits);
+    const panier = useSelector((state) => state.panier.panier);
+    const produits = useSelector((state) => state.products.produits);
     const dispatch = useDispatch();
     const navigate = useNavigate(); 
 
-    const currentUser = useSelector((state) => state.currentUser);
+    const currentUser = useSelector((state) => state.users.currentUser);
     const total = panier.reduce((sum, item) => {
         const produit = produits.find((p) => p.id === item.id);
         return sum + produit.prix * item.quantite;

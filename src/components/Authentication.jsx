@@ -9,8 +9,8 @@ const Authentication = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const dispatch = useDispatch();
-    const loginError = useSelector((state) => state.loginError);
-    const currentUser = useSelector((state) => state.currentUser);
+    const loginError = useSelector((state) => state.users.loginError);
+    const currentUser = useSelector((state) => state.users.currentUser);
     const navigate = useNavigate();
 
     const handleSubmit = () => {

@@ -7,7 +7,7 @@ import "../styles/home.css";
 
 
 const NormalUserHome = () => {
-    const currentUser = useSelector((state) => state.currentUser); 
+    const currentUser = useSelector((state) => state.users.currentUser); 
 
   useEffect(() => {
     document.body.style.backgroundColor = '#a99175';

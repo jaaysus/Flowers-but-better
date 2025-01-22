@@ -7,8 +7,8 @@ import Products from './containers/Products';
 import Panier from './containers/Panier';
 import AdminHome from './components/AdminHome';
 import AdminStock from './components/AdminStock';
-import AdminCommands from './components/AdminCommands'; // Add this import
-import AdminUsers from './components/AdminUsers'; // Add this import
+import AdminCommands from './components/AdminCommands';
+import AdminUsers from './components/AdminUsers';
 import NormalUserHome from './components/NormalHome';
 import CreateAccount from './components/CreateAccount';
 

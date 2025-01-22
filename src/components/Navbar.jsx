@@ -51,9 +51,9 @@ const navbarStyles = {
 };
 
 const Navbar = () => {
-    const panier = useSelector((state) => state.panier || []); 
+    const panier = useSelector((state) => state.panier.panier || []); 
     const totalItems = panier.reduce((acc, item) => acc + item.quantite, 0);
-    const currentUser = useSelector((state) => state.currentUser); 
+    const currentUser = useSelector((state) => state.users.currentUser); 
     const [isNavbarVisible, setNavbarVisible] = useState(!!currentUser);
 
     const location = useLocation(); 

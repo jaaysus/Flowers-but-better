@@ -25,7 +25,7 @@ const FlowersGallery = ({ cards }) => {
 };
 
 const mapStateToProps = (state) => ({
-  cards: state.cards,
+  cards: state.cards.cards,
 });
 
 export default connect(mapStateToProps)(FlowersGallery);

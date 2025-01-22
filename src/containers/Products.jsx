@@ -6,11 +6,11 @@ import '../styles/Products.css';
 
 
 const Products = () => {
-    const produits = useSelector((state) => state.produits);
-    const panier = useSelector((state) => state.panier);
+    const produits = useSelector((state) => state.products.produits);
+    const panier = useSelector((state) => state.panier.panier);
     const dispatch = useDispatch();
     const navigate = useNavigate(); 
-    const currentUser = useSelector((state) => state.currentUser); 
+    const currentUser = useSelector((state) => state.users.currentUser); 
 
 
     const [sortOption, setSortOption] = useState('default');
