@@ -5,17 +5,14 @@ const Testimony = () => {
     {
       name: 'Sophia Loren',
       phrase: 'Floral Dreams brings timeless elegance to every arrangement. The vintage touches and sophisticated floral designs truly set this shop apart.',
-      image: 'https://img.freepik.com/free-photo/medium-shot-woman-posing-vintage-portrait_23-2150794796.jpg',
     },
     {
       name: 'Tom Cruise',
       phrase: 'As a customer who values quality and style, Floral Dreams never disappoints. Their floral arrangements are simply breathtaking, each one exuding a classic charm.',
-      image: 'https://i.ibb.co/yqMnq3r/image.png',
     },
     {
       name: 'John Doe',
       phrase: 'Floral Dreams is more than just a flower shop – it\'s an experience. From the moment you step in, the vintage ambiance and exquisite flower arrangements transport you to another time.',
-      image: 'https://img.freepik.com/free-photo/front-view-young-man-posing-vintage-portrait_23-2150795142.jpg',
     },
   ];
 
@@ -30,7 +27,7 @@ const Testimony = () => {
   };
 
   const carouselStyle = {
-    background: 'linear-gradient(112deg, #07202B 50%, #821515 50%)',
+    background: 'linear-gradient(112deg,rgb(148, 116, 78) 50%, #a99175 50%)',
     maxWidth: '900px',
     margin: 'auto',
     height: '450px',
@@ -42,18 +39,12 @@ const Testimony = () => {
     position: 'absolute',
     zIndex: 10,
     padding: '5rem 8rem',
-    color: 'rgba(78, 77, 77, 0.856)',
+    color: '#07202B',
     textAlign: 'center',
     fontSize: '1.2rem',
     fontStyle: 'italic',
     fontWeight: 'bold',
     lineHeight: '2rem',
-  };
-
-  const imageStyle = {
-    width: '6rem',
-    borderRadius: '5rem',
-    marginTop: '2rem',
   };
 
   const imageCaptionStyle = {
@@ -72,13 +63,20 @@ const Testimony = () => {
     fontSize: '2rem',
     cursor: 'pointer',
     zIndex: 20,
+    padding: '1rem',
+    borderRadius: '50%',
+    width: '50px',
+    height: '50px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: '1rem',
   };
 
   return (
     <div style={carouselStyle}>
       <div style={captionStyle}>
-        <p>{testimonials[currentIndex].phrase}</p>
-        <img src={testimonials[currentIndex].image} alt={`Slide ${currentIndex + 1}`} style={imageStyle} />
+      <p style={{ color: "#07202B" }}>{testimonials[currentIndex].phrase}</p>
         <div style={imageCaptionStyle}>
           {testimonials[currentIndex].name}
         </div>
@@ -87,13 +85,21 @@ const Testimony = () => {
         style={{ ...buttonStyle, left: '0' }}
         onClick={handlePrev}
       >
-        <i className="fa fa-arrow-left" />
+        <img
+          src="https://www.reshot.com/preview-assets/icons/RF5DMQX396/left-arrow-button-RF5DMQX396-17edd.svg"
+          alt="Left Arrow"
+          style={{ width: '50px', height: '50px' }}
+        />
       </button>
       <button
         style={{ ...buttonStyle, right: '0' }}
         onClick={handleNext}
       >
-        <i className="fa fa-arrow-right" />
+        <img
+          src="https://www.reshot.com/preview-assets/icons/YAB8GEM7SD/right-arrow-button-YAB8GEM7SD-7165c.svg"
+          alt="Right Arrow"
+          style={{ width: '50px', height: '50px' }}
+        />
       </button>
     </div>
   );
