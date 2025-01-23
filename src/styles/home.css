@@ -1,5 +1,6 @@
 .Carousel{
     height: 30rem;
+    padding-left: 4rem;
 }
 
 .reviews{
@@ -63,5 +64,12 @@
 }
 
 
+#carouselH1{
+    position: absolute;
+    top: 49rem;
+    left: 46.5rem;
+    font-size: 6.9rem;
+    text-align: left;
+}
 
 

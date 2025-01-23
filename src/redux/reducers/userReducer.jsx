@@ -19,6 +19,7 @@ const initialState = {
     dernierId: 3,
     currentUser: null,
     loginError: null,
+
 };
 
 const userReducer = (state = initialState, action) => {

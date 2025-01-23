@@ -102,7 +102,7 @@ const Navbar = () => {
                             <Link to="/admin/users" style={navbarStyles.link}>User Management</Link>
                         </>
                     ) : (
-                        <Link to="/userHome" style={navbarStyles.link}>Account</Link>
+                        <Link to="/acc" style={navbarStyles.link}>Account</Link>
                     )
                 ) : (
                     <Link to="/auth" style={navbarStyles.link}>Login</Link>

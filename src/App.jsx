@@ -11,6 +11,8 @@ import AdminCommands from './components/AdminCommands';
 import AdminUsers from './components/AdminUsers';
 import NormalUserHome from './components/NormalHome';
 import CreateAccount from './components/CreateAccount';
+import Account from './containers/Account';
+
 
 const App = () => {
     return (
@@ -27,6 +29,8 @@ const App = () => {
                 <Route path="/" element={<Accueil />} />
                 <Route path="/produits" element={<Products />} />
                 <Route path="/panier" element={<Panier />} />
+                <Route path="/acc" element={<Account />} />
+
             </Routes>
         </Router>
     );

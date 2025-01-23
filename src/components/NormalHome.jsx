@@ -26,7 +26,9 @@ const NormalUserHome = () => {
             <Link  to={currentUser ? "/produits" : "/auth"} style={{ color: '#07202B', textDecoration: 'none' }}>Buy Flowers</Link>
         </div>
 
+
       <section className="Carousel">
+          <h1 id='carouselH1'>Our<br/>Flowers</h1>
           <FlowersGallery  />
       </section>
       <section className="reviews">

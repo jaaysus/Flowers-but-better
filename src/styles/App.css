@@ -4,6 +4,11 @@
 
 }
 
+body{
+  overflow-x: hidden;
+
+}
+
 button {
   border: none;
   background: linear-gradient(90deg, #a9917597 0%, #a99175 50%, #a9917597 100%);
