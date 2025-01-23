@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Testimony = () => {
   const testimonials = [
@@ -17,14 +17,33 @@ const Testimony = () => {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+    if (isTransitioning) return;
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+      setIsTransitioning(false);
+    }, 1000); // Transition time
   };
 
   const handlePrev = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length);
+    if (isTransitioning) return;
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length);
+      setIsTransitioning(false);
+    }, 1000); // Transition time
   };
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      handleNext();
+    }, 3000);
+
+    return () => clearInterval(intervalId);
+  }, [currentIndex]);
 
   const carouselStyle = {
     background: 'linear-gradient(112deg,rgb(148, 116, 78) 50%, #a99175 50%)',
@@ -45,6 +64,8 @@ const Testimony = () => {
     fontStyle: 'italic',
     fontWeight: 'bold',
     lineHeight: '2rem',
+    transition: 'transform 1s ease-in-out',
+    transform: isTransitioning ? 'translateX(-100%)' : 'translateX(0)',
   };
 
   const imageCaptionStyle = {
