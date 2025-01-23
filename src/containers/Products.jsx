@@ -68,7 +68,7 @@ const Products = () => {
     
     return currentUser ? (
         <div className="products-page">
-            <h1>Liste des fleurs</h1>
+            <h1>Flowers</h1>
             <div className="filter-sort-section">
                 <div>
                     <label htmlFor="sort">Trier par:</label>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Testimony = () => {
   const testimonials = [
@@ -19,15 +19,27 @@ const Testimony = () => {
     },
   ];
 
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+  };
+
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length);
+  };
+
   const carouselStyle = {
     background: 'linear-gradient(112deg, #07202B 50%, #821515 50%)',
     maxWidth: '900px',
     margin: 'auto',
     height: '450px',
+    position: 'relative',
+    overflow: 'hidden',
   };
 
   const captionStyle = {
-    position: 'initial',
+    position: 'absolute',
     zIndex: 10,
     padding: '5rem 8rem',
     color: 'rgba(78, 77, 77, 0.856)',
@@ -50,34 +62,39 @@ const Testimony = () => {
     marginTop: '0.5rem',
   };
 
+  const buttonStyle = {
+    position: 'absolute',
+    top: '50%',
+    transform: 'translateY(-50%)',
+    background: 'transparent',
+    border: 'none',
+    color: '#fff',
+    fontSize: '2rem',
+    cursor: 'pointer',
+    zIndex: 20,
+  };
+
   return (
-    <div className="container">
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css"/>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
-      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
-      
-      <div id="demo" className="carousel slide" data-ride="carousel" style={carouselStyle}>
-        <div className="carousel-inner">
-          {testimonials.map((testimonial, index) => (
-            <div className={`carousel-item ${index === 0 ? 'active' : ''}`} key={index}>
-              <div className="carousel-caption" style={captionStyle}>
-                <p>{testimonial.phrase}</p>
-                <img src={testimonial.image} alt={`Slide ${index + 1}`} style={imageStyle} />
-                <div id="image-caption" style={imageCaptionStyle}>
-                  {testimonial.name}
-                </div>
-              </div>
-            </div>
-          ))}
+    <div style={carouselStyle}>
+      <div style={captionStyle}>
+        <p>{testimonials[currentIndex].phrase}</p>
+        <img src={testimonials[currentIndex].image} alt={`Slide ${currentIndex + 1}`} style={imageStyle} />
+        <div style={imageCaptionStyle}>
+          {testimonials[currentIndex].name}
         </div>
-        <a className="carousel-control-prev" href="#demo" data-slide="prev">
-          <i className="fa fa-arrow-left"></i>
-        </a>
-        <a className="carousel-control-next" href="#demo" data-slide="next">
-          <i className="fa fa-arrow-right"></i>
-        </a>
       </div>
+      <button
+        style={{ ...buttonStyle, left: '0' }}
+        onClick={handlePrev}
+      >
+        <i className="fa fa-arrow-left" />
+      </button>
+      <button
+        style={{ ...buttonStyle, right: '0' }}
+        onClick={handleNext}
+      >
+        <i className="fa fa-arrow-right" />
+      </button>
     </div>
   );
 };
