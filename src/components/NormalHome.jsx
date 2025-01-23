@@ -3,6 +3,7 @@ import { Link} from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import FlowersGallery from './FlowersGallery';
 import Hero from './Hero';
+import Testimony from './testimony';
 import "../styles/home.css";
 
 
@@ -32,6 +33,7 @@ const NormalUserHome = () => {
           <FlowersGallery  />
       </section>
       <section className="reviews">
+        <Testimony />
       </section>
     </>
   );
