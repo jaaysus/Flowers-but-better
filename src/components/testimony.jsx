@@ -50,7 +50,7 @@ const Testimony = () => {
   const imageCaptionStyle = {
     fontStyle: 'normal',
     fontSize: '1rem',
-    marginTop: '0.5rem',
+    marginTop: '2rem',
   };
 
   const buttonStyle = {
@@ -76,7 +76,7 @@ const Testimony = () => {
   return (
     <div style={carouselStyle}>
       <div style={captionStyle}>
-      <p style={{ color: "#07202B" }}>{testimonials[currentIndex].phrase}</p>
+      <p style={{ color: "#07202B", marginTop: "4.5rem" }}>{testimonials[currentIndex].phrase}</p>
         <div style={imageCaptionStyle}>
           {testimonials[currentIndex].name}
         </div>
