@@ -56,7 +56,7 @@ const Testimony = () => {
 
   const captionStyle = {
     position: 'absolute',
-    zIndex: 10,
+    zIndex: 8,
     padding: '5rem 8rem',
     color: '#07202B',
     textAlign: 'center',

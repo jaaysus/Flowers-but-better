@@ -73,7 +73,7 @@ const Panier = () => {
 
     return currentUser ? (
         <div className="container">
-            <h1>Panier</h1>
+            <h1>Cart</h1>
             {commandeSuccess ? (
                 <div className="success-container">
                     <img
@@ -183,9 +183,10 @@ const Panier = () => {
                     </button>
                 </div>
             ) : (
-                <p style={{ padding: '2rem', textAlign: 'center', color: '#07202B' }}>
-                    Panier est vide
-                </p>
+                <div className="empty-cart-message" >
+                    <p style={{ fontSize: '1.2rem', fontWeight: '500', color: '#07202B', textAlign: "center"}}>Your cart is empty!</p>
+                    <p style={{ marginTop: '0.5rem', color: '#555', textAlign: "center" }}>Start shopping flowers to see them here.</p>
+                </div>
             )}
         </div>
     ) : null;

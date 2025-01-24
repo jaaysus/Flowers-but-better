@@ -14,7 +14,7 @@ const navbarStyles = {
         alignItems: "center",
         transition: "top 0.5s ease",
         backgroundColor: "#07202B",
-        zIndex: '5',
+        zIndex: '9',
     },
     circle: {
         width: '60px',
@@ -27,7 +27,7 @@ const navbarStyles = {
         left: '50%',
         transform: 'translateX(-50%) rotate(0deg)',
         top: '50%',
-        zIndex: '5',
+        zIndex: '9',
         transition: 'top 0.5s ease, transform 2s ease',
     },
     link: {
@@ -79,14 +79,14 @@ const Navbar = () => {
                     }}
                 ></div>
 
-                <Link to="/" style={navbarStyles.link}>Accueil</Link>
+                <Link to="/" style={navbarStyles.link}>Home</Link>
 
                 {/* Show "Produits" and "Panier" only for normal users */}
                 {currentUser && !currentUser.isAdmin && (
                     <>
-                        <Link to="/produits" style={navbarStyles.link}>Produits</Link>
+                        <Link to="/produits" style={navbarStyles.link}>Flowers</Link>
                         <Link to="/panier" style={navbarStyles.link}>
-                            Panier
+                            Cart
                             {totalItems > 0 && (
                                 <span style={navbarStyles.badge}>{totalItems}</span>
                             )}
