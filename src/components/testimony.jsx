@@ -1,30 +1,55 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Testimony = () => {
   const testimonials = [
     {
       name: 'Sophia Loren',
       phrase: 'Floral Dreams brings timeless elegance to every arrangement. The vintage touches and sophisticated floral designs truly set this shop apart.',
+      image: 'https://img.freepik.com/free-photo/medium-shot-woman-posing-vintage-portrait_23-2150794796.jpg',
     },
     {
       name: 'Tom Cruise',
       phrase: 'As a customer who values quality and style, Floral Dreams never disappoints. Their floral arrangements are simply breathtaking, each one exuding a classic charm.',
+      image: 'https://i.ibb.co/yqMnq3r/image.png',
     },
     {
       name: 'John Doe',
       phrase: 'Floral Dreams is more than just a flower shop – it\'s an experience. From the moment you step in, the vintage ambiance and exquisite flower arrangements transport you to another time.',
+      image: 'https://img.freepik.com/free-photo/front-view-young-man-posing-vintage-portrait_23-2150795142.jpg',
     },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+    if (isTransitioning || isHovered) return;
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+      setIsTransitioning(false);
+    }, 1000); // Transition time
   };
 
   const handlePrev = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length);
+    if (isTransitioning || isHovered) return;
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length);
+      setIsTransitioning(false);
+    }, 1000); // Transition time
   };
+
+  useEffect(() => {
+    if (isHovered) return;
+
+    const intervalId = setInterval(() => {
+      handleNext();
+    }, 3000);
+
+    return () => clearInterval(intervalId);
+  }, [currentIndex, isHovered]);
 
   const carouselStyle = {
     background: 'linear-gradient(112deg,rgb(148, 116, 78) 50%, #a99175 50%)',
@@ -45,12 +70,17 @@ const Testimony = () => {
     fontStyle: 'italic',
     fontWeight: 'bold',
     lineHeight: '2rem',
+    transition: 'transform 1s ease-in-out', // Smooth transition
+    transform: isTransitioning ? 'translateX(-100%)' : 'translateX(0)',
   };
+
 
   const imageCaptionStyle = {
     fontStyle: 'normal',
     fontSize: '1rem',
     marginTop: '0.5rem',
+    transition: 'transform 1s ease-in-out',
+    transform: isTransitioning ? 'translateX(-100%)' : 'translateX(0)',
   };
 
   const buttonStyle = {
@@ -74,9 +104,13 @@ const Testimony = () => {
   };
 
   return (
-    <div style={carouselStyle}>
+    <div
+      style={carouselStyle}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <div style={captionStyle}>
-      <p style={{ color: "#07202B" }}>{testimonials[currentIndex].phrase}</p>
+        <p style={{ color: "#07202B" }}>{testimonials[currentIndex].phrase}</p>
         <div style={imageCaptionStyle}>
           {testimonials[currentIndex].name}
         </div>
