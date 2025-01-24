@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
 import { modifierQuantite, supprimerDuPanier, viderPanier, diminuerStock } from '../redux/actions';
 import '../styles/panier.css';
 
@@ -8,17 +8,42 @@ const Panier = () => {
     const panier = useSelector((state) => state.panier.panier);
     const produits = useSelector((state) => state.products.produits);
     const dispatch = useDispatch();
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
 
     const currentUser = useSelector((state) => state.users.currentUser);
+    const [fadingItems, setFadingItems] = useState([]);
     const total = panier.reduce((sum, item) => {
         const produit = produits.find((p) => p.id === item.id);
         return sum + produit.prix * item.quantite;
     }, 0);
 
     const handleCommande = () => {
-        dispatch(diminuerStock(panier));
-        dispatch(viderPanier());
+        panier.forEach((item, index) => {
+            setTimeout(() => {
+                setFadingItems((prev) => [...prev, item.id]);
+            }, index * 500);
+        });
+
+        setTimeout(() => {
+            dispatch(diminuerStock(panier));
+            dispatch(viderPanier());
+            setFadingItems([]);
+        }, panier.length * 500);
+    };
+
+    const handleModifierQuantite = (id, delta) => {
+        const item = panier.find((item) => item.id === id);
+        if (item && item.quantite + delta > 0) {
+            dispatch(modifierQuantite(id, item.quantite + delta));
+        }
+    };
+
+    const handleSupprimer = (id) => {
+        setFadingItems((prev) => [...prev, id]);
+        setTimeout(() => {
+            dispatch(supprimerDuPanier(id));
+            setFadingItems((prev) => prev.filter((itemId) => itemId !== id));
+        }, 500); // Allow the fade animation to complete
     };
 
     useEffect(() => {
@@ -28,25 +53,45 @@ const Panier = () => {
     }, [currentUser, navigate]);
 
     return currentUser ? (
-        <div className='container'>
+        <div className="container">
             <h1>Panier</h1>
             {panier.length > 0 ? (
                 <div className="Panier">
                     {panier.map((item) => {
                         const produit = produits.find((p) => p.id === item.id);
                         return (
-                            <div key={item.id} className="Panier-item">
-                                <span>{produit.nom}</span>
-                                <input
-                                    type="number"
-                                    value={item.quantite}
-                                    onChange={(e) =>
-                                        dispatch(modifierQuantite(item.id, Number(e.target.value)))
-                                    }
-                                />
+                            <div
+                                key={item.id}
+                                className={`Panier-item ${
+                                    fadingItems.includes(item.id) ? 'fade-out-right' : ''
+                                }`}
+                            >
+                                <div className="Panier-item-content">
+                                    <img
+                                        src={produit.img}
+                                        alt={produit.nom}
+                                        className="Panier-item-img"
+                                    />
+                                    <span className="Panier-item-name">{produit.nom}</span>
+                                </div>
+                                <div className="Panier-item-quantity">
+                                    <button
+                                        className="modifier-quantite"
+                                        onClick={() => handleModifierQuantite(item.id, -1)}
+                                    >
+                                        -
+                                    </button>
+                                    <span className="quantite-value">{item.quantite}</span>
+                                    <button
+                                        className="modifier-quantite"
+                                        onClick={() => handleModifierQuantite(item.id, 1)}
+                                    >
+                                        +
+                                    </button>
+                                </div>
                                 <button
                                     className="supprimer"
-                                    onClick={() => dispatch(supprimerDuPanier(item.id))}
+                                    onClick={() => handleSupprimer(item.id)}
                                 >
                                     Supprimer
                                 </button>
@@ -54,12 +99,12 @@ const Panier = () => {
                         );
                     })}
                     <div className="total">Total : {total} DH</div>
-                    <button className="commander" onClick={() => handleCommande()}>
+                    <button className="commander" onClick={handleCommande}>
                         Commander
                     </button>
                 </div>
             ) : (
-                <p style={{ padding: '2EM 40%' }}>Aucun produit ajouté au panier</p>
+                <p style={{ padding: '2EM 40%',color: '#07202B' }}>Aucun produit ajouté au panier</p>
             )}
         </div>
     ) : null;

@@ -1,16 +1,82 @@
+body {
+    background-color: #A99175; /* Page background color */
+    margin: 0;
+    font-family: Arial, sans-serif; /* Optional: Update font for better readability */
+}
+
 .Panier {
     padding: 1rem;
+    max-width: 800px; /* Shrinks the table width */
+    margin: 2rem auto; /* Centers the table with spacing from the top */
+    background-color: #C2B09A; /* Slightly lighter shade for the table */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
 .Panier-item {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr; /* Adjust column sizes */
     align-items: center;
     padding: 0.5rem;
     border-bottom: 1px solid #ddd;
+    background-color: #07202B;
+    color: white;
+    border-radius: 8px;
+    transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-.container{
+.Panier-item-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.Panier-item-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 1px solid #ddd;
+}
+
+.Panier-item-name {
+    word-break: break-word;
+}
+
+.Panier-item-quantity {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centers the quantity controls */
+    gap: 0.5rem;
+}
+
+.modifier-quantite {
+    background-color: #36cef4;
+    color: #d3c5b5;
+    border: none;
+    border-radius: 50%; /* Makes it a circle */
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.modifier-quantite:hover {
+    background-color: #e9d4a1;
+}
+
+.quantite-value {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+}
+
+.container {
     padding-top: 4rem;
 }
 
@@ -18,14 +84,39 @@
     font-size: 1.2rem;
     font-weight: bold;
     text-align: right;
+    color: #333;
 }
 
-.commander, .supprimer {
-    box-shadow: none; 
-
+.commander,
+.supprimer {
+    box-shadow: none;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-size: 14px;
     font-weight: bold;
+    padding: 0.5rem 1rem;
+}
+
+.commander {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.commander:hover {
+    background-color: #45a049;
+}
+
+.supprimer {
+    background-color: #f44336;
+    color: white;
+}
+
+.supprimer:hover {
+    background-color: #e53935;
+}
+
+.fade-out-right {
+    opacity: 0;
+    transform: translateX(100%);
 }
