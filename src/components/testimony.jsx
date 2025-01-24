@@ -21,10 +21,9 @@ const Testimony = () => {
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
 
   const handleNext = () => {
-    if (isTransitioning || isHovered) return;
+    if (isTransitioning) return;
     setIsTransitioning(true);
     setTimeout(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
@@ -33,7 +32,7 @@ const Testimony = () => {
   };
 
   const handlePrev = () => {
-    if (isTransitioning || isHovered) return;
+    if (isTransitioning) return;
     setIsTransitioning(true);
     setTimeout(() => {
       setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length);
@@ -42,14 +41,12 @@ const Testimony = () => {
   };
 
   useEffect(() => {
-    if (isHovered) return;
-
     const intervalId = setInterval(() => {
       handleNext();
     }, 3000);
 
     return () => clearInterval(intervalId);
-  }, [currentIndex, isHovered]);
+  }, [currentIndex]);
 
   const carouselStyle = {
     background: 'linear-gradient(112deg,rgb(148, 116, 78) 50%, #a99175 50%)',
@@ -70,10 +67,9 @@ const Testimony = () => {
     fontStyle: 'italic',
     fontWeight: 'bold',
     lineHeight: '2rem',
-    transition: 'transform 1s ease-in-out', // Smooth transition
+    transition: 'transform 1s ease-in-out',
     transform: isTransitioning ? 'translateX(-100%)' : 'translateX(0)',
   };
-
 
   const imageCaptionStyle = {
     fontStyle: 'normal',
@@ -104,11 +100,7 @@ const Testimony = () => {
   };
 
   return (
-    <div
-      style={carouselStyle}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
+    <div style={carouselStyle}>
       <div style={captionStyle}>
         <p style={{ color: "#07202B" }}>{testimonials[currentIndex].phrase}</p>
         <div style={imageCaptionStyle}>
