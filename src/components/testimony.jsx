@@ -1,20 +1,7 @@
 import React, { useState, useEffect } from 'react';
-
+import { useSelector } from 'react-redux';
 const Testimony = () => {
-  const testimonials = [
-    {
-      name: 'Sophia Loren',
-      phrase: 'Floral Dreams brings timeless elegance to every arrangement. The vintage touches and sophisticated floral designs truly set this shop apart.',
-    },
-    {
-      name: 'Tom Cruise',
-      phrase: 'As a customer who values quality and style, Floral Dreams never disappoints. Their floral arrangements are simply breathtaking, each one exuding a classic charm.',
-    },
-    {
-      name: 'John Doe',
-      phrase: 'Floral Dreams is more than just a flower shop – it\'s an experience. From the moment you step in, the vintage ambiance and exquisite flower arrangements transport you to another time.',
-    },
-  ];
+  const testimonials = useSelector((state) => state.reviews.reviews);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -53,20 +40,25 @@ const Testimony = () => {
     position: 'relative',
     overflow: 'hidden',
   };
-
-  const captionStyle = {
-    position: 'absolute',
-    zIndex: 8,
-    padding: '5rem 8rem',
-    color: '#07202B',
-    textAlign: 'center',
-    fontSize: '1.2rem',
-    fontStyle: 'italic',
-    fontWeight: 'bold',
-    lineHeight: '2rem',
-    transition: 'transform 1s ease-in-out',
-    transform: isTransitioning ? 'translateX(-100%)' : 'translateX(0)',
-  };
+/*774x424 */
+const captionStyle = {
+  position: 'absolute',
+  zIndex: 8,
+  height: '450px',
+  width: '900px',  
+  color: '#07202B',
+  textAlign: 'center',
+  fontSize: '1.2rem',
+  fontStyle: 'italic',
+  fontWeight: 'bold',
+  lineHeight: '2rem',
+  transition: 'transform 1s ease-in-out',
+  transform: isTransitioning ? 'translateX(-100%)' : 'translateX(0)',
+  display: 'flex', 
+  flexDirection: 'column',
+  justifyContent: 'center', 
+  alignItems: 'center', 
+};
 
   const imageCaptionStyle = {
     fontStyle: 'normal',
@@ -97,9 +89,9 @@ const Testimony = () => {
   return (
     <div style={carouselStyle}>
       <div style={captionStyle}>
-      <p style={{ color: "#07202B", marginTop: "4.5rem" }}>{testimonials[currentIndex].phrase}</p>
+      <p style={{ color: "#07202B", marginTop: "4.5rem" }}>{testimonials[currentIndex]?.phrase}</p>
         <div style={imageCaptionStyle}>
-          {testimonials[currentIndex].name}
+        {testimonials[currentIndex]?.name}
         </div>
       </div>
       <button
