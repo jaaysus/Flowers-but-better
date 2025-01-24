@@ -3,6 +3,7 @@ import { Link} from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import FlowersGallery from './FlowersGallery';
 import Hero from './Hero';
+import Footer from './Footer';
 import Testimony from './testimony';
 import "../styles/home.css";
 
@@ -13,7 +14,7 @@ const NormalUserHome = () => {
   useEffect(() => {
     document.body.style.backgroundColor = '#a99175';
     return () => {
-      document.body.style.backgroundColor = ''; // Reset when the component is unmounted
+      document.body.style.backgroundColor = '';
     };
   }, []);
 
@@ -35,6 +36,10 @@ const NormalUserHome = () => {
       <section className="reviews">
         <Testimony />
       </section>
+
+
+      <Footer />
+
     </>
   );
 };

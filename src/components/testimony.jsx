@@ -46,7 +46,7 @@ const Testimony = () => {
   }, [currentIndex]);
 
   const carouselStyle = {
-    background: 'linear-gradient(112deg,rgb(148, 116, 78) 50%, #a99175 50%)',
+    background: 'linear-gradient(112deg,#94744e 50%, #a99175 50%)',
     maxWidth: '900px',
     margin: 'auto',
     height: '450px',
