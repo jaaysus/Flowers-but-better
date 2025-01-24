@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #131313;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.container .card {
+  position: relative;
+  width: 320px;
+  background: #232323;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: 0.3s ease-in-out;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.container .card:hover {
+  transform: translateY(-10px);
+}
+
+.container .card .imgBx {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.container .card .imgBx img {
+  max-width: 100%;
+  height: auto;
+  transition: 0.5s;
+}
+
+.container .card:hover .imgBx img {
+  transform: scale(1.1);
+}
+
+.container .card .contentBx {
+  padding: 20px;
+  text-align: center;
+  background: #07202B;
+}
+
+.container .card .contentBx h2 {
+  font-size: 1.5em;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.container .card .contentBx .size,
+.container .card .contentBx .price,
+.container .card .contentBx .quantity-control {
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .card .contentBx .size h3,
+.container .card .contentBx .price h3,
+.container .card .contentBx .quantity-control h3 {
+  font-size: 14px;
+  color: #fff;
+  margin-right: 10px;
+}
+
+.container .card .contentBx .size span {
+  font-size: 14px;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+
+.container .card .contentBx .price span{
+    font-size: 25px;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.container .card .contentBx .quantity-control input {
+  width: 50px;
+  padding: 5px;
+  border: 1px solid #a99175;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.container .card .contentBx button {
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+
+.quantity-control input {
+    width: 60px;
+    text-align: center;
+    border: none;
+    border-radius: 4px;
+    padding: 5px;
+    background-color: #ffe4c5;
+    color: #07202B;
+
+}
+
+
+
+.add-to-Panier {
+    box-shadow: none; 
+    width: 10rem; 
+    max-width: 100%; 
+    margin: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    display: inline-block; 
+}
+

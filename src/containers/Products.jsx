@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { ajouterAuPanier, modifierQuantite } from '../redux/actions';
+import Card from '../components/Card';
 import '../styles/Products.css';
 
 const Products = () => {
@@ -97,31 +98,12 @@ const Products = () => {
             <div className="products-list">
                 {ProduitsFiltrees.length > 0 ? (
                     ProduitsFiltrees.map((produit) => (
-                        <div key={produit.id} className="product-card">
-                            <img src={produit.img} alt={produit.nom} className="product-image" />
-                            <h3>{produit.nom}</h3>
-                            <p>Price: {produit.prix} DH</p>
-                            <p>Stock: {produit.stock}</p>
-                            <div className="quantity-control">
-                                <label>Qty:</label>
-                                <input
-                                    type="number"
-                                    min="1"
-                                    defaultValue="1"
-                                    id={`quantity-${produit.id}`}
-                                />
-                            </div>
-                            <button
-                                onClick={() => {
-                                    const quantite = parseInt(document.getElementById(`quantity-${produit.id}`).value, 10);
-                                    handleAddToPanier(produit, quantite);
-                                }}
-                                className="add-to-Panier"
-                                disabled={isButtonDisabled(produit)}
-                            >
-                                Add to Cart
-                            </button>
-                        </div>
+                        <Card
+                            key={produit.id}
+                            produit={produit}
+                            handleAddToPanier={handleAddToPanier}
+                            isButtonDisabled={isButtonDisabled}
+                        />
                     ))
                 ) : (
                     <p>No products available.</p>
@@ -130,5 +112,6 @@ const Products = () => {
         </div>
     ) : null;
 };
+
 
 export default Products;
