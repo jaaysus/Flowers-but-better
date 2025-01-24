@@ -175,14 +175,14 @@ const Panier = () => {
                                     className="supprimer"
                                     onClick={() => handleSupprimer(item.id)}
                                 >
-                                    Supprimer
+                                    Remove
                                 </button>
                             </div>
                         );
                     })}
                     <div className="total">Total : {total} DH</div>
                     <button className="commander" onClick={handleCommande}>
-                        Commander
+                        Place Order
                     </button>
                 </div>
             ) : (
