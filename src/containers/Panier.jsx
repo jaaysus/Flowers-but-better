@@ -12,6 +12,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { faCopy } from '@fortawesome/free-solid-svg-icons';
 import '../styles/panier.css';
+import PanierFlower from '../components/panierflower';
 
 const Panier = () => {
     const panier = useSelector((state) => state.panier.panier);
@@ -188,6 +189,7 @@ const Panier = () => {
                 <div className="empty-cart-message" >
                     <p style={{ fontSize: '1.2rem', fontWeight: '500', color: '#07202B', textAlign: "center"}}>Your cart is empty!</p>
                     <p style={{ marginTop: '0.5rem', color: '#555', textAlign: "center" }}>Start shopping flowers to see them here.</p>
+                    <PanierFlower />
                 </div>
             )}
         </div>

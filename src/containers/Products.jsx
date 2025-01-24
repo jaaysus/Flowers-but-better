@@ -68,26 +68,24 @@ const Products = () => {
             <h1>Flowers</h1>
             <div className="filter-sort-section">
                 <div>
-                    <label htmlFor="sort">Trier par:</label>
-                    <select
-                        id="sort"
+                    <label htmlFor="sort">Sort by:</label>
+                    <select id="sort"
                         value={sortOption}
-                        onChange={(e) => setSortOption(e.target.value)}
-                    >
-                        <option value="default">Par défaut</option>
-                        <option value="ascending">Prix croissant</option>
-                        <option value="descending">Prix décroissant</option>
+                        onChange={(e) => setSortOption(e.target.value)} >
+                        <option value="default">Default</option>
+                        <option value="ascending">Price : Ascending</option>
+                        <option value="descending">Price : Desceding</option>
                     </select>
                 </div>
                 <div>
-                    <label>Filtrer par prix entre:</label>
+                    <label>Fliter Price Between :</label>
                     <input
                         type="number"
                         placeholder="Min"
                         value={priceRange.min}
                         onChange={(e) => setPriceRange({ ...priceRange, min: e.target.value })}
                     />
-                    et
+                    and
                     <input
                         type="number"
                         placeholder="Max"
@@ -102,10 +100,10 @@ const Products = () => {
                         <div key={produit.id} className="product-card">
                             <img src={produit.img} alt={produit.nom} className="product-image" />
                             <h3>{produit.nom}</h3>
-                            <p>Prix: {produit.prix} DH</p>
+                            <p>Price: {produit.prix} DH</p>
                             <p>Stock: {produit.stock}</p>
                             <div className="quantity-control">
-                                <label>Qte:</label>
+                                <label>Qty:</label>
                                 <input
                                     type="number"
                                     min="1"
@@ -121,12 +119,12 @@ const Products = () => {
                                 className="add-to-Panier"
                                 disabled={isButtonDisabled(produit)}
                             >
-                                Ajouter au panier
+                                Add to Cart
                             </button>
                         </div>
                     ))
                 ) : (
-                    <p>Aucun produit disponible.</p>
+                    <p>No products available.</p>
                 )}
             </div>
         </div>
