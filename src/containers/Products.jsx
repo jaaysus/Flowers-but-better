@@ -85,7 +85,7 @@ const Products = () => {
                         value={priceRange.min}
                         onChange={(e) => setPriceRange({ ...priceRange, min: e.target.value })}
                     />
-                    and
+                    <label>&</label>
                     <input
                         type="number"
                         placeholder="Max"
