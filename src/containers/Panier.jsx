@@ -6,6 +6,7 @@ import {
     supprimerDuPanier,
     viderPanier,
     diminuerStock,
+    genereTrackingNumber
 } from '../redux/actions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
@@ -23,7 +24,7 @@ const Panier = () => {
     const [commandeSuccess, setCommandeSuccess] = useState(false);
     const [copied, setCopied] = useState(false);
 
-    const trackingNumber = "ABC123456789XYZ"; // Example tracking number
+    const trackingNumber = useSelector((state) => state.panier.trackingNumber);  // Example tracking number
     const total = panier.reduce((sum, item) => {
         const produit = produits.find((p) => p.id === item.id);
         return sum + produit.prix * item.quantite;
@@ -41,6 +42,7 @@ const Panier = () => {
             dispatch(viderPanier());
             setFadingItems([]);
             setCommandeSuccess(true);
+            dispatch(genereTrackingNumber());
         }, panier.length * 500);
     };
 

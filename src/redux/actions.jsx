@@ -90,3 +90,6 @@ export const updateCard = (index, data) => ({
     type: 'UPDATE_CARD',
     payload: { index, data },
   });
+export const genereTrackingNumber = () => ({
+    type: 'GENERE_TRACKING_NUMBER',
+});
