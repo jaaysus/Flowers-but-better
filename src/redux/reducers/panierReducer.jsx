@@ -1,11 +1,19 @@
 const initialState = {
     panier: [],
-    trackingNumbers: [
-        "ABC123456789XYZ", "DEF987654321XYZ", "GHI456789123XYZ", "JKL345678912XYZ",
-        "MNO234567890XYZ", "PQR567890123XYZ", "STU678901234XYZ", "VWX890123456XYZ",
-        "YZA123456789XYZ", "BCD234567890XYZ"
-    ],
-    trackingNumber: "", // Add the tracking number field
+    orderInfo: {
+        trackingNumbers: [], // Store an array of tracking numbers
+        userId: null,        // Store the current user ID
+    },
+};
+
+const generateTrackingNumber = () => {
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    let trackingNumber = '';
+    for (let i = 0; i < 12; i++) {
+        const randomIndex = Math.floor(Math.random() * characters.length);
+        trackingNumber += characters[randomIndex];
+    }
+    return trackingNumber;
 };
 
 const panierReducer = (state = initialState, action) => {
@@ -35,10 +43,23 @@ const panierReducer = (state = initialState, action) => {
         case 'SUPPRIMER_DU_PANIER':
             return { ...state, panier: state.panier.filter((item) => item.id !== action.payload.id) };
         case 'VIDER_PANIER':
-            return { ...state, panier: [], trackingNumber: "" };// reset tracking number too
+            return { ...state, panier: [], orderInfo: { ...state.orderInfo } };
         case 'GENERE_TRACKING_NUMBER':
-            const randomTrackingNumber = state.trackingNumbers[Math.floor(Math.random() * state.trackingNumbers.length)];
-            return { ...state, trackingNumber: randomTrackingNumber };
+            return {
+                ...state,
+                orderInfo: {
+                    ...state.orderInfo,
+                    trackingNumbers: [...state.orderInfo.trackingNumbers, generateTrackingNumber()], // Add new tracking number to the array
+                },
+            };
+        case 'SET_USER_ID':
+            return {
+                ...state,
+                orderInfo: {
+                    ...state.orderInfo,
+                    userId: action.payload,
+                },
+            };
         default:
             return state;
     }

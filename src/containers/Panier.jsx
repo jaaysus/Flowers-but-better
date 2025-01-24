@@ -6,29 +6,29 @@ import {
     supprimerDuPanier,
     viderPanier,
     diminuerStock,
-    genereTrackingNumber
+    genereTrackingNumber,
 } from '../redux/actions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
-import { faCopy } from '@fortawesome/free-solid-svg-icons';
+import { faCheckCircle, faCopy } from '@fortawesome/free-solid-svg-icons';
 import '../styles/panier.css';
 import PanierFlower from '../components/panierflower';
 
 const Panier = () => {
     const panier = useSelector((state) => state.panier.panier);
     const produits = useSelector((state) => state.products.produits);
+    const trackingNumbers = useSelector((state) => state.panier.orderInfo.trackingNumbers); // Updated to use trackingNumbers array
+    const currentUser = useSelector((state) => state.users.currentUser);
+
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const currentUser = useSelector((state) => state.users.currentUser);
     const [fadingItems, setFadingItems] = useState([]);
     const [commandeSuccess, setCommandeSuccess] = useState(false);
     const [copied, setCopied] = useState(false);
 
-    const trackingNumber = useSelector((state) => state.panier.trackingNumber);  // Example tracking number
     const total = panier.reduce((sum, item) => {
         const produit = produits.find((p) => p.id === item.id);
-        return sum + produit.prix * item.quantite;
+        return sum + (produit?.prix || 0) * item.quantite;
     }, 0);
 
     const handleCommande = () => {
@@ -39,11 +39,13 @@ const Panier = () => {
         });
 
         setTimeout(() => {
-            dispatch(diminuerStock(panier));
-            dispatch(viderPanier());
-            setFadingItems([]);
-            setCommandeSuccess(true);
-            dispatch(genereTrackingNumber());
+            if (currentUser) {
+                dispatch(diminuerStock(panier));
+                dispatch(viderPanier());
+                setFadingItems([]);
+                setCommandeSuccess(true);
+                dispatch(genereTrackingNumber(currentUser.id)); // Pass `currentUser.id` to generate tracking number
+            }
         }, panier.length * 500);
     };
 
@@ -59,11 +61,12 @@ const Panier = () => {
         setTimeout(() => {
             dispatch(supprimerDuPanier(id));
             setFadingItems((prev) => prev.filter((itemId) => itemId !== id));
-        }, 500); // Allow the fade animation to complete
+        }, 500);
     };
 
     const handleCopy = () => {
-        navigator.clipboard.writeText(trackingNumber);
+        const latestTrackingNumber = trackingNumbers[trackingNumbers.length - 1]; // Get the latest tracking number
+        navigator.clipboard.writeText(latestTrackingNumber);
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
     };
@@ -89,10 +92,10 @@ const Panier = () => {
                         Your Flowers are on the way, use the Tracking number below to stay in touch
                     </p>
                     <div className="tracking-section">
-                         <div className="tracking-number">
-                            <span>{trackingNumber}</span>
+                        <div className="tracking-number">
+                            <span>{trackingNumbers[trackingNumbers.length - 1]}</span> {/* Data access getting more complicated but alright */}
                             <FontAwesomeIcon
-                                icon={copied ? faCheckCircle : faCopy} // Conditionally render the success icon or copy icon
+                                icon={copied ? faCheckCircle : faCopy}
                                 className="copy-icon"
                                 onClick={handleCopy}
                             />
@@ -101,33 +104,21 @@ const Panier = () => {
                             You can use one of these services:
                         </p>
                         <div className="tracking-icons">
-                            <a
-                                href="https://www.dhl.com"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
+                            <a href="https://www.dhl.com" target="_blank" rel="noopener noreferrer">
                                 <img
                                     src="https://static.cdnlogo.com/logos/d/60/dhl-thumb.png"
                                     alt="DHL"
                                     className="tracking-icon"
                                 />
                             </a>
-                            <a
-                                href="https://www.fedex.com"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
+                            <a href="https://www.fedex.com" target="_blank" rel="noopener noreferrer">
                                 <img
                                     src="https://logocreator.io/wp-content/uploads/2023/11/fedex-logo-free-download-free-vector-1.jpg"
                                     alt="FedEx"
                                     className="tracking-icon"
                                 />
                             </a>
-                            <a
-                                href="https://www.ups.com"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
+                            <a href="https://www.ups.com" target="_blank" rel="noopener noreferrer">
                                 <img
                                     src="https://cdn.zenkraft.com/static/images/carriers/ups.png"
                                     alt="UPS"
@@ -144,17 +135,15 @@ const Panier = () => {
                         return (
                             <div
                                 key={item.id}
-                                className={`Panier-item ${
-                                    fadingItems.includes(item.id) ? 'fade-out-right' : ''
-                                }`}
+                                className={`Panier-item ${fadingItems.includes(item.id) ? 'fade-out-right' : ''}`}
                             >
                                 <div className="Panier-item-content">
                                     <img
-                                        src={produit.img}
-                                        alt={produit.nom}
+                                        src={produit?.img || ''}
+                                        alt={produit?.nom || 'Product'}
                                         className="Panier-item-img"
                                     />
-                                    <span className="Panier-item-name">{produit.nom}</span>
+                                    <span className="Panier-item-name">{produit?.nom || 'Unknown'}</span>
                                 </div>
                                 <div className="Panier-item-quantity">
                                     <button
@@ -171,10 +160,7 @@ const Panier = () => {
                                         +
                                     </button>
                                 </div>
-                                <button
-                                    className="supprimer"
-                                    onClick={() => handleSupprimer(item.id)}
-                                >
+                                <button className="supprimer" onClick={() => handleSupprimer(item.id)}>
                                     Remove
                                 </button>
                             </div>
@@ -186,9 +172,22 @@ const Panier = () => {
                     </button>
                 </div>
             ) : (
-                <div className="empty-cart-message" >
-                    <p style={{ fontSize: '1.2rem', fontWeight: '500', color: '#07202B', textAlign: "center"}}>Your cart is empty!</p>
-                    <p style={{ marginTop: '0.5rem', color: '#555', textAlign: "center" }}>Start shopping flowers to see them here.</p>
+                <div className="empty-cart-message">
+                    <p
+                        style={{
+                            fontSize: '1.2rem',
+                            fontWeight: '500',
+                            color: '#07202B',
+                            textAlign: 'center',
+                        }}
+                    >
+                        Your cart is empty!
+                    </p>
+                    <p
+                        style={{ marginTop: '0.5rem', color: '#555', textAlign: 'center' }}
+                    >
+                        Start shopping flowers to see them here.
+                    </p>
                     <PanierFlower />
                 </div>
             )}
