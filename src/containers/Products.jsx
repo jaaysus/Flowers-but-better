@@ -4,14 +4,12 @@ import { useNavigate } from 'react-router-dom';
 import { ajouterAuPanier, modifierQuantite } from '../redux/actions';
 import '../styles/Products.css';
 
-
 const Products = () => {
     const produits = useSelector((state) => state.products.produits);
     const panier = useSelector((state) => state.panier.panier);
     const dispatch = useDispatch();
     const navigate = useNavigate(); 
     const currentUser = useSelector((state) => state.users.currentUser); 
-
 
     const [sortOption, setSortOption] = useState('default');
     const [priceRange, setPriceRange] = useState({ min: '', max: '' });
@@ -55,26 +53,27 @@ const Products = () => {
     };
 
     useEffect(() => {
-            if (!currentUser) {
-                navigate('/auth');
-            }
+        if (!currentUser) {
+            navigate('/auth');
+        }
 
-            document.body.style.backgroundColor = ' #07202B';
-                return () => {
-                  document.body.style.backgroundColor = ''; // Reset when the component is unmounted
-                };
-              
-        }, [currentUser, navigate]);
-    
+        document.body.style.backgroundColor = '#07202B';
+        return () => {
+            document.body.style.backgroundColor = ''; // Reset when unmounted
+        };
+    }, [currentUser, navigate]);
+
     return currentUser ? (
         <div className="products-page">
             <h1>Flowers</h1>
             <div className="filter-sort-section">
                 <div>
                     <label htmlFor="sort">Trier par:</label>
-                    <select id="sort"
+                    <select
+                        id="sort"
                         value={sortOption}
-                        onChange={(e) => setSortOption(e.target.value)} >
+                        onChange={(e) => setSortOption(e.target.value)}
+                    >
                         <option value="default">Par défaut</option>
                         <option value="ascending">Prix croissant</option>
                         <option value="descending">Prix décroissant</option>
@@ -120,10 +119,6 @@ const Products = () => {
                                     handleAddToPanier(produit, quantite);
                                 }}
                                 className="add-to-Panier"
-                                style={{
-                                    backgroundColor: isButtonDisabled(produit) ? 'grey' : '',
-                                    cursor: isButtonDisabled(produit) ? 'not-allowed' : 'pointer',
-                                }}
                                 disabled={isButtonDisabled(produit)}
                             >
                                 Ajouter au panier
@@ -135,8 +130,7 @@ const Products = () => {
                 )}
             </div>
         </div>
-    ): null;
+    ) : null;
 };
-
 
 export default Products;
