@@ -13,7 +13,7 @@ export default function Calendar() {
     "January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
   ];
-  
+
   const daysInMonth = new Date(
     currentDate.getFullYear(),
     currentDate.getMonth() + 1,
@@ -110,6 +110,7 @@ export default function Calendar() {
 
         {/* Back Side */}
         <div className="back">
+        <input placeholder="What's the event?"></input>
           <div className="info">
             <div className="date">
               <p className="info-date">
@@ -122,9 +123,17 @@ export default function Calendar() {
               </p>
             </div>
           </div>
-          <button className="dismiss" onClick={handleBackButton}>
-            Back
+          
+
+          <div className="actions">
+            <button className="save">
+              Save 
+            </button>
+            <button className="dismiss" onClick={handleBackButton}>
+            Back 
           </button>
+            
+          </div>
         </div>
       </div>
     </div>

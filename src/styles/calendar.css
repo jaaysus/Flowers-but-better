@@ -40,6 +40,7 @@
   
   .front {
     padding: 4rem;
+    backface-visibility: hidden; 
 
     background: #07202B;
     transform: rotateY(0deg); /* Default orientation */
@@ -48,7 +49,7 @@
   .back {
     background: #ffecb3;
     transform: rotateY(180deg); /* Flips the back */
-    backface-visibility: hidden; /* Ensure the back side behaves properly */
+    backface-visibility: hidden; 
     width: 100%;
 
   }
@@ -177,7 +178,7 @@
   transform: rotateY(180deg);
 }
 
-  
+
 
 .controls button {
   position: absolute;

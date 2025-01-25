@@ -1,5 +1,5 @@
 const initialState = {
-  currentDate: new Date(),
+  currentDate: new Date(), 
   selectedDate: null,
 };
 
@@ -8,8 +8,7 @@ function calendarReducer(state = initialState, action) {
     case "SELECT_DATE":
       return {
         ...state,
-        selectedDate: action.payload,
-      };
+        selectedDate: action.payload,      };
     case "CHANGE_MONTH":
       const newDate = new Date(state.currentDate);
       newDate.setMonth(state.currentDate.getMonth() + action.payload);
@@ -17,6 +16,7 @@ function calendarReducer(state = initialState, action) {
         ...state,
         currentDate: newDate,
       };
+      
     default:
       return state;
   }

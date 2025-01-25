@@ -32,7 +32,7 @@ export default function Account() {
             
             <section className="personal-info">
                 <h2>Personal Info <span className="edit-link">(Edit)</span></h2>
-                <div><strong>Full Name:</strong> {currentUser.fullName}</div>
+                {/* <div><strong>Full Name:</strong> {currentUser.fullName}</div> */}
                 <div><strong>Username:</strong> {currentUser.username}</div>
                 <div><strong>Email:</strong> {currentUser.email}</div>
             </section>

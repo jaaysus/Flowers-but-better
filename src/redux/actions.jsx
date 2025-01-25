@@ -98,11 +98,15 @@ export const updateCard = (index, data) => ({
 
 
 export const selectDate = (date) => ({
-    type: 'SELECT_DATE',
-    payload: date,
+    type: "SELECT_DATE",
+    payload: date, 
   });
   
   export const changeMonth = (offset) => ({
     type: 'CHANGE_MONTH',
     payload: offset,
   });
+
+
+
+  
