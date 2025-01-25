@@ -99,7 +99,7 @@ export const updateCard = (index, data) => ({
 
 export const selectDate = (date) => ({
     type: "SELECT_DATE",
-    payload: date, 
+    payload: date ? date.toISOString() : null,
   });
   
   export const changeMonth = (offset) => ({

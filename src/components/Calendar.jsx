@@ -5,7 +5,10 @@ import "../styles/Calendar.css";
 
 export default function Calendar() {
   const dispatch = useDispatch();
-  const { currentDate, selectedDate } = useSelector((state) => state.calendar);
+  const currentDate = new Date(useSelector((state) => state.calendar.currentDate));
+  const selectedDate = useSelector((state) =>
+    state.calendar.selectedDate ? new Date(state.calendar.selectedDate) : null
+  );
 
   const [isFlipped, setIsFlipped] = useState(false);
 
@@ -95,7 +98,13 @@ export default function Calendar() {
                     <span
                       key={i}
                       className={`day ${
-                        day === selectedDate?.getDate() ? "active" : ""
+                        day &&
+                        selectedDate &&
+                        day === selectedDate.getDate() &&
+                        currentDate.getMonth() === selectedDate.getMonth() &&
+                        currentDate.getFullYear() === selectedDate.getFullYear()
+                          ? "active"
+                          : ""
                       }`}
                       onClick={() => handleDateClick(day)}
                     >

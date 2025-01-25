@@ -1,5 +1,5 @@
 const initialState = {
-  currentDate: new Date(), 
+  currentDate: new Date().toISOString(), // Serialize to ISO string
   selectedDate: null,
 };
 
@@ -8,19 +8,18 @@ function calendarReducer(state = initialState, action) {
     case "SELECT_DATE":
       return {
         ...state,
-        selectedDate: action.payload,      };
+        selectedDate: action.payload, // Expecting ISO string or null
+      };
     case "CHANGE_MONTH":
-      const newDate = new Date(state.currentDate);
-      newDate.setMonth(state.currentDate.getMonth() + action.payload);
+      const currentDate = new Date(state.currentDate); // Deserialize
+      currentDate.setMonth(currentDate.getMonth() + action.payload);
       return {
         ...state,
-        currentDate: newDate,
+        currentDate: currentDate.toISOString(),
       };
-      
     default:
       return state;
   }
 }
-
 
 export default calendarReducer;
