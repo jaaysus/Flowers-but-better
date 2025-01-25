@@ -6,8 +6,9 @@ import { useNavigate } from 'react-router-dom';
 export default function Account() {
     const navigate = useNavigate(); 
     const currentUser = useSelector((state) => state.users.currentUser); 
-    const trackingNumbers = useSelector((state) => state.panier.orderInfo.trackingNumbers); // Use trackingNumbers array
-    console.log(trackingNumbers)
+    const orderInfo = useSelector((state) => state.panier.orderInfo);
+    console.log(orderInfo);
+    
     useEffect(() => {
         if (currentUser) {
             if (currentUser.isAdmin) {
@@ -25,25 +26,30 @@ export default function Account() {
             <h1>Account</h1>
             <section>
                 Personal infos + edit
-                <br />
-                {currentUser.username}
-                <br />
-                {currentUser.email}
+                
             </section>
             <section>
-            {trackingNumbers && trackingNumbers.length > 0 ? (
-    <div>
-        <h2>Tracking Numbers:</h2>
-        <ul>
-            {trackingNumbers.map((trackingNumber, index) => (
-                <li key={index}>{trackingNumber}</li>
-            ))}
-        </ul>
-    </div>
-) : (
-    "No orders"
-)}
-
+                {orderInfo.items && orderInfo.items.length > 0 ? (
+                    <div>
+                        <h2>Order History:</h2>
+                        <ul>
+                            {orderInfo.items.map((order, index) => (
+                                <li key={index}>
+                                    <strong>Tracking Number:</strong> {order.trackingNumber}
+                                    <ul>
+                                        {order.items.map((item, itemIndex) => (
+                                            <li key={itemIndex}>
+                                                {item.nom} - Quantity: {item.quantite} - Price: {item.prix}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                ) : (
+                    "No orders"
+                )}
             </section>
             <section>
                 Calendar and option to book flowers for an event ig
@@ -51,3 +57,4 @@ export default function Account() {
         </div>
     );
 }
+

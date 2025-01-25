@@ -1,9 +1,12 @@
 const initialState = {
     panier: [],
     orderInfo: {
-        trackingNumbers: [], // Store an array of tracking numbers
-        userId: null,        // Store the current user ID
+        trackingNumbers: [],
+        items: [
+            
+        ],
     },
+    
 };
 
 const generateTrackingNumber = () => {
@@ -43,15 +46,23 @@ const panierReducer = (state = initialState, action) => {
         case 'SUPPRIMER_DU_PANIER':
             return { ...state, panier: state.panier.filter((item) => item.id !== action.payload.id) };
         case 'VIDER_PANIER':
-            return { ...state, panier: [], orderInfo: { ...state.orderInfo } };
-        case 'GENERE_TRACKING_NUMBER':
-            return {
-                ...state,
-                orderInfo: {
-                    ...state.orderInfo,
-                    trackingNumbers: [...state.orderInfo.trackingNumbers, generateTrackingNumber()], // Add new tracking number to the array
-                },
-            };
+            const newTrackingNumber = generateTrackingNumber();
+                return {
+                    ...state,
+                    orderInfo: {
+                        ...state.orderInfo,
+                        trackingNumbers: [...state.orderInfo.trackingNumbers, newTrackingNumber],
+                        items: [
+                            ...state.orderInfo.items,
+                            {
+                                trackingNumber: newTrackingNumber,
+                                items: [...state.panier], // Add the current panier items to the order
+                            },
+                        ],
+                    },
+                    panier: [], // Clear the panier after placing the order
+                };
+            
         case 'SET_USER_ID':
             return {
                 ...state,
