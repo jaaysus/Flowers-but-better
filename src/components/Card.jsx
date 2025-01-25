@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../styles/card.css'; 
 
-const Card = ({ produit, handleAddToPanier, isButtonDisabled }) => {
+const Card = ({ produit, handleAddToPanier, isButtonDisabled, cardbutton }) => {
     return (
+    
         <div className="container">
             <div className="card">
                 <div className="imgBx">
@@ -38,7 +39,7 @@ const Card = ({ produit, handleAddToPanier, isButtonDisabled }) => {
                         disabled={isButtonDisabled(produit)}
                         style={{ padding: '10px 20px', borderRadius: '4px', cursor: 'pointer', marginTop: '10px' }}
                     >
-                        Add to Cart
+                        {cardbutton}
                     </button>
                 </div>
             </div>
