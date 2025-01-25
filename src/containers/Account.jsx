@@ -66,7 +66,6 @@ export default function Account() {
 
             <section className="calendar-booking">
                 <h2>Calendar and Booking</h2>
-                <p>Option to book flowers for an event.</p>
                 <Calendar />
             </section>
         </div>
