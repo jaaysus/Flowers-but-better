@@ -6,12 +6,14 @@ import Accueil from './containers/Accueil';
 import Products from './containers/Products';
 import Panier from './containers/Panier';
 import AdminHome from './components/AdminHome';
-import AdminStock from './components/AdminStock';
-import AdminCommands from './components/AdminCommands';
-import AdminUsers from './components/AdminUsers';
+import AdminStock from './containers/AdminStock';
+import AdminCommands from './containers/AdminCommands';
+import AdminUsers from './containers/AdminUsers';
 import NormalUserHome from './components/NormalHome';
 import CreateAccount from './components/CreateAccount';
 import Account from './containers/Account';
+import Footer from './components/Footer';
+
 
 
 const App = () => {
@@ -32,6 +34,8 @@ const App = () => {
                 <Route path="/acc" element={<Account />} />
 
             </Routes>
+            <Footer />
+
         </Router>
     );
 };
