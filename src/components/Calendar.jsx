@@ -65,7 +65,7 @@ export default function Calendar() {
         {/* Front Side */}
         <div className="front">
           <div className="current-date">
-            <h1>{months[currentDate.getMonth()]}</h1>
+            <h1>{months[currentDate.getMonth()]} {  currentDate.getFullYear()}</h1>
           </div>
           <div className="controls">
             <button onClick={() => dispatch(changeMonth(-1))} style={{left: "0"}}>
