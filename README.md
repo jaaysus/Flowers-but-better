@@ -9,15 +9,15 @@ Front-end developed using React and Redux.
 - User authentication management with roles for regular users and administrators.
 
 ### The user can:
-- Check other clients' reviews.  
+- Check other clients' reviews.
 - Browse and purchase flowers.  
 - Manage their shopping cart.  
-- Create a virtual flower bouquet design to purchase.  
+- Add review 
 
 ### The administrator can:
 - View statistics.  
 - Manage users, products, and stock.  
-- Manage personalized orders.  
+- Manage orders.
 
 
 ## Initial User and Admin Credentials
