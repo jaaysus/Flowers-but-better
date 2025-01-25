@@ -94,3 +94,15 @@ export const updateCard = (index, data) => ({
     type: 'GENERE_TRACKING_NUMBER',
     payload: userId,
 });
+
+
+
+export const selectDate = (date) => ({
+    type: 'SELECT_DATE',
+    payload: date,
+  });
+  
+  export const changeMonth = (offset) => ({
+    type: 'CHANGE_MONTH',
+    payload: offset,
+  });

@@ -2,6 +2,8 @@ import '../styles/acc.css';
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import Calendar from '../components/Calendar';
+
 
 export default function Account() {
     const navigate = useNavigate(); 
@@ -65,6 +67,7 @@ export default function Account() {
             <section className="calendar-booking">
                 <h2>Calendar and Booking</h2>
                 <p>Option to book flowers for an event.</p>
+                <Calendar />
             </section>
         </div>
         </>
