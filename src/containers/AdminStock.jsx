@@ -1,7 +1,122 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { ajouterAuPanier, modifierQuantite } from '../redux/actions';
+import Card from '../components/Card';
+import '../styles/Products.css';
+
 
 const ManageStock = () => {
-    return <h1 style={{ textAlign: 'center', marginTop: '50px' }}>Manage Stock</h1>;
+    const produits = useSelector((state) => state.products.produits);
+    
+    const panier = useSelector((state) => state.panier.panier);
+    const dispatch = useDispatch();
+    const navigate = useNavigate(); 
+    const currentUser = useSelector((state) => state.users.currentUser); 
+
+    const [sortOption, setSortOption] = useState('default');
+    const [priceRange, setPriceRange] = useState({ min: '', max: '' });
+
+    const ProduitsSortees = [...produits].sort((a, b) => {
+        if (sortOption === 'ascending') return a.prix - b.prix;
+        if (sortOption === 'descending') return b.prix - a.prix;
+        return 0;
+    });
+
+    const ProduitsFiltrees = ProduitsSortees.filter((produit) => {
+        const min = parseFloat(priceRange.min) || 0;
+        const max = parseFloat(priceRange.max) || Infinity;
+        return produit.prix >= min && produit.prix <= max;
+    });
+
+    const handleAddToPanier = (produit, quantite) => {
+        const existingProduct = panier.find(item => item.id === produit.id);
+        const maxQuantite = produit.stock;
+
+        const updatedQuantity = existingProduct
+            ? Math.min(existingProduct.quantite + quantite, maxQuantite)
+            : Math.min(quantite, maxQuantite);
+
+        if (existingProduct) {
+            dispatch(modifierQuantite(produit.id, updatedQuantity));
+        } else {
+            dispatch(ajouterAuPanier({ 
+                id: produit.id, 
+                nom: produit.nom, 
+                quantite: updatedQuantity, 
+                prix: produit.prix 
+            }));
+        }
+    };
+
+    const isButtonDisabled = (produit) => {
+        const productInPanier = panier.find(item => item.id === produit.id);
+        const totalQuantityInPanier = productInPanier ? productInPanier.quantite : 0;
+        return totalQuantityInPanier >= produit.stock;
+    };
+
+    useEffect(() => {
+        if (!currentUser) {
+            navigate('/auth');
+        }
+
+        document.body.style.backgroundColor = '#a99175';
+        return () => {
+            document.body.style.backgroundColor = ''; // Reset when unmounted
+        };
+    }, [currentUser, navigate]);
+
+    return currentUser ? (
+        <>
+        <h1 style={{ textAlign: 'center', marginTop: '50px' }}>Manage Stock</h1>
+        <div className="products-page">
+            <div className="filter-sort-section">
+                <div>
+                    <label htmlFor="sort">Sort by:</label>
+                    <select id="sort"
+                        value={sortOption}
+                        onChange={(e) => setSortOption(e.target.value)} >
+                        <option value="default">Default</option>
+                        <option value="ascending">Price : Ascending</option>
+                        <option value="descending">Price : Desceding</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Fliter Price Between :</label>
+                    <input
+                        type="number"
+                        placeholder="Min"
+                        value={priceRange.min}
+                        onChange={(e) => setPriceRange({ ...priceRange, min: e.target.value })}
+                    />
+                    <label>&</label>
+                    <input
+                        type="number"
+                        placeholder="Max"
+                        value={priceRange.max}
+                        onChange={(e) => setPriceRange({ ...priceRange, max: e.target.value })}
+                    />
+                </div>
+            </div>
+            <div className="products-list">
+                {ProduitsFiltrees.length > 0 ? (
+                    ProduitsFiltrees.map((produit) => (
+                        <Card
+                            key={produit.id}
+                            produit={produit}
+                            handleAddToPanier={handleAddToPanier}
+                            isButtonDisabled={isButtonDisabled}
+                            cardbutton={"Edit Stock"}
+                        />
+                    ))
+                ) : (
+                    <p>No products available.</p>
+                )}
+            </div>
+        </div>
+        </>
+    ) : null;
 };
+
 
 export default ManageStock;

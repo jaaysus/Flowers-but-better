@@ -105,6 +105,7 @@ const Products = () => {
                             produit={produit}
                             handleAddToPanier={handleAddToPanier}
                             isButtonDisabled={isButtonDisabled}
+                            cardbutton={"Add to Cart"}
                         />
                     ))
                 ) : (
