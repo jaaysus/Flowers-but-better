@@ -8,6 +8,7 @@ import '../styles/login.css';
 
 const CreateAccount = () => {
     const [username, setUsername] = useState('');
+    const [fullName, setFullName] = useState('');
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
 
@@ -22,6 +23,7 @@ const CreateAccount = () => {
         if (email.includes('@') && email.includes('.')) {
             const nouvelUtilisateur = { 
                 username,
+                fullName,
                 email, 
                 password, 
                 isAdmin: false
@@ -58,17 +60,25 @@ const CreateAccount = () => {
                     style={{ display: 'block', margin: '10px auto', width: '90%', padding: '10px' }}
                 />
                 <input
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    type="text"
+                    placeholder="Full Name"
+                    value={fullName}
+                    onChange={(e) => setFullName(e.target.value)}
                     style={{ display: 'block', margin: '10px auto', width: '90%', padding: '10px' }}
                 />
+                
                 <input
                     type="email"
                     placeholder="Email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    style={{ display: 'block', margin: '10px auto', width: '90%', padding: '10px' }}
+                />
+                <input
+                    type="password"
+                    placeholder="Password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                     style={{ display: 'block', margin: '10px auto', width: '90%', padding: '10px' }}
                 />
                 <button onClick={handleCreateAccount}>Create Account</button>

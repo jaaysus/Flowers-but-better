@@ -98,11 +98,11 @@ const Navbar = () => {
                     currentUser.isAdmin ? (
                         <>
                             <Link to="/admin/stock" style={navbarStyles.link}>Manage Stock</Link>
-                            <Link to="/admin/commands" style={navbarStyles.link}>User Commands</Link>
-                            <Link to="/admin/users" style={navbarStyles.link}>User Management</Link>
+                            <Link to="/admin/commands" style={navbarStyles.link}>Manage Orders</Link>
+                            <Link to="/admin/users" style={navbarStyles.link}>Manage Users</Link>
                         </>
                     ) : (
-                        <Link to="/acc" style={navbarStyles.link}>Account</Link>
+                        <Link to="/acc" style={navbarStyles.link}>Profile</Link>
                     )
                 ) : (
                     <Link to="/auth" style={navbarStyles.link}>Login</Link>
