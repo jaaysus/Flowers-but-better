@@ -45,7 +45,6 @@ const captionStyle = {
   position: 'absolute',
   zIndex: 8,
   height: '450px',
-  width: '900px',  
   color: '#07202B',
   textAlign: 'center',
   fontSize: '1.2rem',
@@ -58,6 +57,8 @@ const captionStyle = {
   flexDirection: 'column',
   justifyContent: 'center', 
   alignItems: 'center', 
+  marginLeft: '6rem',
+  marginRight: '6rem'
 };
 
   const imageCaptionStyle = {

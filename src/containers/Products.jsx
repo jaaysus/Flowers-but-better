@@ -58,15 +58,17 @@ const Products = () => {
             navigate('/auth');
         }
 
-        document.body.style.backgroundColor = '#07202B';
+        document.body.style.backgroundColor = '#a99175';
         return () => {
             document.body.style.backgroundColor = ''; // Reset when unmounted
         };
     }, [currentUser, navigate]);
 
     return currentUser ? (
+        <>
+        <h1>Flowers</h1>
+
         <div className="products-page">
-            <h1>Flowers</h1>
             <div className="filter-sort-section">
                 <div>
                     <label htmlFor="sort">Sort by:</label>
@@ -110,6 +112,7 @@ const Products = () => {
                 )}
             </div>
         </div>
+        </>
     ) : null;
 };
 

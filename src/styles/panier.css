@@ -1,7 +1,6 @@
 body {
     background-color: #A99175; /* Page background color */
     margin: 0;
-    font-family: Arial, sans-serif; /* Optional: Update font for better readability */
 }
 
 .Panier {
@@ -86,9 +85,7 @@ body {
     color: white;
 }
 
-.container {
-    padding-top: 4rem;
-}
+
 
 .total {
     font-size: 1.2rem;
