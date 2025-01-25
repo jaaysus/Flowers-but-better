@@ -8,7 +8,7 @@ export default function Account() {
     const currentUser = useSelector((state) => state.users.currentUser); 
     const orderInfo = useSelector((state) => state.panier.orderInfo);
     console.log(orderInfo);
-    
+
     useEffect(() => {
         if (currentUser) {
             if (currentUser.isAdmin) {
@@ -22,24 +22,31 @@ export default function Account() {
     }, [currentUser, navigate]);
 
     return (
-        <div id='container'>
-            <h1>Account</h1>
-            <section>
-                Personal infos + edit
-                
+        <>            
+        <h1 className="acc-title">Profile</h1>
+        
+
+        <div id='account-container'>
+            
+            <section className="personal-info">
+                <h2>Personal Info <span className="edit-link">(Edit)</span></h2>
+                <div><strong>Full Name:</strong> {currentUser.fullName}</div>
+                <div><strong>Username:</strong> {currentUser.username}</div>
+                <div><strong>Email:</strong> {currentUser.email}</div>
             </section>
-            <section>
-                {orderInfo.items && orderInfo.items.length > 0 ? (
+
+            <section className="order-history">
+                {orderInfo.order && orderInfo.order.length > 0 ? (
                     <div>
-                        <h2>Order History:</h2>
-                        <ul>
-                            {orderInfo.items.map((order, index) => (
-                                <li key={index}>
+                        <h2>Order History</h2>
+                        <ul className="order-list">
+                            {orderInfo.order.map((order, index) => (
+                                <li key={index} className="order-item">
                                     <strong>Tracking Number:</strong> {order.trackingNumber}
-                                    <ul>
+                                    <ul className="order-details">
                                         {order.items.map((item, itemIndex) => (
                                             <li key={itemIndex}>
-                                                {item.nom} - Quantity: {item.quantite} - Price: {item.prix}
+                                                {item.nom} - <strong>Quantity:</strong> {item.quantite} - <strong>Price:</strong> {item.prix}
                                             </li>
                                         ))}
                                     </ul>
@@ -48,13 +55,15 @@ export default function Account() {
                         </ul>
                     </div>
                 ) : (
-                    "No orders"
+                    <p className="no-orders">No orders found</p>
                 )}
             </section>
-            <section>
-                Calendar and option to book flowers for an event ig
+
+            <section className="calendar-booking">
+                <h2>Calendar and Booking</h2>
+                <p>Option to book flowers for an event.</p>
             </section>
         </div>
+        </>
     );
 }
-

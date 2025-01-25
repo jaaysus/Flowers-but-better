@@ -2,8 +2,14 @@ const initialState = {
     panier: [],
     orderInfo: {
         trackingNumbers: [],
-        items: [
-            
+        order: [
+            {
+                items: [
+                    { id: 1, nom: 'Rose', quantite: 1, prix: 15 },
+                    { id: 2, nom: 'Tulip', quantite: 1, prix: 10 }
+                ],
+                trackingNumber: "J8ETO47WSAP8"
+            }
         ],
     },
     
@@ -45,6 +51,7 @@ const panierReducer = (state = initialState, action) => {
             };
         case 'SUPPRIMER_DU_PANIER':
             return { ...state, panier: state.panier.filter((item) => item.id !== action.payload.id) };
+
         case 'VIDER_PANIER':
             const newTrackingNumber = generateTrackingNumber();
                 return {
@@ -52,8 +59,8 @@ const panierReducer = (state = initialState, action) => {
                     orderInfo: {
                         ...state.orderInfo,
                         trackingNumbers: [...state.orderInfo.trackingNumbers, newTrackingNumber],
-                        items: [
-                            ...state.orderInfo.items,
+                        order: [
+                            ...state.orderInfo.order,
                             {
                                 trackingNumber: newTrackingNumber,
                                 items: [...state.panier], // Add the current panier items to the order
@@ -62,6 +69,7 @@ const panierReducer = (state = initialState, action) => {
                     },
                     panier: [], // Clear the panier after placing the order
                 };
+
             
         case 'SET_USER_ID':
             return {

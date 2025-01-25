@@ -1,3 +1,87 @@
-#container{
-    padding-top: 4rem;
+#account-container {
+    padding: 4rem 5rem;
+    margin: 5rem auto;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    overflow: hidden;
+    background-color: #c2b09a;
+
+}
+
+
+/* Section Styling */
+#account-container .section {
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+}
+
+/* Section Titles */
+#account-container .section h2 {
+    font-size: 1.75rem;
+    color: #2f3b52;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    border-bottom: 2px solid #c2b09a;
+    padding-bottom: 0.5rem;
+}
+
+/* Edit Link */
+#account-container .edit-link {
+    font-size: 1rem;
+    color: #007bff;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#account-container .edit-link:hover {
+    color: #0056b3;
+}
+
+/* Order List Styling */
+#account-container .order-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#account-container .order-item {
+    padding: 12px;
+    background-color: #fafafa;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+#account-container .order-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Order Details */
+#account-container .order-details {
+    margin-left: 20px;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+/* No Orders Message */
+#account-container .no-orders {
+    font-style: italic;
+    color: #999;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+/* Calendar and Booking Section */
+#account-container .calendar-booking {
+    text-align: center;
+    padding: 1.5rem 0;
+    border-top: 1px solid #ddd;
+}
+
+#account-container .calendar-booking h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
 }
