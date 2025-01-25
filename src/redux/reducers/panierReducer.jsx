@@ -8,7 +8,8 @@ const initialState = {
                     { id: 1, nom: 'Rose', quantite: 1, prix: 15 },
                     { id: 2, nom: 'Tulip', quantite: 1, prix: 10 }
                 ],
-                trackingNumber: "J8ETO47WSAP8"
+                trackingNumber: "J8ETO47WSAP8",
+                date:"January 25, 2025, 10:30:45 PM"
             }
         ],
     },
@@ -52,23 +53,34 @@ const panierReducer = (state = initialState, action) => {
         case 'SUPPRIMER_DU_PANIER':
             return { ...state, panier: state.panier.filter((item) => item.id !== action.payload.id) };
 
-        case 'VIDER_PANIER':
+            case 'VIDER_PANIER':
             const newTrackingNumber = generateTrackingNumber();
-                return {
-                    ...state,
-                    orderInfo: {
-                        ...state.orderInfo,
-                        trackingNumbers: [...state.orderInfo.trackingNumbers, newTrackingNumber],
-                        order: [
-                            ...state.orderInfo.order,
-                            {
-                                trackingNumber: newTrackingNumber,
-                                items: [...state.panier], // Add the current panier items to the order
-                            },
-                        ],
-                    },
-                    panier: [], // Clear the panier after placing the order
-                };
+            const currentDate = new Intl.DateTimeFormat('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: true,
+            }).format(new Date()); // Format the current date for better readability
+            return {
+                ...state,
+                orderInfo: {
+                    ...state.orderInfo,
+                    trackingNumbers: [...state.orderInfo.trackingNumbers, newTrackingNumber],
+                    order: [
+                        ...state.orderInfo.order,
+                        {
+                            trackingNumber: newTrackingNumber,
+                            items: [...state.panier], // Add the current panier items to the order
+                            date: currentDate, // Add the formatted date
+                        },
+                    ],
+                },
+                panier: [], // Clear the panier after placing the order
+            };
+
 
             
         case 'SET_USER_ID':

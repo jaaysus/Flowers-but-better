@@ -42,7 +42,10 @@ export default function Account() {
                         <ul className="order-list">
                             {orderInfo.order.map((order, index) => (
                                 <li key={index} className="order-item">
-                                    <strong>Tracking Number:</strong> {order.trackingNumber}
+                                        <strong>Tracking Number: {order.trackingNumber}</strong>
+                                    <br />
+                                    <p>{order.date}</p> 
+
                                     <ul className="order-details">
                                         {order.items.map((item, itemIndex) => (
                                             <li key={itemIndex}>
