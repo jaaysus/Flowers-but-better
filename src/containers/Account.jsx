@@ -10,7 +10,6 @@ export default function Account() {
     const dispatch = useDispatch();
     const currentUser = useSelector((state) => state.users.currentUser); 
     const orderInfo = useSelector((state) => state.panier.orderInfo);
-    console.log(orderInfo);
 
     useEffect(() => {
         if (currentUser) {

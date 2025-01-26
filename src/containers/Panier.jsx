@@ -40,17 +40,11 @@ const Panier = () => {
     
         setTimeout(() => {
             if (currentUser) {
-                console.log("Placing order for user ID:", currentUser.id); // Log the user ID
                 dispatch(diminuerStock(panier));
                 dispatch(viderPanier(currentUser.id)); // Pass currentUser.id here
                 setFadingItems([]);
                 setCommandeSuccess(true);
                 dispatch(genereTrackingNumber(currentUser.id));
-    
-                // Log the updated orders array after a delay
-                setTimeout(() => { // Access updated orders
-                    console.log("Updated orders array:", orders); // Log the array of orders
-                }, 500);
             }
         }, panier.length * 500);
     };
