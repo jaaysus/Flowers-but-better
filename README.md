@@ -3,7 +3,7 @@
 ## Overview
 "Floral Dreams" is an e-commerce application for a flower shop.  
 Front-end developed using React and Redux.
-
+**[ Visit Demo Here](https://jaaysus.github.io/Flowers-but-better/userHome)**
 # Overview of CRUD Progress in the Project
 
 | Feature    | C | R | U | D | 
