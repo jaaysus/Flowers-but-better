@@ -51,7 +51,7 @@ const ManageStock = () => {
     const handleAddToStock = (produit, quantite) => {
         if (quantite > 0) {
             const updatedStock = produit.stock + quantite;
-            dispatch(updateStockQuantity(produit.id, updatedStock)); // Update Redux state with new stock
+            dispatch(updateStockQuantity(produit.id, updatedStock)); 
         }
     };
     

@@ -69,6 +69,7 @@ const userReducer = (state = initialState, action) => {
                 ),
                 currentUser: action.payload,  // Update the currentUser as well
             };
+    
         default:
             return state;
     }
