@@ -4,6 +4,26 @@
 "Floral Dreams" is an e-commerce application for a flower shop.
 Front-end developed using React and Redux.
 
+# Overview of CRUD Progress in the Project
+
+| Page                          | C         | R         | U         | D         |  
+|-------------------------------|-----------|-----------|-----------|-----------|  
+| Authentication Page (`/auth`) | ✔         | ✔         |           |           |  
+| Create Account Page (`/create-account`) | ✔         |           |           |           |  
+| Normal User Home Page (`/userHome`)    |           | ✔         |           |           |  
+| Admin Home Page (`/adminHome`)         |           | ✔         |           |           |  
+| Admin Stock Management Page (`/admin/stock`) | ⏳        | ⏳        | ⏳        | ⏳        |  
+| Admin Commands Page (`/admin/commands`) |           | ✔         | ✔         |           |  
+| Admin Users Management Page (`/admin/users`) |           | ⏳        | ⏳        | ⏳        |  
+| User Products Page (`/produits`)       |           | ✔         | ✔         |           |  
+| User Cart Page (`/panier`)             |           | ✔         | ✔         | ✔         |  
+| User Account Page (`/acc`)             | ⏳        | ✔         | ⏳        | ✔         |  
+
+
+
+**Symbol:**  
+⏳ - Signifies features still in progress. 
+
 ## Main Features
 
 - User authentication management with roles for regular users and administrators.
