@@ -1,0 +1,71 @@
+.feedback-form {
+    background-color: #07202B;
+    border: 1px solid #e2e8f0;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0.5rem;
+    border-radius: 1rem;
+    padding: 0.75rem; /* Reduced padding for a more compact look */
+    font-size: 0.875rem;
+    width: 400px;
+    height: 300px;
+  }
+  
+  .feedback-title {
+    text-align: center;
+    color: #C2B09A;
+    font-size: 1.25rem;
+    font-weight: bold;
+    grid-column: span 6;
+    margin-bottom: 0.25rem; /* Reduced space below the title */
+  }
+  
+  .feedback-textarea {
+    background-color: #0b3243;
+    color: #e1d6c8;
+    height: 4rem;
+    placeholder-color: #334155;
+    placeholder-opacity: 0.5;
+    border: 1px solid #e2e8f0;
+    grid-column: span 6;
+    resize: none;
+    outline: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    transition-duration: 0.3s;
+    margin-bottom: 0.5rem;
+  }
+  
+  .feedback-textarea:focus {
+    border-color: #4b5563;
+  }
+  
+  .send-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    background-color: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    transition-duration: 0.3s;
+    cursor: pointer;
+    grid-column: span 6;
+    margin-top: 0.25rem; /* Reduced space above the button */
+  }
+  
+  .send-button:hover {
+    border-color: #4b5563;
+  }
+  
+  .send-button:focus {
+    background-color: #60a5fa;
+    color: #e0f2fe;
+  }
+  
+  .send-icon {
+    width: 20px;
+    height: 20px;
+    fill: #07202B;
+  }
+  
