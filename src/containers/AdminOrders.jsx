@@ -38,7 +38,7 @@ const UserOrders = () => {
                 <table style={{ width: '80%', margin: '20px auto', borderCollapse: 'collapse' }}>
                     <thead>
                         <tr>
-                            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Username</th>
+                            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Full Name</th>
                             <th style={{ border: '1px solid #ddd', padding: '8px' }}>Tracking Number</th>
                             <th style={{ border: '1px solid #ddd', padding: '8px' }}>Date</th>
                             <th style={{ border: '1px solid #ddd', padding: '8px' }}>Items</th>
