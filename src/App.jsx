@@ -18,7 +18,7 @@ import Footer from './components/Footer';
 
 const App = () => {
     return (
-        <Router>
+        <Router basename="/Flowers-but-better">
             <Navbar />
             <Routes>
                 <Route path="/auth" element={<Authentication />} />
