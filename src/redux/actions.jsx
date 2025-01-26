@@ -50,20 +50,9 @@ payload: { id },
 });
 
 
-export const viderPanier = () => (dispatch, getState) => {
-    const state = getState(); // Get the current state
-    const currentUser = state.currentUser; // Access the current user safely
-
-    if (!currentUser) {
-        console.error('No user is logged in.');
-        return; // Exit early if no user
-    }
-
-    dispatch({
-        type: 'VIDER_PANIER',
-        payload: { userId: currentUser.id }, // Pass the current user's ID
-    });
-};
+export const viderPanier = () => ({
+type: 'VIDER_PANIER',
+});
 
 
 
