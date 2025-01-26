@@ -171,6 +171,38 @@ Allows users to access a calendar interface that flips to manage their bookings 
 ![image](https://github.com/user-attachments/assets/5f3392ce-a9a2-4a27-b71c-32c9a7f9e1d8)
 ![image](https://github.com/user-attachments/assets/cd5fa2f2-0dfb-4fee-b994-adb22d17f4d7)
 
+---
+---
+
+
+# Admin Pages
+
+## Home Page
+When an admin logs in with their account, a home page where "Welcome Admin" and a button to logout is being displayed
+![image](https://github.com/user-attachments/assets/7f7a7c48-e776-42f9-857b-3531e6126be5)
+
+---
+
+
+## Stock management Page
+Where the user sees all products, alerting products with stock equal to or lower than 20
+- The admin can set the quantity and add it to stock
+![image](https://github.com/user-attachments/assets/6a61ed96-f434-4eca-8622-0e5f360751dd)
+
+
+
+## Orders management page
+Where Admin can check Orders and confirm them
+
+![image](https://github.com/user-attachments/assets/9d17510f-7117-4299-85c5-75723f28422e)
+
+
+
+## Users management Page
+- Admin can check all users infos
+- Admin can remove a user
+![image](https://github.com/user-attachments/assets/cb3bceb5-0924-4d21-8f0f-6b76d5010412)
+
 
 
 ---
