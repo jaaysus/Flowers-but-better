@@ -50,6 +50,14 @@ const userReducer = (state = initialState, action) => {
             return { ...state, currentUser: null, loginError: action.payload };
         case 'LOGOUT':
             return { ...state, currentUser: null, loginError: null };
+
+        case 'REMOVE_USER':
+            return {
+                ...state,
+                utilisateurs: state.utilisateurs.filter(
+                    (user) => user.id !== action.payload
+                ),
+            };
         default:
             return state;
     }

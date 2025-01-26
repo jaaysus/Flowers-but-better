@@ -1,10 +1,12 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
    
 const UserManagement = () => {
     const navigate = useNavigate(); 
+    const dispatch = useDispatch();
+
     const currentUser = useSelector((state) => state.users.currentUser); 
 
     const users = useSelector((state) => state.users.utilisateurs); 
@@ -21,6 +23,11 @@ const UserManagement = () => {
                 navigate('/userHome');
             }
         }, [currentUser, navigate]);
+
+
+    const handleRemoveUser = (userId) => {
+        dispatch({ type: 'REMOVE_USER', payload: userId }); 
+    };
     
     return (
         <>
@@ -32,7 +39,7 @@ const UserManagement = () => {
                         <div key={index} style={{ textAlign: 'center' }}>
                             <h3>{user.username}</h3>
                             <p>{user.email}</p>
-                            <button>Remove User</button>
+                            <button onClick={() => handleRemoveUser(user.id)}>Remove User</button>
                         </div>
                     ))}
             </div>
