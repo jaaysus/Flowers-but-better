@@ -1,8 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { updateStockQuantity } from '../redux/actions';
+import { useDispatch } from 'react-redux'; 
 import '../styles/card.css'; 
 
 const Card = ({ produit, handleAddToPanier, isButtonDisabled, cardbutton, isAlert }) => {
+    const dispatch = useDispatch();
+
+    const handleAddToStock = (produit, quantite) => {
+        
+        if (quantite > 0) {
+            const updatedStock = produit.stock + quantite;
+            dispatch(updateStockQuantity(produit.id, updatedStock)); // Update Redux state with new stock
+        }
+    };
+    
     return (
     
         <div className="container">
@@ -33,7 +45,11 @@ const Card = ({ produit, handleAddToPanier, isButtonDisabled, cardbutton, isAler
                     <button
                         onClick={() => {
                             const quantite = parseInt(document.getElementById(`quantity-${produit.id}`).value, 10);
-                            handleAddToPanier(produit, quantite);
+                            if (cardbutton === "Add to Stock") {
+                                handleAddToStock(produit, quantite);
+                            } else {
+                                handleAddToPanier(produit, quantite);
+                            }
                         }}
                         className="add-to-Panier"
                         disabled={isButtonDisabled(produit)}

@@ -106,4 +106,7 @@ export const selectDate = (date) => ({
 
 
 
-  
+  export const updateStockQuantity = (productId, newStock) => ({
+    type: 'MODIFIER_QUANTITE',
+    payload: { productId, newStock },
+});

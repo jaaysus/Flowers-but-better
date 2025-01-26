@@ -48,6 +48,14 @@ const ManageStock = () => {
         }
     };
 
+    const handleAddToStock = (produit, quantite) => {
+        if (quantite > 0) {
+            const updatedStock = produit.stock + quantite;
+            dispatch(updateStockQuantity(produit.id, updatedStock)); // Update Redux state with new stock
+        }
+    };
+    
+
     const isAlert = (produit) => {
         return produit.stock <= 20;
     };
@@ -109,6 +117,7 @@ const ManageStock = () => {
                             key={produit.id}
                             produit={produit}
                             handleAddToPanier={handleAddToPanier}
+                            handleAddToStock={handleAddToStock}
                             isButtonDisabled={isButtonDisabled}
                             cardbutton={"Add to Stock"}
                             isAlert={isAlert}

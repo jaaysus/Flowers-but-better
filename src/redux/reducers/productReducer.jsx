@@ -28,6 +28,16 @@ const productReducer = (state = initialState, action) => {
                     return produit;
                 }),
             };
+            case 'MODIFIER_QUANTITE':
+            return {
+                ...state,
+                produits: state.produits.map((produit) =>
+                    produit.id === action.payload.productId
+                        ? { ...produit, stock: action.payload.newStock }
+                        : produit
+                ),
+            };
+            
         default:
             return state;
     }
