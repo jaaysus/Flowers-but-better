@@ -156,14 +156,12 @@ Displays the user's personal information such as their username and email addres
 
 #### **Order History**
 Shows the user's past orders with details such as the tracking number, date, item names, quantities, and prices. If no orders are found, a message is displayed indicating that the user has not placed any orders.
+![image](https://github.com/user-attachments/assets/d6abbc72-7c4b-418e-8e90-7b31f51ca48b)
 
 
 #### **Input for the User's Review**
 Allows users to express their feedback, after submission it turns into a div containing the review with two buttons to edit or delete review.
-![image](https://github.com/user-attachments/assets/d6abbc72-7c4b-418e-8e90-7b31f51ca48b)
 ![image](https://github.com/user-attachments/assets/c5dc48a0-cb12-48e4-b3e7-86059f22e1cd)
-
-
 ![image](https://github.com/user-attachments/assets/d1e3e1f1-1dfe-454b-8fcf-8fd1a8b8e18e)
 
 
