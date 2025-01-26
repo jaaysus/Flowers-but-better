@@ -28,6 +28,9 @@ type: 'LOGIN_FAILURE',
 payload: error,
 });
 
+export const logout = () => ({
+    type: 'LOGOUT',
+});
 
 export const handleLogin = (username, password) => (dispatch, getState) => {
     const { users } = getState(); // Final Boss bug of reducers splitting

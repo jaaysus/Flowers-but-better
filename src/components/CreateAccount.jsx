@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom'; 
 import { ajouterUtilisateur } from '../redux/actions'; 
 import '../styles/login.css';
+import NightSky from './NightSky';
 
 
 
@@ -49,7 +50,9 @@ const CreateAccount = () => {
 
 
     return (
-        <div className='container' style={{ textAlign: 'center', marginTop: '50px' }}>
+        <div>
+            <NightSky />
+            <div className='container' style={{ textAlign: 'center', marginTop: '50px' }}>
             <h2>Create Account</h2>
             <div className='login' style={{ margin: '20px auto', width: '300px', padding: '20px', border: '1px solid #ccc', borderRadius: '8px' }}>
                 <input
@@ -86,6 +89,7 @@ const CreateAccount = () => {
                     You already have an account? <a className='createAccLink' onClick={handleLogin}>Login</a>
                 </p>
             </div>
+        </div>
         </div>
     );
 };
