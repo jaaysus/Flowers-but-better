@@ -1,17 +1,3 @@
-export const connexion = (state, action) => {
-return {
-    ...state,
-    utilisateur: action.payload,
-};
-};
-
-export const deconnexion = (state) => {
-return {
-    ...state,
-    utilisateur: null,
-};
-};
-
 export const ajouterUtilisateur = (nouvelUtilisateur) => ({
     type: 'AJOUTER_UTILISATEUR',  
     payload: nouvelUtilisateur,     
