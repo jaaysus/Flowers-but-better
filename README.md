@@ -10,7 +10,7 @@ Front-end developed using React and Redux.
 |----------------|-------|-------|-------|-------|---------------------------------------------|  
 | *Reviews*    | ✅    | ✅    | ⏳    | ⏳    | Add Create, Update, Delete functionality    |  
 | *Users*      | ✅    | ✅    | ✅    | ✅    | Add Update functionality                    |  
-| *Products*   | ✅    | ✅    | ✅    | ⏳    | Add Delete (Admin)          |  
+| *Products*   | ✅    | ✅    | ✅    | ✅    | Add Delete (Admin)          |  
 | *Cart*       | ✅    | ✅    | ✅    | ✅    | Confirm Cart ID logic for consistency       |  
 | *Orders*     | ✅    | ✅    | ⏳    | ⏳    | Additional features as needed    
 
@@ -142,3 +142,29 @@ The `Cart Page` displays the user's shopping cart, allowing them to manage their
 ![image](https://github.com/user-attachments/assets/d7eb87df-1464-481b-87a7-5c282fdeb890)
 
 - **Animation**: When items are removed from the cart, they fade out with a smooth animation. When an order is placed, items gradually disappear, creating a seamless transition to the success message.
+
+---
+
+## Account Page (`/acc`)
+
+The **Account Page** is where users can view and manage their personal information and order history. It also includes a section for calendar and booking.
+
+### Key Features
+
+#### **Personal Information**
+Displays the user's personal information such as their username and email address, along with an option to edit and log out.
+
+#### **Order History**
+Shows the user's past orders with details such as the tracking number, date, item names, quantities, and prices. If no orders are found, a message is displayed indicating that the user has not placed any orders.
+
+![image](https://github.com/user-attachments/assets/d6abbc72-7c4b-418e-8e90-7b31f51ca48b)
+
+
+#### **Calendar and Booking (still in progress)**
+Allows users to access a calendar interface to manage their bookings for flower arrangements or events.
+
+![image](https://github.com/user-attachments/assets/5f3392ce-a9a2-4a27-b71c-32c9a7f9e1d8)
+
+
+---
+
