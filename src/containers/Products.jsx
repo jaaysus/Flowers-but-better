@@ -53,6 +53,11 @@ const Products = () => {
         return totalQuantityInPanier >= produit.stock;
     };
 
+
+    const isAlert = (produit) => {
+        return false;
+    };
+
     useEffect(() => {
                 if (currentUser) {
                     if (currentUser.isAdmin) {
@@ -108,7 +113,7 @@ const Products = () => {
                             handleAddToPanier={handleAddToPanier}
                             isButtonDisabled={isButtonDisabled}
                             cardbutton={"Add to Cart"}
-                            isAlert={false}
+                            isAlert={isAlert}
                         />
                     ))
                 ) : (
