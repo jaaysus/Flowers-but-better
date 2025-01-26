@@ -26,8 +26,11 @@ const reviewsReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'ADD_REVIEW':
       return { ...state, reviews: [...state.reviews, action.payload] };
-    case 'REMOVE_REVIEW':
-      return { ...state, reviews: state.reviews.filter((review) => review.id !== action.payload) };
+      case 'REMOVE_REVIEW':
+        return {
+          ...state,
+          reviews: state.reviews.filter(review => review.userId !== action.payload), // Remove review by userId
+        };
     default:
       return state;
   }

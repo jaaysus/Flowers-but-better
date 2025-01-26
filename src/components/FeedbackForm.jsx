@@ -4,65 +4,61 @@ import '../styles/FeedbackForm.css';
 
 const FeedbackForm = () => {
   const [review, setReview] = useState('');
-  const [editing, setEditing] = useState(true);
-  const [currentReview, setCurrentReview] = useState(null);
+  const [isFeedbackEditing, setIsFeedbackEditing] = useState(true);
 
-  const currentUser = useSelector((state) => state.users.currentUser);
-  const reviews = useSelector((state) => state.reviews || []); // Fallback to an empty array
-  const userId = currentUser ? currentUser.id : null;
   const dispatch = useDispatch();
+  const currentUser = useSelector(state => state.users.currentUser); // Get current user from the state
+  const reviews = useSelector(state => state.reviews.reviews); // Get all reviews from the state
 
   useEffect(() => {
-    if (userId && Array.isArray(reviews)) {
-      const existingReview = reviews.find((review) => review.userId === userId);
+    if (currentUser) {
+      // Check if the currentUser has already submitted a review
+      const existingReview = reviews.find(review => review.userId === currentUser.id);
       if (existingReview) {
-        setCurrentReview(existingReview);
-        setEditing(false); // Display the review instead of the form
+        setReview(existingReview.phrase); // Set the existing review content
+        setIsFeedbackEditing(false); // Set to false to show "Edit" and "Delete"
       }
     }
-  }, [userId, reviews]);
+  }, [currentUser, reviews]); // Run the effect when currentUser or reviews change
 
-  const handleAddReview = () => {
-    if (!userId || review.trim() === '') return;
-
+  const handleSubmitReview = () => {
+    if (review.trim() === '' || !currentUser) return; // Prevent submission if no review or user
     const newReview = {
-      id: Date.now(),
-      name: currentUser ? currentUser.name : 'User',
-      phrase: review,
-      userId,
+      id: Date.now(), // Unique ID for the review
+      name: currentUser.fullName,  // User's full name
+      phrase: review,  // Review content
+      userId: currentUser.id,  // User's ID
     };
 
+    console.log('Submitting review:', newReview); // Log the review for debugging
+
+    // Dispatch action to add review
     dispatch({
       type: 'ADD_REVIEW',
       payload: newReview,
     });
 
-    setCurrentReview(newReview);
-    setEditing(false);
-    setReview('');
+    setIsFeedbackEditing(false); // After submission, switch to the review display
   };
 
   const handleEdit = () => {
-    setEditing(true);
-    setReview(currentReview.phrase);
+    setIsFeedbackEditing(true);
   };
 
   const handleDelete = () => {
-    if (currentReview) {
-      dispatch({
-        type: 'REMOVE_REVIEW',
-        payload: currentReview.id,
-      });
-      setCurrentReview(null);
-      setReview('');
-      setEditing(true);
-    }
+    // Dispatch action to remove review based on the userId
+    dispatch({
+      type: 'REMOVE_REVIEW',
+      payload: currentUser.id,  // Pass userId to remove the review
+    });
+    setReview(''); // Clear the review content
+    setIsFeedbackEditing(true); // Reset to empty feedback form
   };
 
   return (
     <div className="feedback-form">
-      <h1 className="feedback-title">{editing ? 'Send Feedback' : 'Your Review'}</h1>
-      {editing ? (
+      <h1 className="feedback-title">{isFeedbackEditing ? 'Send Feedback' : 'Your Review'}</h1>
+      {isFeedbackEditing ? (
         <>
           <textarea
             placeholder="Your feedback..."
@@ -70,7 +66,7 @@ const FeedbackForm = () => {
             value={review}
             onChange={(e) => setReview(e.target.value)}
           ></textarea>
-          <button className="send-button" onClick={handleAddReview}>
+          <button className="send-button" onClick={handleSubmitReview}>
             <img
               src="https://cdn-icons-png.flaticon.com/512/223/223484.png"
               alt="Send"
@@ -78,15 +74,15 @@ const FeedbackForm = () => {
             />
           </button>
         </>
-      ) : currentReview ? (
+      ) : (
         <div className="review-display">
-          <p>{currentReview.phrase}</p>
+          <p>{review}</p>
           <div className="review-actions">
             <button onClick={handleEdit}>Edit</button>
             <button onClick={handleDelete}>Delete</button>
           </div>
         </div>
-      ) : null}
+      )}
     </div>
   );
 };

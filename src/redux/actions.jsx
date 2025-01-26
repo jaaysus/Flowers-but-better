@@ -116,3 +116,12 @@ export const updateUserInfo = (user) => ({
     type: 'UPDATE_USER_INFO',
     payload: user,
 });
+export const addReview = (review) => ({
+    type: 'ADD_REVIEW',
+    payload: review,
+  });
+  
+  export const removeReview = (reviewId) => ({
+    type: 'REMOVE_REVIEW',
+    payload: reviewId,
+  });
