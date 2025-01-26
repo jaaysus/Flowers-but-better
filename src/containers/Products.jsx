@@ -54,8 +54,6 @@ const Products = () => {
     };
 
     useEffect(() => {
-        console.log(currentUser);
-
         if (!currentUser) {
             navigate('/auth');
         }

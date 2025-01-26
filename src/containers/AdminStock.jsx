@@ -56,17 +56,15 @@ const ManageStock = () => {
     };
 
     useEffect(() => {
+        if (!currentUser) {
+            navigate('/auth');
+        }
 
-               if (currentUser) {
-                   if (currentUser.isAdmin) {
-                       navigate('/admin/stock');
-                   } else {
-                       navigate('/userHome');
-                   }
-               } else {
-                   navigate('/userHome');
-               }
-           }, [currentUser, navigate]);
+        document.body.style.backgroundColor = '#a99175';
+        return () => {
+            document.body.style.backgroundColor = ''; // Reset when unmounted
+        };
+    }, [currentUser, navigate]);
 
     return currentUser ? (
         <>
