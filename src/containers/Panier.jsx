@@ -74,10 +74,17 @@ const Panier = () => {
     };
 
     useEffect(() => {
-        if (!currentUser) {
-            navigate('/auth'); // Navigate to the auth page if not logged in
-        }
-    }, [currentUser, navigate]);
+            if (currentUser) {
+                if (currentUser.isAdmin) {
+                    navigate('/adminHome');
+                } else {
+                    navigate('/panier');
+                }
+            }
+            else{
+                navigate('/auth');
+            }
+        }, [currentUser, navigate]);
 
     return currentUser ? (
         <div className="container">
