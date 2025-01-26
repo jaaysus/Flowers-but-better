@@ -38,7 +38,7 @@ const UserManagement = () => {
                     .map((user, index) => (
                         <div key={index} style={{ textAlign: 'center' }}>
                             <h3>{user.username}</h3>
-                            <p>{user.email}</p>
+                            <p style={{color:"black"}}>{user.email}</p>
                             <button onClick={() => handleRemoveUser(user.id)}>Remove User</button>
                         </div>
                     ))}
