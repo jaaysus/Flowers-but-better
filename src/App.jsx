@@ -7,7 +7,7 @@ import Products from './containers/Products';
 import Panier from './containers/Panier';
 import AdminHome from './components/AdminHome';
 import AdminStock from './containers/AdminStock';
-import AdminCommands from './containers/AdminCommands';
+import AdminOrders from './containers/AdminOrders';
 import AdminUsers from './containers/AdminUsers';
 import NormalUserHome from './components/NormalHome';
 import CreateAccount from './components/CreateAccount';
@@ -26,7 +26,7 @@ const App = () => {
                 <Route path="/userHome" element={<NormalUserHome />} />
                 <Route path="/adminHome" element={<AdminHome />} />
                 <Route path="/admin/stock" element={<AdminStock />} />
-                <Route path="/admin/commands" element={<AdminCommands />} />
+                <Route path="/admin/orders" element={<AdminOrders />} />
                 <Route path="/admin/users" element={<AdminUsers />} />
                 <Route path="/" element={<Accueil />} />
                 <Route path="/produits" element={<Products />} />

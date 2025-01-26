@@ -98,7 +98,7 @@ const Navbar = () => {
                     currentUser.isAdmin ? (
                         <>
                             <Link to="/admin/stock" style={navbarStyles.link}>Manage Stock</Link>
-                            <Link to="/admin/commands" style={navbarStyles.link}>Manage Orders</Link>
+                            <Link to="/admin/Orders" style={navbarStyles.link}>Manage Orders</Link>
                             <Link to="/admin/users" style={navbarStyles.link}>Manage Users</Link>
                         </>
                     ) : (
