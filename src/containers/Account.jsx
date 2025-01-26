@@ -1,12 +1,13 @@
 import '../styles/acc.css';
 import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Calendar from '../components/Calendar';
-
+import { logout } from '../redux/actions'; // Assuming you have this import
 
 export default function Account() {
     const navigate = useNavigate(); 
+    const dispatch = useDispatch();
     const currentUser = useSelector((state) => state.users.currentUser); 
     const orderInfo = useSelector((state) => state.panier.orderInfo);
     console.log(orderInfo);
@@ -23,6 +24,11 @@ export default function Account() {
         }
     }, [currentUser, navigate]);
 
+    const handleLogout = () => {
+        dispatch(logout());  // Dispatch logout action
+        navigate('/userHome'); // Redirect to userHome after logout
+    };
+
     return (
         <>            
         <h1 className="acc-title">Profile</h1>
@@ -30,13 +36,16 @@ export default function Account() {
 
         <div id='account-container'>
             
+            
             <section className="personal-info">
-                <h2>Personal Info <span className="edit-link">(Edit)</span></h2>
-                {/* <div><strong>Full Name:</strong> {currentUser.fullName}</div> */}
+                <h2>Personal Info 
+                <button className="logout-button" onClick={handleLogout}>
+                Logout
+                </button>
+                <span className="edit-link">(Edit)</span></h2>
                 <div><strong>Username:</strong> {currentUser.username}</div>
                 <div><strong>Email:</strong> {currentUser.email}</div>
             </section>
-
             <section className="order-history">
                 {orderInfo.order && orderInfo.order.length > 0 ? (
                     <div>
@@ -44,7 +53,7 @@ export default function Account() {
                         <ul className="order-list">
                             {orderInfo.order.map((order, index) => (
                                 <li key={index} className="order-item">
-                                        <strong>Tracking Number: {order.trackingNumber}</strong>
+                                    <strong>Tracking Number: {order.trackingNumber}</strong>
                                     <br />
                                     <p>{order.date}</p> 
 

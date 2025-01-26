@@ -1,19 +1,3 @@
-
-
-export const connexion = (state, action) => {
-return {
-    ...state,
-    utilisateur: action.payload,
-};
-};
-
-export const deconnexion = (state) => {
-return {
-    ...state,
-    utilisateur: null,
-};
-};
-
 export const ajouterUtilisateur = (nouvelUtilisateur) => ({
     type: 'AJOUTER_UTILISATEUR',  
     payload: nouvelUtilisateur,     
@@ -30,6 +14,9 @@ type: 'LOGIN_FAILURE',
 payload: error,
 });
 
+export const logout = () => ({
+    type: 'LOGOUT',
+});
 
 export const handleLogin = (username, password) => (dispatch, getState) => {
     const { users } = getState(); // Final Boss bug of reducers splitting

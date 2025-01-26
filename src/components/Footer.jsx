@@ -32,6 +32,7 @@ const footerStyle = {
   padding: "40px 0",
   fontSize: "16px",
   textAlign: "center",
+  marginTop: "300px"
 };
 
 const containerStyle = {

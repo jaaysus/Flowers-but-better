@@ -10,12 +10,11 @@ button{
 
 .container{
     margin: 10px auto; /* Center the button */
-    margin-bottom: 300px;
 }
 
 .login {
     border: none;
-    background-color: #07202B;
+    background-color: rgba(255, 0, 0, 0);
     color: #a99175;
   }
 

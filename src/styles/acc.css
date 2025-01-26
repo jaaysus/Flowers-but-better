@@ -86,3 +86,26 @@
     font-size: 1.75rem;
     margin-bottom: 1rem;
 }
+
+.logout-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 8px 16px;
+    background-color: #ff4d4d; /* Button color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 0; /* Adjust top margin */
+  }
+  .personal-info {
+    position: relative; /* Make the section a reference point for positioning */
+  }
+  
+  .personal-info h2 {
+    display: flex;
+    justify-content: space-between; /* Spread the title and button apart */
+    align-items: center; /* Align items vertically */
+  }
