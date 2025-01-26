@@ -7,38 +7,36 @@ const FeedbackForm = () => {
   const [isFeedbackEditing, setIsFeedbackEditing] = useState(true);
 
   const dispatch = useDispatch();
-  const currentUser = useSelector(state => state.users.currentUser); // Get current user from the state
-  const reviews = useSelector(state => state.reviews.reviews); // Get all reviews from the state
+  const currentUser = useSelector(state => state.users.currentUser);
+  const reviews = useSelector(state => state.reviews.reviews);
 
   useEffect(() => {
     if (currentUser) {
-      // Check if the currentUser has already submitted a review
       const existingReview = reviews.find(review => review.userId === currentUser.id);
       if (existingReview) {
-        setReview(existingReview.phrase); // Set the existing review content
-        setIsFeedbackEditing(false); // Set to false to show "Edit" and "Delete"
+        setReview(existingReview.phrase);
+        setIsFeedbackEditing(false);
       }
     }
-  }, [currentUser, reviews]); // Run the effect when currentUser or reviews change
+  }, [currentUser, reviews]);
 
   const handleSubmitReview = () => {
-    if (review.trim() === '' || !currentUser) return; // Prevent submission if no review or user
+    if (review.trim() === '' || !currentUser) return;
     const newReview = {
-      id: Date.now(), // Unique ID for the review
-      name: currentUser.fullName,  // User's full name
-      phrase: review,  // Review content
-      userId: currentUser.id,  // User's ID
+      id: Date.now(),
+      name: currentUser.fullName,
+      phrase: review,
+      userId: currentUser.id,
     };
 
-    console.log('Submitting review:', newReview); // Log the review for debugging
+    console.log('Submitting review:', newReview);// left it to debug account edit info undefined case
 
-    // Dispatch action to add review
     dispatch({
       type: 'ADD_REVIEW',
       payload: newReview,
     });
 
-    setIsFeedbackEditing(false); // After submission, switch to the review display
+    setIsFeedbackEditing(false);
   };
 
   const handleEdit = () => {
@@ -46,13 +44,12 @@ const FeedbackForm = () => {
   };
 
   const handleDelete = () => {
-    // Dispatch action to remove review based on the userId
     dispatch({
       type: 'REMOVE_REVIEW',
-      payload: currentUser.id,  // Pass userId to remove the review
+      payload: currentUser.id,
     });
-    setReview(''); // Clear the review content
-    setIsFeedbackEditing(true); // Reset to empty feedback form
+    setReview('');
+    setIsFeedbackEditing(true);
   };
 
   return (
