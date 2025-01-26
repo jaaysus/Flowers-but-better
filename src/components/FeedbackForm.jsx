@@ -73,7 +73,7 @@ const FeedbackForm = () => {
         </>
       ) : (
         <div className="review-display">
-          <p>{review}</p>
+          <p id="review">{review}</p>
           <div className="review-actions">
             <button onClick={handleEdit}>Edit</button>
             <button onClick={handleDelete}>Delete</button>

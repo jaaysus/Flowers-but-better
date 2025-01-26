@@ -7,8 +7,9 @@
     border-radius: 1rem;
     padding: 0.75rem; /* Reduced padding for a more compact look */
     font-size: 0.875rem;
-    width: 400px;
+    width: auto;
     height: 300px;
+    text-align: center;
   }
   
   .feedback-title {
@@ -67,3 +68,16 @@
     fill: #07202B;
   }
   
+.review-actions{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  
+}
+
+
+.review-display{
+position: relative;
+left: 75%;
+}

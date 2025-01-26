@@ -41,7 +41,7 @@ const Authentication = () => {
         <div>
             <NightSky />
         <div className='container' style={{ textAlign: 'center', marginTop: '100px' }}>
-            <h2>Login</h2>
+            <h2 style={{color: "#a99175"}}>Login</h2>
             <div className='login' style={{ margin: '20px auto', width: '300px', padding: '20px', border: '1px solid #ccc', borderRadius: '8px' }}>
             <div>
                 <input
