@@ -45,9 +45,7 @@ const userReducer = (state = initialState, action) => {
                 dernierId: nouvelId,
             };
         case 'LOGIN_SUCCESS':
-            return { ...state, currentUser: action.payload, loginError: null };
-        case 'LOGIN_FAILURE':
-            return { ...state, currentUser: null, loginError: action.payload };
+            return { ...state, currentUser: action.payload, loginError: null };        case 'LOGIN_FAILURE':
         default:
             return state;
     }
