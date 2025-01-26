@@ -52,34 +52,44 @@ const panierReducer = (state = initialState, action) => {
             };
         case 'SUPPRIMER_DU_PANIER':
             return { ...state, panier: state.panier.filter((item) => item.id !== action.payload.id) };
+            case 'ACCEPT_COMMANDE':
+    return {
+        ...state,
+        orderInfo: {
+            ...state.orderInfo,
+            order: state.orderInfo.order.filter(order => order.trackingNumber !== action.payload),
+        },
+    };
 
             case 'VIDER_PANIER':
-            const newTrackingNumber = generateTrackingNumber();
-            const currentDate = new Intl.DateTimeFormat('en-US', {
-                year: 'numeric',
-                month: 'long',
-                day: '2-digit',
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit',
-                hour12: true,
-            }).format(new Date()); // Format the current date for better readability
-            return {
-                ...state,
-                orderInfo: {
-                    ...state.orderInfo,
-                    trackingNumbers: [...state.orderInfo.trackingNumbers, newTrackingNumber],
-                    order: [
-                        ...state.orderInfo.order,
-                        {
-                            trackingNumber: newTrackingNumber,
-                            items: [...state.panier], // Add the current panier items to the order
-                            date: currentDate, // Add the formatted date
-                        },
-                    ],
-                },
-                panier: [], // Clear the panier after placing the order
-            };
+                const newTrackingNumber = generateTrackingNumber();
+                const currentDate = new Intl.DateTimeFormat('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: '2-digit',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit',
+                    hour12: true,
+                }).format(new Date());
+            
+                return {
+                    ...state,
+                    orderInfo: {
+                        ...state.orderInfo,
+                        trackingNumbers: [...state.orderInfo.trackingNumbers, newTrackingNumber],
+                        order: [
+                            ...state.orderInfo.order,
+                            {
+                                trackingNumber: newTrackingNumber,
+                                items: [...state.panier],
+                                userId: action.payload, // Add the userId here
+                                date: currentDate,
+                            },
+                        ],
+                    },
+                    panier: [], // Clear the panier after placing the order
+                };
 
 
             

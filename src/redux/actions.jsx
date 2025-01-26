@@ -50,9 +50,17 @@ payload: { id },
 });
 
 
-export const viderPanier = () => ({
-type: 'VIDER_PANIER',
+export const viderPanier = (userId) => {
+    return {
+        type: 'VIDER_PANIER',
+        payload: userId, // Pass the userId
+    };
+};
+export const deleteOrder = (trackingNumber) => ({
+    type: 'ACCEPT_COMMANDE',
+    payload: trackingNumber,
 });
+
 
 
 

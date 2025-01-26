@@ -18,7 +18,7 @@ const Panier = () => {
     const produits = useSelector((state) => state.products.produits);
     const trackingNumbers = useSelector((state) => state.panier.orderInfo.trackingNumbers); // Updated to use trackingNumbers array
     const currentUser = useSelector((state) => state.users.currentUser);
-
+    const orders = useSelector((state) => state.panier.orderInfo.order);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -37,17 +37,25 @@ const Panier = () => {
                 setFadingItems((prev) => [...prev, item.id]);
             }, index * 500);
         });
-
+    
         setTimeout(() => {
             if (currentUser) {
+                console.log("Placing order for user ID:", currentUser.id); // Log the user ID
                 dispatch(diminuerStock(panier));
-                dispatch(viderPanier());
+                dispatch(viderPanier(currentUser.id)); // Pass currentUser.id here
                 setFadingItems([]);
                 setCommandeSuccess(true);
-                dispatch(genereTrackingNumber(currentUser.id)); // Pass `currentUser.id` to generate tracking number
+                dispatch(genereTrackingNumber(currentUser.id));
+    
+                // Log the updated orders array after a delay
+                setTimeout(() => { // Access updated orders
+                    console.log("Updated orders array:", orders); // Log the array of orders
+                }, 500);
             }
         }, panier.length * 500);
     };
+    
+    
 
     const handleModifierQuantite = (id, delta) => {
         const item = panier.find((item) => item.id === id);
