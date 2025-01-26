@@ -9,7 +9,6 @@ import '../styles/Products.css';
 const ManageStock = () => {
     const produits = useSelector((state) => state.products.produits);
     
-    const panier = useSelector((state) => state.panier.panier);
     const dispatch = useDispatch();
     const navigate = useNavigate(); 
     const currentUser = useSelector((state) => state.users.currentUser); 
@@ -49,10 +48,13 @@ const ManageStock = () => {
         }
     };
 
-    const isButtonDisabled = (produit) => {
-        const productInPanier = panier.find(item => item.id === produit.id);
-        const totalQuantityInPanier = productInPanier ? productInPanier.quantite : 0;
-        return totalQuantityInPanier >= produit.stock;
+    const isAlert = (produit) => {
+        return produit.stock <= 20;
+    };
+
+
+    const isButtonDisabled = () => {
+        return false;
     };
 
     useEffect(() => {
@@ -108,7 +110,8 @@ const ManageStock = () => {
                             produit={produit}
                             handleAddToPanier={handleAddToPanier}
                             isButtonDisabled={isButtonDisabled}
-                            cardbutton={"Edit Stock"}
+                            cardbutton={"Add to Stock"}
+                            isAlert={isAlert}
                         />
                     ))
                 ) : (
