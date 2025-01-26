@@ -1,7 +1,7 @@
 # Floral Dreams
 
 ## Overview
-"Floral Dreams" is an e-commerce application for a flower shop.
+"Floral Dreams" is an e-commerce application for a flower shop.  
 Front-end developed using React and Redux.
 
 # Overview of CRUD Progress in the Project
@@ -9,7 +9,7 @@ Front-end developed using React and Redux.
 | *Feature*    | *C* | *R* | *U* | *D* | *Description*                             |  
 |----------------|-------|-------|-------|-------|---------------------------------------------|  
 | *Reviews*    | ✅    | ✅    | ⏳    | ⏳    | Add Create, Update, Delete functionality    |  
-| *Users*      | ✅    | ✅    | ⏳    | ✅    | Add Update functionality                    |  
+| *Users*      | ✅    | ✅    | ✅    | ✅    | Add Update functionality                    |  
 | *Products*   | ✅    | ✅    | ✅    | ⏳    | Add Delete (Admin)          |  
 | *Cart*       | ✅    | ✅    | ✅    | ✅    | Confirm Cart ID logic for consistency       |  
 | *Orders*     | ✅    | ✅    | ⏳    | ⏳    | Additional features as needed    
@@ -74,31 +74,71 @@ You can use the following credentials to log in as an admin or a regular user:
 
 The Main Home Page serves as the landing page for visitors. It allows them to navigate the application and explore products, view testimonials, and login or register their account. 
 
-### Key Features:
+### Key Features
 
-- **Welcome Section**: A greeting is displayed to the user, inviting them to browse the flower shop.
-- ![image](https://github.com/user-attachments/assets/3fd39c63-ed78-4b6a-9e41-93f9f604e7f2)
-  
-- **Shop Button**: A link to the flower purchase page is provided. The link conditionally navigates to the Authentication Page.  
-<div style="display: flex; gap: 100px;">
+#### **Welcome Section**
+A greeting is displayed to the user, inviting them to browse the flower shop.
+
+![Welcome Section](https://github.com/user-attachments/assets/3fd39c63-ed78-4b6a-9e41-93f9f604e7f2)
+
+---
+
+#### **Shop Button**
+A link to the flower purchase page is provided. The link conditionally navigates to the Authentication Page.
+
+<div style="display: flex; gap: 40px; justify-content: center;">
   <img src="https://github.com/user-attachments/assets/e1d6d1fd-3475-4302-8bd8-0bfa169aa96a" width="300" />
   <img src="https://github.com/user-attachments/assets/b77fa9fe-b500-4e34-8fb5-39c82602de09" width="300" />
 </div>
 
+---
 
-- **Gallery of Products**: A gallery component (`FlowersGallery`) is included to showcase various flower arrangements available in the shop.  
- ![image](https://github.com/user-attachments/assets/607a2497-87a5-4b78-885b-c573cc2000a3)
+#### **Gallery of Products**
+A gallery component (`FlowersGallery`) is included to showcase various flower arrangements available in the shop.
 
-
-- **Testimonials Section**: Users can read reviews from other clients to help them make informed decisions about their purchases.  
- ![image](https://github.com/user-attachments/assets/b463cf94-353e-40a4-a10b-246c7e5c0394)
-
-
-### Footer
-
-The footer is included at the bottom of every page to provide useful information and navigation options to users.
-
-![image](https://github.com/user-attachments/assets/db9158d1-ac2d-4e7c-aebc-ba0ded8a3335)
-
+![Gallery](https://github.com/user-attachments/assets/607a2497-87a5-4b78-885b-c573cc2000a3)
 
 ---
+
+#### **Testimonials Section**
+Users can read reviews from other clients to help them make informed decisions about their purchases.
+
+![Testimonials](https://github.com/user-attachments/assets/b463cf94-353e-40a4-a10b-246c7e5c0394)
+---
+### Footer
+The footer is included at the bottom of every page to provide useful information and navigation options to users.
+
+![Footer](https://github.com/user-attachments/assets/db9158d1-ac2d-4e7c-aebc-ba0ded8a3335)
+
+---
+
+## **Products Page**
+
+The `Products` page allows users to browse, filter, and sort available flower arrangements :
+
+![image](https://github.com/user-attachments/assets/bd5ad0bb-572f-490d-b672-658c698d81a5)
+
+- **Sorting Options**: Users can sort products by price in ascending or descending order, or view them in their default order.
+- **Price Filtering**: Users can filter products based on a price range to match their budget.
+- **Add to Cart**: Users can add products to their cart with quantity adjustments, and the "Add to Cart" button is disabled if the stock limit is reached.
+- **Redirect Based on Authentication**: The page checks if the user is authenticated, redirecting them to the admin dashboard if they're an admin or the product page if they're a regular user. If not authenticated, the user is redirected to the authentication page.
+  
+---
+
+## **Cart Page**
+
+The `Cart Page` displays the user's shopping cart, allowing them to manage their cart items, view the total price, and place an order. The key features of this page are:
+
+- **Empty Cart**: If the cart is empty, an interactive flower component and a message are displayed encouraging users to shop for flowers.  
+
+![image](https://github.com/user-attachments/assets/b75f23a8-1893-4fa5-8823-2b22febdb931)
+
+- **Items in Cart**: When items are in the cart, they are listed with their names, quantities, and images. Users can modify the quantity of each item, remove them from the cart, and see the total price dynamically updated.  
+
+![image](https://github.com/user-attachments/assets/95eff7f1-3903-4916-93c9-55f5576a5c43)
+
+- **Order Success**: After an order is placed, a success message is displayed along with the tracking number and options for tracking the shipment via services like DHL, FedEx, and UPS. The tracking number can also be copied for convenience.  
+
+![image](https://github.com/user-attachments/assets/d7eb87df-1464-481b-87a7-5c282fdeb890)
+
+- **Animation**: When items are removed from the cart, they fade out with a smooth animation. When an order is placed, items gradually disappear, creating a seamless transition to the success message.
