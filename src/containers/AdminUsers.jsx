@@ -15,12 +15,12 @@ const UserManagement = () => {
     useEffect(() => {
             if (currentUser) {
                 if (currentUser.isAdmin) {
-                    navigate('/admin/users');
+                    navigate('/Flowers-but-better/admin/users');
                 } else {
-                    navigate('/userHome');
+                    navigate('/Flowers-but-better/userHome');
                 }
             } else {
-                navigate('/userHome');
+                navigate('/Flowers-but-better/userHome');
             }
         }, [currentUser, navigate]);
 

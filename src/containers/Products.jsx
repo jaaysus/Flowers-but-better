@@ -61,13 +61,13 @@ const Products = () => {
     useEffect(() => {
                 if (currentUser) {
                     if (currentUser.isAdmin) {
-                        navigate('/adminHome');
+                        navigate('/Flowers-but-better/adminHome');
                     } else {
-                        navigate('/produits');
+                        navigate('/Flowers-but-better/produits');
                     }
                 }
                 else{
-                    navigate('/auth');
+                    navigate('/Flowers-but-better/auth');
                 }
             }, [currentUser, navigate]);
 

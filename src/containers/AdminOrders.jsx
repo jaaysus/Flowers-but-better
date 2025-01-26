@@ -20,13 +20,13 @@ const UserOrders = () => {
     useEffect(() => {
         if (currentUser) {
             if (currentUser.isAdmin) {
-                navigate('/admin/orders');
+                navigate('/Flowers-but-better/admin/orders');
             } else {
-                navigate('/userHome');
+                navigate('/Flowers-but-better/userHome');
             }
         }
         else{
-            navigate('/auth');
+            navigate('/Flowers-but-better/auth');
         }
     }, [currentUser, navigate]);
 

@@ -25,7 +25,7 @@ const NormalUserHome = () => {
       </div>
       
       <div id="hero02">
-        <Link to={currentUser ? "/produits" : "/auth"} style={{ color: '#07202B', textDecoration: 'none' }}>
+        <Link to={currentUser ? "/Flowers-but-better/produits" : "/Flowers-but-better/auth"} style={{ color: '#07202B', textDecoration: 'none' }}>
           Buy Flowers
         </Link>
       </div>

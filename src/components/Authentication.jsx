@@ -26,15 +26,15 @@ const Authentication = () => {
     useEffect(() => {
         if (currentUser) {
             if (currentUser.isAdmin) {
-                navigate('/adminHome');
+                navigate('/Flowers-but-better/adminHome');
             } else {
-                navigate('/userHome');
+                navigate('/Flowers-but-better/userHome');
             }
         }
     }, [currentUser]);
 
     const handleCreateAccount = () => {
-        navigate('/create-account');  
+        navigate('/Flowers-but-better/create-account');  
     };
 
     return (

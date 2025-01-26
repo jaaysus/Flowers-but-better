@@ -24,18 +24,18 @@ export default function Account() {
     useEffect(() => {
         if (currentUser) {
             if (currentUser.isAdmin) {
-                navigate('/adminHome');
+                navigate('/Flowers-but-better/adminHome');
             } else {
-                navigate('/acc');
+                navigate('/Flowers-but-better/acc');
             }
         } else {
-            navigate('/userHome');
+            navigate('/Flowers-but-better/userHome');
         }
     }, [currentUser, navigate]);
 
     const handleLogout = () => {
         dispatch(logout());  // Dispatch logout action
-        navigate('/userHome'); // Redirect to userHome after logout
+        navigate('/Flowers-but-better/userHome'); // Redirect to userHome after logout
     };
 
 

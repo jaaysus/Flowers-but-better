@@ -31,7 +31,7 @@ const CreateAccount = () => {
             };
               dispatch(ajouterUtilisateur(nouvelUtilisateur));
               
-              navigate('/');  
+              navigate('/Flowers-but-better/');  
 
 
         alert("Account created successfully!");
@@ -44,7 +44,7 @@ const CreateAccount = () => {
 
 
     const handleLogin = () => {
-        navigate('/Auth');  
+        navigate('/Flowers-but-better/Auth');  
     };
 
 

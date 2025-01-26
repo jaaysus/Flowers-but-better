@@ -68,13 +68,13 @@ const ManageStock = () => {
     useEffect(() => {
         if (currentUser) {
             if (currentUser.isAdmin) {
-                navigate('/admin/stock');
+                navigate('/Flowers-but-better/admin/stock');
             } else {
-                navigate('/userHome');
+                navigate('/Flowers-but-better/userHome');
             }
         }
         else{
-            navigate('/auth');
+            navigate('/Flowers-but-better/auth');
         }
     }, [currentUser, navigate]);
 

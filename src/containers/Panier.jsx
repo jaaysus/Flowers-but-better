@@ -76,13 +76,13 @@ const Panier = () => {
     useEffect(() => {
             if (currentUser) {
                 if (currentUser.isAdmin) {
-                    navigate('/adminHome');
+                    navigate('/Flowers-but-better/adminHome');
                 } else {
-                    navigate('/panier');
+                    navigate('/Flowers-but-better/panier');
                 }
             }
             else{
-                navigate('/auth');
+                navigate('/Flowers-but-better/auth');
             }
         }, [currentUser, navigate]);
 

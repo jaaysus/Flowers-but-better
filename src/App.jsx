@@ -21,17 +21,17 @@ const App = () => {
         <Router>
             <Navbar />
             <Routes>
-                <Route path="/auth" element={<Authentication />} />
-                <Route path="/create-account" element={<CreateAccount />} />
-                <Route path="/userHome" element={<NormalUserHome />} />
-                <Route path="/adminHome" element={<AdminHome />} />
-                <Route path="/admin/stock" element={<AdminStock />} />
-                <Route path="/admin/orders" element={<AdminOrders />} />
-                <Route path="/admin/users" element={<AdminUsers />} />
-                <Route path="/" element={<Accueil />} />
-                <Route path="/produits" element={<Products />} />
-                <Route path="/panier" element={<Panier />} />
-                <Route path="/acc" element={<Account />} />
+                <Route path="/Flowers-but-better/auth" element={<Authentication />} />
+                <Route path="/Flowers-but-better/create-account" element={<CreateAccount />} />
+                <Route path="/Flowers-but-better/userHome" element={<NormalUserHome />} />
+                <Route path="/Flowers-but-better/adminHome" element={<AdminHome />} />
+                <Route path="/Flowers-but-better/admin/stock" element={<AdminStock />} />
+                <Route path="/Flowers-but-better/admin/orders" element={<AdminOrders />} />
+                <Route path="/Flowers-but-better/admin/users" element={<AdminUsers />} />
+                <Route path="/Flowers-but-better/" element={<Accueil />} />
+                <Route path="/Flowers-but-better/produits" element={<Products />} />
+                <Route path="/Flowers-but-better/panier" element={<Panier />} />
+                <Route path="/Flowers-but-better/acc" element={<Account />} />
 
             </Routes>
             <Footer />

@@ -9,13 +9,13 @@ const Accueil = () => {
     useEffect(() => {
         if (currentUser) {
             if (currentUser.isAdmin) {
-                navigate('/adminHome');
+                navigate('/Flowers-but-better/adminHome');
             } else {
-                navigate('/userHome');
+                navigate('/Flowers-but-better/userHome');
             }
         }
         else{
-            navigate('/userHome');
+            navigate('/Flowers-but-better/userHome');
         }
     }, [currentUser, navigate]);
 

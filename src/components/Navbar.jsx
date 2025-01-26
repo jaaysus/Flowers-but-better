@@ -20,7 +20,7 @@ const navbarStyles = {
         width: '60px',
         height: '60px',
         borderRadius: '50%',
-        backgroundImage: 'url(/navbar_flower.png)',
+        backgroundImage: 'url(/Flowers-but-better/navbar_flower.png)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         position: 'absolute',
@@ -79,13 +79,13 @@ const Navbar = () => {
                     }}
                 ></div>
 
-                <Link to="/" style={navbarStyles.link}>Home</Link>
+                <Link to="/Flowers-but-better/" style={navbarStyles.link}>Home</Link>
 
                 {/* Show "Produits" and "Panier" only for normal users */}
                 {currentUser && !currentUser.isAdmin && (
                     <>
-                        <Link to="/produits" style={navbarStyles.link}>Flowers</Link>
-                        <Link to="/panier" style={navbarStyles.link}>
+                        <Link to="/Flowers-but-better/produits" style={navbarStyles.link}>Flowers</Link>
+                        <Link to="/Flowers-but-better/panier" style={navbarStyles.link}>
                             Cart
                             {totalItems > 0 && (
                                 <span style={navbarStyles.badge}>{totalItems}</span>
@@ -97,15 +97,15 @@ const Navbar = () => {
                 {currentUser ? (
                     currentUser.isAdmin ? (
                         <>
-                            <Link to="/admin/stock" style={navbarStyles.link}>Manage Stock</Link>
-                            <Link to="/admin/Orders" style={navbarStyles.link}>Manage Orders</Link>
-                            <Link to="/admin/users" style={navbarStyles.link}>Manage Users</Link>
+                            <Link to="/Flowers-but-better/admin/stock" style={navbarStyles.link}>Manage Stock</Link>
+                            <Link to="/Flowers-but-better/admin/Orders" style={navbarStyles.link}>Manage Orders</Link>
+                            <Link to="/Flowers-but-better/admin/users" style={navbarStyles.link}>Manage Users</Link>
                         </>
                     ) : (
-                        <Link to="/acc" style={navbarStyles.link}>Profile</Link>
+                        <Link to="/Flowers-but-better/acc" style={navbarStyles.link}>Profile</Link>
                     )
                 ) : (
-                    <Link to="/auth" style={navbarStyles.link}>Login</Link>
+                    <Link to="/Flowers-but-better/auth" style={navbarStyles.link}>Login</Link>
                 )}
             </nav>
         </>
