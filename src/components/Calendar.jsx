@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectDate, changeMonth } from "../redux/actions";
-import "../styles/Calendar.css";
+import "../styles/calendar.css";
 
 export default function Calendar() {
   const dispatch = useDispatch();
