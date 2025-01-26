@@ -1,4 +1,3 @@
-// reviewsReducer.jsx
 const initialState = {
     reviews: [
       {
