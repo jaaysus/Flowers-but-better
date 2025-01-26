@@ -58,6 +58,17 @@ const userReducer = (state = initialState, action) => {
                     (user) => user.id !== action.payload
                 ),
             };
+
+        case 'UPDATE_USER_INFO':
+            return {
+                ...state,
+                utilisateurs: state.utilisateurs.map((user) =>
+                    user.id === action.payload.id
+                        ? { ...user, ...action.payload }  // Update the user info
+                        : user
+                ),
+                currentUser: action.payload,  // Update the currentUser as well
+            };
         default:
             return state;
     }

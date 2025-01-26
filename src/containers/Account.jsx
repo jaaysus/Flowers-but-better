@@ -1,15 +1,22 @@
 import '../styles/acc.css';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Calendar from '../components/Calendar';
-import { logout } from '../redux/actions'; // Assuming you have this import
+import { logout } from '../redux/actions'; 
+import { updateUserInfo } from '../redux/actions';
 
 export default function Account() {
     const navigate = useNavigate(); 
     const dispatch = useDispatch();
     const currentUser = useSelector((state) => state.users.currentUser); 
     const orderInfo = useSelector((state) => state.panier.orderInfo);
+
+    const [isEditing, setIsEditing] = useState(false);
+    const [editedUser, setEditedUser] = useState({
+        username: currentUser.username,
+        email: currentUser.email,
+    });
 
     useEffect(() => {
         if (currentUser) {
@@ -28,6 +35,23 @@ export default function Account() {
         navigate('/userHome'); // Redirect to userHome after logout
     };
 
+    const handleEditClick = () => {
+        setIsEditing(true); // Set edit mode to true
+    };
+
+    const handleSaveClick = () => {
+        dispatch(updateUserInfo(editedUser));
+    
+        setIsEditing(false); // Exit edit mode
+    };
+
+    const handleChange = (e) => {
+        setEditedUser({
+            ...editedUser,
+            [e.target.name]: e.target.value, // Update the field being edited
+        });
+    };
+
     return (
         <>            
         <h1 className="acc-title">Profile</h1>
@@ -38,12 +62,42 @@ export default function Account() {
             
             <section className="personal-info">
                 <h2>Personal Info 
+
+                <span className="edit-link" onClick={handleEditClick}>(Edit)</span></h2>
+                {isEditing ? (
+                    <div>
+                        <div>
+                            <strong>Username:</strong>
+                            <input
+                                type="text"
+                                name="username"
+                                value={editedUser.username}
+                                onChange={handleChange}
+                            />
+                        </div>
+                        <div>
+                            <strong>Email:</strong>
+                            <input
+                                type="email"
+                                name="email"
+                                value={editedUser.email}
+                                onChange={handleChange}
+                            />
+                        </div>
+                        <button onClick={handleSaveClick}>Save</button>
+                    </div>
+                ) : (
+                    <div>
+                        <div><strong>Username:</strong> {currentUser.username}</div>
+                        <div><strong>Email:</strong> {currentUser.email}</div>
+                    </div>
+                )}
+
+                
                 <button className="logout-button" onClick={handleLogout}>
                 Logout
                 </button>
-                <span className="edit-link">(Edit)</span></h2>
-                <div><strong>Username:</strong> {currentUser.username}</div>
-                <div><strong>Email:</strong> {currentUser.email}</div>
+                
             </section>
             <section className="order-history">
                 {orderInfo.order && orderInfo.order.length > 0 ? (

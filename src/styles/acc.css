@@ -89,7 +89,7 @@
 
 .logout-button {
     position: absolute;
-    top: 0;
+    top: 3rem;
     right: 0;
     padding: 8px 16px;
     background-color: #ff4d4d; /* Button color */
