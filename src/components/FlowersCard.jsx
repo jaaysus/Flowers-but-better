@@ -1,4 +1,3 @@
-// PokemonCard.js
 import React from 'react';
 import { connect } from 'react-redux';
 import { updateCard } from '../redux/actions';
