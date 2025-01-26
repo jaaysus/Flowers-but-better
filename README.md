@@ -6,13 +6,13 @@ Front-end developed using React and Redux.
 
 # Overview of CRUD Progress in the Project
 
-| *Feature*    | *C* | *R* | *U* | *D* | *Description*                             |  
-|----------------|-------|-------|-------|-------|---------------------------------------------|  
-| *Reviews*    | ✅    | ✅    | ✅    | ✅    | Add Create, Update, Delete functionality    |  
-| *Users*      | ✅    | ✅    | ✅    | ✅    | Add Update functionality                    |  
-| *Products*   | ✅    | ✅    | ✅    | ✅    | Add Delete (Admin)          |  
-| *Cart*       | ✅    | ✅    | ✅    | ✅    | Confirm Cart ID logic for consistency       |  
-| *Orders*     | ✅    | ✅    | ⏳    | ⏳    | Additional features as needed    
+| Feature    | C | R | U | D | 
+|----------------|-------|-------|-------|-------|
+| Reviews    | ✅    | ✅    | ✅    | ✅    |
+| Users      | ✅    | ✅    | ✅    | ✅    |
+| Products   | ⏳    | ✅    | ✅    | ⏳    |
+| Cart       | ✅    | ✅    | ✅    | ✅    | 
+| Orders     | ✅    | ✅    | ⏳    | ⏳    |
 
 
 **Symbol:**  
