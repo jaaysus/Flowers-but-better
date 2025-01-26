@@ -8,7 +8,7 @@ Front-end developed using React and Redux.
 
 | *Feature*    | *C* | *R* | *U* | *D* | *Description*                             |  
 |----------------|-------|-------|-------|-------|---------------------------------------------|  
-| *Reviews*    | ✅    | ✅    | ⏳    | ⏳    | Add Create, Update, Delete functionality    |  
+| *Reviews*    | ✅    | ✅    | ✅    | ✅    | Add Create, Update, Delete functionality    |  
 | *Users*      | ✅    | ✅    | ✅    | ✅    | Add Update functionality                    |  
 | *Products*   | ✅    | ✅    | ✅    | ✅    | Add Delete (Admin)          |  
 | *Cart*       | ✅    | ✅    | ✅    | ✅    | Confirm Cart ID logic for consistency       |  
