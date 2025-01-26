@@ -76,22 +76,29 @@ The Main Home Page serves as the landing page for visitors. It allows them to na
 
 ### Key Features:
 
-- **Welcome Section**: A greeting is displayed to the user, inviting them to browse the flower shop.  
-  ![Welcome Section](image-placeholder.jpg)
+- **Welcome Section**: A greeting is displayed to the user, inviting them to browse the flower shop.
+- ![image](https://github.com/user-attachments/assets/3fd39c63-ed78-4b6a-9e41-93f9f604e7f2)
   
-- **Shop Button**: A link to the flower purchase page is provided. The link conditionally navigates either to the `/produits` page (if the user is logged in) or the `/auth` page (for authentication).  
-  ![Shop Button](image-placeholder.jpg)
+- **Shop Button**: A link to the flower purchase page is provided. The link conditionally navigates to the Authentication Page.  
+<div style="display: flex; gap: 100px;">
+  <img src="https://github.com/user-attachments/assets/e1d6d1fd-3475-4302-8bd8-0bfa169aa96a" width="300" />
+  <img src="https://github.com/user-attachments/assets/b77fa9fe-b500-4e34-8fb5-39c82602de09" width="300" />
+</div>
+
 
 - **Gallery of Products**: A gallery component (`FlowersGallery`) is included to showcase various flower arrangements available in the shop.  
-  ![Flowers Gallery](image-placeholder.jpg)
+ ![image](https://github.com/user-attachments/assets/607a2497-87a5-4b78-885b-c573cc2000a3)
+
 
 - **Testimonials Section**: Users can read reviews from other clients to help them make informed decisions about their purchases.  
-  ![Testimonials](image-placeholder.jpg)
+ ![image](https://github.com/user-attachments/assets/b463cf94-353e-40a4-a10b-246c7e5c0394)
+
 
 ### Footer
 
-The footer is included at the bottom of every page to provide useful information and navigation options to users. It typically contains links to the privacy policy, terms of service, contact details, and social media accounts. It serves as a consistent section across the website, providing users with easy access to important resources.
+The footer is included at the bottom of every page to provide useful information and navigation options to users.
 
-  ![Footer](image-placeholder.jpg)
+![image](https://github.com/user-attachments/assets/db9158d1-ac2d-4e7c-aebc-ba0ded8a3335)
+
 
 ---
