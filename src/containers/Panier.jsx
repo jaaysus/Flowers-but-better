@@ -163,11 +163,18 @@ const Panier = () => {
                                     </button>
                                     <span className="quantite-value">{item.quantite}</span>
                                     <button
-                                        className="modifier-quantite"
-                                        onClick={() => handleModifierQuantite(item.id, 1)}
-                                    >
-                                        +
-                                    </button>
+                                    className="modifier-quantite"
+                                    onClick={() => handleModifierQuantite(item.id, 1)}
+                                    disabled={item.quantite >= produit?.stock} // Disable the button if quantity reaches the stock
+                                    style={{
+                                        backgroundColor: item.quantite >= produit?.stock ? 'red' : '',
+                                        color: item.quantite >= produit?.stock ? 'white' : '',
+                                        cursor: item.quantite >= produit?.stock ? 'not-allowed' : '',
+                                    }}
+                                >
+                                    +
+                                </button>
+
                                 </div>
                                 <button className="supprimer" onClick={() => handleSupprimer(item.id)}>
                                     Remove
