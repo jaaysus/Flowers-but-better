@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { ajouterAuPanier, modifierQuantite } from '../redux/actions';
+import { ajouterAuPanier, modifierQuantite, deleteProductAction, updateStockQuantity } from '../redux/actions';
 import Card from '../components/Card';
 import '../styles/Products.css';
 
 
 const ManageStock = () => {
     const produits = useSelector((state) => state.products.produits);
-    
+    const [products, setProducts] = useState(produits);
     const dispatch = useDispatch();
     const navigate = useNavigate(); 
     const currentUser = useSelector((state) => state.users.currentUser); 
@@ -54,6 +54,13 @@ const ManageStock = () => {
             dispatch(updateStockQuantity(produit.id, updatedStock)); 
         }
     };
+
+
+    const handleDeleteProduct = (productId) => {
+        dispatch(deleteProductAction(productId));
+    };
+    
+
     
 
     const isAlert = (produit) => {
@@ -121,6 +128,7 @@ const ManageStock = () => {
                             isButtonDisabled={isButtonDisabled}
                             cardbutton={"Add to Stock"}
                             isAlert={isAlert}
+                            handleDeleteProduct={() => handleDeleteProduct(produit.id)}
                         />
                     ))
                 ) : (

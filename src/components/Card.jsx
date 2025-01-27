@@ -1,20 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { updateStockQuantity } from '../redux/actions';
-import { useDispatch } from 'react-redux'; 
 import '../styles/card.css'; 
 
-const Card = ({ produit, handleAddToPanier, isButtonDisabled, cardbutton, isAlert }) => {
-    const dispatch = useDispatch();
+const Card = ({ produit, handleAddToPanier, handleAddToStock, isButtonDisabled, cardbutton, isAlert, handleDeleteProduct }) => {
 
-    const handleAddToStock = (produit, quantite) => {
-        
-        if (quantite > 0) {
-            const updatedStock = produit.stock + quantite;
-            dispatch(updateStockQuantity(produit.id, updatedStock)); // Update Redux state with new stock
-        }
-    };
-    
+
     return (
     
         <div className="container">
@@ -57,6 +47,27 @@ const Card = ({ produit, handleAddToPanier, isButtonDisabled, cardbutton, isAler
                     >
                         {cardbutton}
                     </button>
+                    {cardbutton === "Add to Stock" ? (
+                        <button
+                            onClick={() => {
+                                if (confirm("Are you sure?")) {
+                                    handleDeleteProduct();
+                                }
+                            }}                            
+                            className="delete-product"
+                            style={{
+                                padding: '10px 20px',
+                                borderRadius: '4px',
+                                cursor: 'pointer',
+                                marginTop: '10px',
+                                backgroundColor: 'red',
+                            }}
+                        >
+                            Delete Product
+                        </button>
+                    ) : (
+                        ""
+                    )}
                 </div>
             </div>
         </div>
