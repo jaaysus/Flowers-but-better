@@ -1,14 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { ajouterAuPanier, modifierQuantite, deleteProductAction, updateStockQuantity } from '../redux/actions';
+import { ajouterAuPanier, modifierQuantite, deleteProductAction, updateStockQuantity, addProductAction } from '../redux/actions';
 import Card from '../components/Card';
 import '../styles/Products.css';
 
 
 const ManageStock = () => {
     const produits = useSelector((state) => state.products.produits);
-    const [products, setProducts] = useState(produits);
+    const [newProduct, setNewProduct] = useState({
+        nom: '',
+        img: '',
+        prix: '',
+        stock: '',
+    });
+    const [showNewProductForm, setShowNewProductForm] = useState(false);
     const dispatch = useDispatch();
     const navigate = useNavigate(); 
     const currentUser = useSelector((state) => state.users.currentUser); 
@@ -72,6 +78,17 @@ const ManageStock = () => {
         return false;
     };
 
+
+    const handleAddNewProduct = () => {
+        if (newProduct.nom && newProduct.prix && newProduct.stock) {
+            const id = produits.length ? produits[produits.length - 1].id + 1 : 1; 
+            const productToAdd = { ...newProduct, id, prix: parseFloat(newProduct.prix), stock: parseInt(newProduct.stock, 10) };
+            dispatch(addProductAction(productToAdd)); 
+            setNewProduct({ nom: '', img: '', prix: '', stock: '' });
+            setShowNewProductForm(false);
+        }
+    };
+
     useEffect(() => {
         if (currentUser) {
             if (currentUser.isAdmin) {
@@ -88,6 +105,38 @@ const ManageStock = () => {
     return currentUser ? (
         <>
         <h1 style={{ textAlign: 'center', marginTop: '50px' }}>Manage Stock</h1>
+        <button onClick={() => setShowNewProductForm(!showNewProductForm)} className="new-product-btn">
+                Add New Product
+            </button>
+            {showNewProductForm && (
+                <div className="new-product-form">
+                    <input
+                        type="text"
+                        placeholder="Product Name"
+                        value={newProduct.nom}
+                        onChange={(e) => setNewProduct({ ...newProduct, nom: e.target.value })}
+                    />
+                    <input
+                        type="text"
+                        placeholder="Image URL"
+                        value={newProduct.img}
+                        onChange={(e) => setNewProduct({ ...newProduct, img: e.target.value })}
+                    />
+                    <input
+                        type="number"
+                        placeholder="Price"
+                        value={newProduct.prix}
+                        onChange={(e) => setNewProduct({ ...newProduct, prix: e.target.value })}
+                    />
+                    <input
+                        type="number"
+                        placeholder="Stock"
+                        value={newProduct.stock}
+                        onChange={(e) => setNewProduct({ ...newProduct, stock: e.target.value })}
+                    />
+                    <button onClick={handleAddNewProduct}>Add Product</button>
+                </div>
+            )}
         <div className="products-page">
             <div className="filter-sort-section">
                 <div>

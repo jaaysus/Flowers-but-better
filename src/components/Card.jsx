@@ -59,11 +59,10 @@ const Card = ({ produit, handleAddToPanier, handleAddToStock, isButtonDisabled, 
                                 padding: '10px 20px',
                                 borderRadius: '4px',
                                 cursor: 'pointer',
-                                marginTop: '10px',
                                 backgroundColor: 'red',
                             }}
                         >
-                            Delete Product
+                            Remove
                         </button>
                     ) : (
                         ""

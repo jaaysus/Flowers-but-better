@@ -131,3 +131,9 @@ export const addReview = (review) => ({
     type: 'DELETE_PRODUCT',
     payload: productId,
 });
+
+
+export const addProductAction = (newProduct) => ({
+    type: 'ADD_PRODUCT',
+    payload: newProduct,
+});

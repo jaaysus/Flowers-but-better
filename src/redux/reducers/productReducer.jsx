@@ -42,6 +42,12 @@ const productReducer = (state = initialState, action) => {
                 ...state,
                 produits: state.produits.filter((product) => product.id !== action.payload),
             };
+            case 'ADD_PRODUCT':
+            return {
+                ...state,
+                produits: [...state.produits, action.payload],
+            };
+                    
             
         default:
             return state;
