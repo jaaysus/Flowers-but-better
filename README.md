@@ -198,10 +198,23 @@ Where Admin can check Orders and confirm them
 
 
 
-## Users management Page
-- Admin can check all users infos
+## Orders Management Page
+Where Admin can check Orders and confirm them
+
+---
+
+## Users Management Page
+- Admin can check all users' information
 - Admin can remove a user
-![image](https://github.com/user-attachments/assets/cb3bceb5-0924-4d21-8f0f-6b76d5010412)
+- Admin can toggle messages for users who have event requests
+- Admin can view and dismiss event requests associated with users
+  
+![image](https://github.com/user-attachments/assets/a1950318-6618-4548-a2d0-ed7f32fa2b31)
+### Admin Features:
+- **Remove User**: Admin can remove users by clicking the "Remove User" button.
+- **Message Management**: Admin can view and toggle messages related to users with event requests. The message button is only enabled for users who have an active event request.
+- **Event Requests**: Admin can view detailed event requests, including the event title, phone number, and request details, and dismiss specific requests if necessary.
+
 
 
 
