@@ -22,19 +22,27 @@ const FeedbackForm = () => {
 
   const handleSubmitReview = () => {
     if (review.trim() === '' || !currentUser) return;
-    const newReview = {
-      id: Date.now(),
-      name: currentUser.fullName,
-      phrase: review,
-      userId: currentUser.id,
-    };
 
-    console.log('Submitting review:', newReview);// left it to debug account edit info undefined case
+    const existingReview = reviews.find(review => review.userId === currentUser.id);
 
-    dispatch({
-      type: 'ADD_REVIEW',
-      payload: newReview,
-    });
+    if (existingReview) {
+      dispatch({
+        type: 'UPDATE_REVIEW',
+        payload: { ...existingReview, phrase: review },
+      });
+    } else {
+      const newReview = {
+        id: Date.now(),
+        name: currentUser.fullName,
+        phrase: review,
+        userId: currentUser.id,
+      };
+
+      dispatch({
+        type: 'ADD_REVIEW',
+        payload: newReview,
+      });
+    }
 
     setIsFeedbackEditing(false);
   };
