@@ -9,10 +9,12 @@ const initialState = {
                     { id: 2, nom: 'Tulip', quantite: 1, prix: 10 }
                 ],
                 trackingNumber: "J8ETO47WSAP8",
-                date:"January 25, 2025, 10:30:45 PM"
+                userId: 2,
+                date: "January 25, 2025, 10:30:45 PM"
             }
         ],
-    },
+    }
+    ,
     
 };
 

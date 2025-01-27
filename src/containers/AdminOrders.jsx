@@ -18,6 +18,7 @@ const UserOrders = () => {
 
     
     useEffect(() => {
+        console.log(orderInfo)
         if (currentUser) {
             if (currentUser.isAdmin) {
                 navigate('/Flowers-but-better/admin/orders');
