@@ -12,7 +12,7 @@ Front-end developed using React and Redux.
 | Users      | ✅    | ✅    | ✅    | ✅    |
 | Products   | ⏳    | ✅    | ✅    | ⏳    |
 | Cart       | ✅    | ✅    | ✅    | ✅    | 
-| Orders     | ✅    | ✅    | ⏳    | ✅    |
+| Orders     | ✅    | ✅    | X    | ✅    |
 
 
 **Symbol:**  
