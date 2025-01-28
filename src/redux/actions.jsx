@@ -103,8 +103,15 @@ export const selectDate = (date) => ({
     type: 'CHANGE_MONTH',
     payload: offset,
   });
+export const saveCalendarData = (currentUserId, eventDate, eventDetails) => ({
+    type: 'SAVE_CALENDAR_DATA',
+    payload: { currentUserId, eventDate, eventDetails }
+});
 
-
+export const dismissRequest = (userId, eventDate) => ({
+    type: 'DISMISS_REQUEST',
+    payload: { userId, eventDate },
+  });
 
   export const updateStockQuantity = (productId, newStock) => ({
     type: 'MODIFIER_QUANTITE',

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectDate, changeMonth } from "../redux/actions";
+import { selectDate, changeMonth, saveCalendarData } from "../redux/actions";
 import "../styles/calendar.css";
 
 export default function Calendar() {
@@ -9,8 +9,12 @@ export default function Calendar() {
   const selectedDate = useSelector((state) =>
     state.calendar.selectedDate ? new Date(state.calendar.selectedDate) : null
   );
-
+  const currentUser = useSelector((state) => state.users.currentUser);
+  const savedEvents = useSelector((state) => state.calendar.savedEvents);//debug purposes
   const [isFlipped, setIsFlipped] = useState(false);
+  const [phoneNumber, setPhoneNumber] = useState("+212");
+  const [eventTitle, setEventTitle] = useState("");
+  const [request, setRequest] = useState("");
 
   const months = [
     "January", "February", "March", "April", "May", "June",
@@ -59,28 +63,48 @@ export default function Calendar() {
     setIsFlipped(false); // Flip back to the front side
   };
 
+  const handleSave = () => {
+    if (selectedDate && currentUser) {
+      const eventDetails = {
+        phoneNumber: phoneNumber,
+        eventTitle: eventTitle, // Include eventTitle
+        request: request, // Include request (textarea)
+      };
+  
+      dispatch(saveCalendarData(
+        currentUser.id,
+        selectedDate.toISOString(),
+        eventDetails
+      ));
+  
+      // Log the savedEvents from the calendar state
+      console.log("Saved Events:", savedEvents);
+    }
+  };
+  
+
   return (
     <div className={`calendar-container ${isFlipped ? "flip" : ""}`}>
       <div className="calendar">
         {/* Front Side */}
         <div className="front">
           <div className="current-date">
-            <h1>{months[currentDate.getMonth()]} {  currentDate.getFullYear()}</h1>
+            <h1>{months[currentDate.getMonth()]} {currentDate.getFullYear()}</h1>
           </div>
           <div className="controls">
-            <button onClick={() => dispatch(changeMonth(-1))} style={{left: "0"}}>
-            <img
-          src="https://www.reshot.com/preview-assets/icons/RF5DMQX396/left-arrow-button-RF5DMQX396-17edd.svg"
-          alt="Left Arrow"
-          style={{ width: '50px', height: '50px' }}
-        />
+            <button onClick={() => dispatch(changeMonth(-1))} style={{ left: "0" }}>
+              <img
+                src="https://www.reshot.com/preview-assets/icons/RF5DMQX396/left-arrow-button-RF5DMQX396-17edd.svg"
+                alt="Left Arrow"
+                style={{ width: '50px', height: '50px' }}
+              />
             </button>
-            <button onClick={() => dispatch(changeMonth(1))} style={{right: "0"}}>
-            <img
-          src="https://www.reshot.com/preview-assets/icons/YAB8GEM7SD/right-arrow-button-YAB8GEM7SD-7165c.svg"
-          alt="Right Arrow"
-          style={{ width: '50px', height: '50px' }}
-        />
+            <button onClick={() => dispatch(changeMonth(1))} style={{ right: "0" }}>
+              <img
+                src="https://www.reshot.com/preview-assets/icons/YAB8GEM7SD/right-arrow-button-YAB8GEM7SD-7165c.svg"
+                alt="Right Arrow"
+                style={{ width: '50px', height: '50px' }}
+              />
             </button>
           </div>
           <div className="current-month">
@@ -116,32 +140,53 @@ export default function Calendar() {
             </div>
           </div>
         </div>
-
         {/* Back Side */}
         <div className="back">
-        <input placeholder="What's the event?"></input>
+          <input
+            placeholder="What's the event?"
+            value={eventTitle}
+            onChange={(e) => setEventTitle(e.target.value)}
+          />
+
+          <div className="phone-request">
+            <div>
+              <strong style={{ transform: 'rotate(180deg)' }}>Phone Number:</strong>
+              <input
+                type="text"
+                placeholder="+212"
+                value={phoneNumber}
+                onChange={(e) => setPhoneNumber(e.target.value)}
+              />
+            </div>
+
+            <div>
+              <textarea
+                placeholder="Write your request"
+                rows="4"
+                value={request}
+                onChange={(e) => setRequest(e.target.value)}
+              />
+            </div>
+          </div>
+
           <div className="info">
             <div className="date">
               <p className="info-date">
                 Date:{" "}
                 <span>
-                  {selectedDate
-                    ? selectedDate.toDateString()
-                    : "No date selected"}
+                  {selectedDate ? selectedDate.toDateString() : "No date selected"}
                 </span>
               </p>
             </div>
           </div>
-          
 
           <div className="actions">
-            <button className="save">
-              Save 
+            <button className="save" onClick={handleSave}>
+              Save
             </button>
             <button className="dismiss" onClick={handleBackButton}>
-            Back 
-          </button>
-            
+              Back
+            </button>
           </div>
         </div>
       </div>
