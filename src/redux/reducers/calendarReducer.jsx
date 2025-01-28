@@ -1,3 +1,6 @@
+// This is useless now
+//
+//
 const initialState = {
   currentDate: new Date().toISOString(),
   selectedDate: null,
