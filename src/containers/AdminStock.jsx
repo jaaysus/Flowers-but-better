@@ -105,11 +105,16 @@ const ManageStock = () => {
     return currentUser ? (
         <>
         <h1 style={{ textAlign: 'center', marginTop: '50px' }}>Manage Stock</h1>
+        <div className="new-product-form">
+        <div style={{display:"flex", justifyContent: "center",
+    alignItems: "center"}}>
         <button onClick={() => setShowNewProductForm(!showNewProductForm)} className="new-product-btn">
-                Add New Product
-            </button>
+                New Product
+            </button></div>
             {showNewProductForm && (
-                <div className="new-product-form">
+                <div>
+                    <div style={{display:"flex", justifyContent: "center",
+    alignItems: "center"}}>
                     <input
                         type="text"
                         placeholder="Product Name"
@@ -134,9 +139,13 @@ const ManageStock = () => {
                         value={newProduct.stock}
                         onChange={(e) => setNewProduct({ ...newProduct, stock: e.target.value })}
                     />
+                    </div>
+                    <div style={{display:"flex", justifyContent: "center",
+    alignItems: "center"}}>
                     <button onClick={handleAddNewProduct}>Add Product</button>
-                </div>
+                </div></div>
             )}
+        </div>
         <div className="products-page">
             <div className="filter-sort-section">
                 <div>

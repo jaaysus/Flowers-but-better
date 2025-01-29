@@ -96,6 +96,18 @@ h1 {
     font-weight: bold;
 }
 
+.new-product-form{
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    background-color: #C2B09A;
+}
+
+.new-product-form *{
+   margin: 0.5rem;
+}
 
 
 
