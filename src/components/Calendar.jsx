@@ -148,15 +148,20 @@ export default function Calendar() {
             value={eventTitle}
             onChange={(e) => setEventTitle(e.target.value)}
           />
-
-              <input
+                <input
                 type="text"
                 placeholder="Phone number"
                 value={phoneNumber}
-                onChange={(e) => setPhoneNumber(e.target.value)}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  // Remove the "+" sign for validation but allow it as the first character
+                  const numericPart = value.replace(/^\+/, "");
+                  if (/^\d{0,12}$/.test(numericPart) || (value.startsWith("+") && numericPart.length <= 12)) {
+                    setPhoneNumber(value);
+                  }
+                }}
               />
-
-              <textarea className="description"
+               <textarea className="description"
                 placeholder="Write your request"
                 rows="6"
                 value={request}
