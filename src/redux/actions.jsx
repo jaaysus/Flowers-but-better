@@ -93,8 +93,8 @@ export const updateCard = (index, data) => ({
 });
 
 
-//these can be deleted now
-/*export const selectDate = (date) => ({
+
+export const selectDate = (date) => ({
     type: "SELECT_DATE",
     payload: date ? date.toISOString() : null,
   });
@@ -111,7 +111,7 @@ export const saveCalendarData = (currentUserId, eventDate, eventDetails) => ({
 export const dismissRequest = (userId, eventDate) => ({
     type: 'DISMISS_REQUEST',
     payload: { userId, eventDate },
-  });*/
+  });
 
   export const updateStockQuantity = (productId, newStock) => ({
     type: 'MODIFIER_QUANTITE',

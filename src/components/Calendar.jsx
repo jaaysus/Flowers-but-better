@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectDate, changeMonth, saveCalendarData } from "../redux/slices/CalendarSlice"; // Updated import
+import { selectDate, changeMonth, saveCalendarData } from "../redux/actions";
 import "../styles/calendar.css";
 
 export default function Calendar() {
@@ -10,7 +10,7 @@ export default function Calendar() {
     state.calendar.selectedDate ? new Date(state.calendar.selectedDate) : null
   );
   const currentUser = useSelector((state) => state.users.currentUser);
-  const savedEvents = useSelector((state) => state.calendar.savedEvents); //debug purposes
+  const savedEvents = useSelector((state) => state.calendar.savedEvents);//debug purposes
   const [isFlipped, setIsFlipped] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState("+212");
   const [eventTitle, setEventTitle] = useState("");
@@ -50,8 +50,11 @@ export default function Calendar() {
 
   const handleDateClick = (day) => {
     if (day) {
-      const selectedDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), day);
-      dispatch(selectDate(selectedDate.toISOString())); // Dispatch as string (ISO format)
+      dispatch(
+        selectDate(
+          new Date(currentDate.getFullYear(), currentDate.getMonth(), day)
+        )
+      );
       setIsFlipped(true); // Flip to the back side
     }
   };
@@ -68,11 +71,11 @@ export default function Calendar() {
         request: request, // Include request (textarea)
       };
   
-      dispatch(saveCalendarData({
-        currentUserId: currentUser.id,  // Passing userId from currentUser
-        eventDate: selectedDate.toISOString(),
-        eventDetails: eventDetails
-      }));
+      dispatch(saveCalendarData(
+        currentUser.id,
+        selectedDate.toISOString(),
+        eventDetails
+      ));
   
       // Log the savedEvents from the calendar state
       console.log("Saved Events:", savedEvents);
