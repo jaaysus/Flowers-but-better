@@ -26,7 +26,7 @@ const Hero = () => {
           height: "100%",
           objectFit: "contain",
           position: "absolute",
-          top: "0.5rem",
+          top: "0.25rem",
           right: "15.3rem",
           zIndex: "2",
           transform: animate ? "scale(1)" : "scale(0)",
