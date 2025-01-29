@@ -79,6 +79,7 @@ export default function Calendar() {
   
       // Log the savedEvents from the calendar state
       console.log("Saved Events:", savedEvents);
+      setIsFlipped(false);
     }
   };
   
@@ -148,26 +149,19 @@ export default function Calendar() {
             onChange={(e) => setEventTitle(e.target.value)}
           />
 
-          <div className="phone-request">
-            <div>
-              <strong style={{ transform: 'rotate(180deg)' }}>Phone Number:</strong>
               <input
                 type="text"
-                placeholder="+212"
+                placeholder="Phone number"
                 value={phoneNumber}
                 onChange={(e) => setPhoneNumber(e.target.value)}
               />
-            </div>
 
-            <div>
-              <textarea
+              <textarea className="description"
                 placeholder="Write your request"
-                rows="4"
+                rows="6"
                 value={request}
                 onChange={(e) => setRequest(e.target.value)}
               />
-            </div>
-          </div>
 
           <div className="info">
             <div className="date">

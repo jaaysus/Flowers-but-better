@@ -193,3 +193,22 @@
   height: 50px; 
   margin: 4rem;
 }
+
+
+
+
+.description {
+  width: 80%;
+  background: transparent;
+  color: #c2b09a;
+  height: 4rem;
+  border: none;
+  border-bottom: 1px solid rgba(73, 114, 133, 0.6);
+  border-top: 1px solid rgba(73, 114, 133, 0.6);
+  resize: none;
+  outline: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
