@@ -20,11 +20,11 @@ const NormalUserHome = () => {
     <>
       <Hero />
       
-      <div id="hero01">
+      <div id="hero01" style={{ zIndex: '3' }}>
         <h1>Welcome to our Flower Shop</h1>
       </div>
       
-      <div id="hero02">
+      <div id="hero02" style={{ zIndex: '3' }}>
         <Link to={currentUser ? "/Flowers-but-better/produits" : "/Flowers-but-better/auth"} style={{ color: '#07202B', textDecoration: 'none' }}>
           Buy Flowers
         </Link>
