@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
-
+import { useSelector } from "react-redux";
+import { Link } from 'react-router-dom';
 const Hero = () => {
-
+  
+  const currentUser = useSelector((state) => state.users.currentUser);
   const [animate, setAnimate] = useState(false);
 
   useEffect(() => {
@@ -11,6 +13,16 @@ const Hero = () => {
   }, []);
 
   return (
+    <>
+          <div id="hero01" style={{ zIndex: '3' }}>
+        <h1>Welcome to our Flower Shop</h1>
+      </div>
+      
+      <div id="hero02" style={{ zIndex: '3' }}>
+        <Link to={currentUser ? "/Flowers-but-better/produits" : "/Flowers-but-better/auth"} style={{ color: '#07202B', textDecoration: 'none' }}>
+          Buy Flowers
+        </Link>
+      </div>
     <div style={{ width: '100%', height: 'auto' }}>
 
       <img
@@ -70,6 +82,7 @@ const Hero = () => {
           transition: "transform 1.5s ease-in-out"}}
       />
     </div>
+    </>
   );
 };
 
