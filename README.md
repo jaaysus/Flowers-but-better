@@ -4,6 +4,13 @@
 "Floral Dreams" is an e-commerce application for a flower shop.  
 Front-end developed using React and Redux.
 **[ Visit Demo Here](https://jaaysus.github.io/Flowers-but-better)**
+
+### Before Running the project on your own machine
+
+**Run the Batch Script**:  
+   - Double-click the `install_dependencies.bat` file in root directory, or run it from the command line/terminal.  
+   - The script will take care of all dependencies, verifying the existence of `package.json`, and installing any missing ones.
+
 # Overview of CRUD Progress in the Project
 
 | Feature    | C | R | U | D | 
