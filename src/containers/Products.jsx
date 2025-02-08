@@ -15,17 +15,25 @@ const Products = () => {
     const [sortOption, setSortOption] = useState('default');
     const [priceRange, setPriceRange] = useState({ min: '', max: '' });
 
+    // Log the initial produits and panier from Redux
+    console.log("Produits from Redux:", produits);
+    console.log("Panier from Redux:", panier);
+
     const ProduitsSortees = [...produits].sort((a, b) => {
         if (sortOption === 'ascending') return a.prix - b.prix;
         if (sortOption === 'descending') return b.prix - a.prix;
         return 0;
     });
 
+    console.log("Sorted Products:", ProduitsSortees);
+
     const ProduitsFiltrees = ProduitsSortees.filter((produit) => {
         const min = parseFloat(priceRange.min) || 0;
         const max = parseFloat(priceRange.max) || Infinity;
         return produit.prix >= min && produit.prix <= max;
     });
+
+    console.log("Filtered Products:", ProduitsFiltrees);
 
     const handleAddToPanier = (produit, quantite) => {
         const existingProduct = panier.find(item => item.id === produit.id);
@@ -34,6 +42,10 @@ const Products = () => {
         const updatedQuantity = existingProduct
             ? Math.min(existingProduct.quantite + quantite, maxQuantite)
             : Math.min(quantite, maxQuantite);
+
+        // Log the action of adding to panier
+        console.log("Adding to Panier - Produit:", produit);
+        console.log("Adding to Panier - Quantity:", quantite);
 
         if (existingProduct) {
             dispatch(modifierQuantite(produit.id, updatedQuantity));
@@ -45,6 +57,9 @@ const Products = () => {
                 prix: produit.prix 
             }));
         }
+
+        // Log the updated panier
+        console.log("Updated Panier after Add:", panier);
     };
 
     const isButtonDisabled = (produit) => {
@@ -53,23 +68,24 @@ const Products = () => {
         return totalQuantityInPanier >= produit.stock;
     };
 
-
     const isAlert = (produit) => {
         return false;
     };
 
     useEffect(() => {
-                if (currentUser) {
-                    if (currentUser.isAdmin) {
-                        navigate('/Flowers-but-better/adminHome');
-                    } else {
-                        navigate('/Flowers-but-better/produits');
-                    }
-                }
-                else{
-                    navigate('/Flowers-but-better/auth');
-                }
-            }, [currentUser, navigate]);
+        // Log currentUser and navigation logic
+        console.log("Current User:", currentUser);
+
+        if (currentUser) {
+            if (currentUser.isAdmin) {
+                navigate('/Flowers-but-better/adminHome');
+            } else {
+                navigate('/Flowers-but-better/produits');
+            }
+        } else {
+            navigate('/Flowers-but-better/auth');
+        }
+    }, [currentUser, navigate]);
 
     return currentUser ? (
         <>
@@ -84,11 +100,11 @@ const Products = () => {
                         onChange={(e) => setSortOption(e.target.value)} >
                         <option value="default">Default</option>
                         <option value="ascending">Price : Ascending</option>
-                        <option value="descending">Price : Desceding</option>
+                        <option value="descending">Price : Descending</option>
                     </select>
                 </div>
                 <div>
-                    <label>Fliter Price Between :</label>
+                    <label>Filter Price Between:</label>
                     <input
                         type="number"
                         placeholder="Min"
@@ -124,6 +140,5 @@ const Products = () => {
         </>
     ) : null;
 };
-
 
 export default Products;
