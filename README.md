@@ -1,5 +1,12 @@
 # Floral Dreams
 
+## ⚠️ Warning for Fellow Devs:
+This site was meticulously handcrafted for a 1080x1920 screen — anything else and the layout enters a quantum state of CSS uncertainty.
+On wider screens, buttons might escape their containers; on smaller ones, divs start unionizing.
+Responsiveness? Yeah, we heard about it… once.
+So for the optimal “non-broken” experience, please resize your life to 1080x1920.
+
+(P.S. If you inspect element, the code will stare back at you in shame.)
 ## Overview
 "Floral Dreams" is an e-commerce application for a flower shop.  
 Front-end developed using React and Redux.
